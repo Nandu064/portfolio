@@ -408,6 +408,18 @@ export const education = [
 
 export const projects = [
   {
+    id: 0,
+    title: "Personal Portfolio Website",
+    description:
+      "Modern React.js portfolio showcasing full-stack development expertise with responsive design, EmailJS integration, and optimized performance. Features custom animations, component library, and automated deployment.",
+    image: "/portfolio_thumbnail.png",
+    technologies: ["React.js", "SCSS", "EmailJS", "Bootstrap", "GitHub Pages"],
+    category: "Frontend",
+    metrics: "Lighthouse 90+, Mobile Optimized",
+    github: "https://github.com/Nandu064/portfolio",
+    demo: "https://nandu064.github.io/portfolio/",
+  },
+  {
     id: 1,
     title: "Enterprise IoT Analytics Platform",
     description:
