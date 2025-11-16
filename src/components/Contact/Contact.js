@@ -7,7 +7,6 @@ import {
   FormGroup,
   Label,
   Input,
-  Button,
   Card,
   CardBody,
   Alert,
@@ -15,6 +14,7 @@ import {
 import { useInView } from "react-intersection-observer";
 import { sendPortfolioEmail } from "../../services/emailService";
 import { personalInfo } from "../../data/portfolio";
+import Button from "../shared/Button/Button";
 import "./Contact.scss";
 
 const Contact = () => {
@@ -317,17 +317,16 @@ const Contact = () => {
                   <div className="form-actions">
                     <Button
                       type="submit"
-                      className="btn-primary btn-lg submit-btn"
+                      variant="primary"
+                      size="default"
                       disabled={isSubmitting}
+                      loading={isSubmitting}
                     >
                       {isSubmitting ? (
-                        <>
-                          <i className="fas fa-spinner fa-spin me-2"></i>
-                          Sending...
-                        </>
+                        "Sending..."
                       ) : (
                         <>
-                          <i className="fas fa-paper-plane me-2"></i>
+                          <i className="fas fa-paper-plane"></i>
                           Send Message
                         </>
                       )}

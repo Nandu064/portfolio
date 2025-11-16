@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import { useInView } from "react-intersection-observer";
 import { ReactTyped as Typed } from "react-typed";
 import { personalInfo, summary } from "../../data/portfolio";
+import Button from "../shared/Button/Button";
 import "./Hero.scss";
 
 const Hero = () => {
@@ -185,19 +186,18 @@ const Hero = () => {
               </div>
 
               <div className="hero-actions animate-bounce-in">
-                <a
+                <Button
                   href="/Harish_Yerraguntla_Resume.pdf"
                   download="Harish_Yerraguntla_Resume.pdf"
-                  className="btn-download-resume me-3 mb-2"
+                  variant="primary"
+                  size="default"
                 >
-                  <div className="wave"></div>
-                  <div className="btn-content">
-                    <i className="fas fa-download"></i>
-                    Download Resume
-                  </div>
-                </a>
+                  <i className="fas fa-download"></i>
+                  Download Resume
+                </Button>
                 <Button
-                  className="btn-outline btn-lg mb-2"
+                  variant="outline"
+                  size="default"
                   onClick={() => scrollToSection("contact")}
                 >
                   Get In Touch

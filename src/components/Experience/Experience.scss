@@ -111,10 +111,10 @@
     }
     
     .timeline-marker {
-      right: calc(50% - 20px);
+      right: calc(50% - 25px); // Fixed: 25px is half of 50px dot width
       
       @include mobile {
-        left: 10px;
+        left: 5px; // Fixed: adjusted for better mobile alignment
         right: auto;
       }
     }
@@ -135,10 +135,10 @@
     }
     
     .timeline-marker {
-      left: calc(50% - 20px);
+      left: calc(50% - 25px); // Fixed: 25px is half of 50px dot width
       
       @include mobile {
-        left: 10px;
+        left: 5px; // Fixed: consistent mobile positioning
       }
     }
   }
@@ -146,7 +146,7 @@
 
 .timeline-marker {
   position: absolute;
-  top: $spacer-xl;
+  top: $spacer-lg; // Adjusted for better alignment with card content
   z-index: 3;
   
   .timeline-dot {
@@ -158,6 +158,7 @@
     @include flex-center;
     position: relative;
     z-index: 2;
+    box-shadow: 0 4px 15px rgba($primary, 0.3); // Added shadow for better visual separation
     
     i {
       color: $text-primary;

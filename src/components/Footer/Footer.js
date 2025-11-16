@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 import { personalInfo } from "../../data/portfolio";
+import Button from "../shared/Button/Button";
 import "./Footer.scss";
 
 const Footer = () => {
@@ -71,13 +72,14 @@ const Footer = () => {
                   </p>
                 </div>
 
-                <button
+                <Button
                   onClick={scrollToTop}
-                  className="scroll-top-btn btn-outline"
-                  aria-label="Scroll to top"
+                  variant="outline"
+                  size="small"
+                  className="scroll-top-btn d-none d-lg-flex"
                 >
                   <i className="fas fa-arrow-up"></i>
-                </button>
+                </Button>
               </div>
 
               {/* Footer Main */}
@@ -90,12 +92,14 @@ const Footer = () => {
                         <ul className="footer-nav-list">
                           {footerLinks.map((link) => (
                             <li key={link.id} className="footer-nav-item">
-                              <button
+                              <Button
                                 onClick={() => scrollToSection(link.id)}
+                                variant="text"
+                                size="small"
                                 className="footer-nav-link"
                               >
                                 {link.label}
-                              </button>
+                              </Button>
                             </li>
                           ))}
                         </ul>

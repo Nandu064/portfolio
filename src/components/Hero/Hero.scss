@@ -157,14 +157,15 @@
   opacity: 0;
   transform: scale(0.9);
   transition: all 0.8s ease 1.4s;
+  display: flex;
+  gap: $spacer-md;
+  align-items: center;
   
   @include mobile {
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    
-    .btn-lg {
-      width: 100%;
-      max-width: 250px;
-    }
+    gap: $spacer-md;
   }
 }
 
@@ -300,6 +301,11 @@
   color: $text-muted;
   opacity: 0;
   transition: all 0.8s ease 2s;
+  z-index: 3;
+  
+  @include mobile {
+    display: none !important;
+  }
   
   .scroll-mouse {
     width: 24px;
@@ -364,111 +370,7 @@
   }
 }
 
-// Download Resume Button with Wave Animation
-.btn-download-resume {
-  position: relative;
-  padding: 15px 40px;
-  border: none;
-  border-radius: 50px;
-  background: $gradient-primary;
-  color: $text-primary;
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-width: 200px;
-  justify-content: center;
-  
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba($primary, 0.4);
-    text-decoration: none;
-    color: $text-primary;
-    
-    .wave {
-      animation: waveRise 2s ease forwards;
-    }
-  }
-  
-  .wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: height 0.3s ease;
-    z-index: 1;
-  }
-  
-  .btn-content {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-
-  
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba($primary, 0.3);
-  }
-  
-  &:active {
-    transform: translateY(0);
-  }
-}
-
-@keyframes waveRise {
-  0% { height: 0%; }
-  100% { height: 100%; }
-}
-
-// Get In Touch Button - Match Download Resume styling
-.hero-actions {
-  .btn-outline {
-    position: relative;
-    padding: 15px 40px;
-    border: 2px solid rgba($text-primary, 0.3);
-    border-radius: 50px;
-    background: transparent;
-    color: $text-primary;
-    font-size: $font-size-base;
-    font-weight: $font-weight-semibold;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    min-width: 200px;
-    justify-content: center;
-    text-decoration: none;
-    
-    &:hover {
-      background: rgba($text-primary, 0.1);
-      border-color: $text-primary;
-      color: $text-primary;
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba($text-primary, 0.2);
-      text-decoration: none;
-    }
-    
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 3px rgba($text-primary, 0.3);
-    }
-    
-    &:active {
-      transform: translateY(0);
-    }
-  }
-}
+// Old button styles removed - now using UniversalButton component
 
 
 
@@ -494,24 +396,20 @@
   .hero-section {
     text-align: center;
   }
-  
+
   .hero-content {
     margin-bottom: $spacer-2xl;
   }
-  
+
   .hero-visual {
     margin-top: $spacer-xl;
+    margin-bottom: $spacer-2xl;
   }
 
-  .btn-download-resume {
-    padding: 12px 30px;
-    min-width: 180px;
-    font-size: $font-size-sm;
-  }
-  
-  .btn-outline {
-    padding: 12px 30px;
-    min-width: 180px;
-    font-size: $font-size-sm;
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: $spacer-md;
   }
 }

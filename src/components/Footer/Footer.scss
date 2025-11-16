@@ -49,19 +49,38 @@
   }
   
   .scroll-top-btn {
-    @include button('outline');
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    padding: 0;
+    // Remove button mixin and use custom styling for perfect circle
+    background: transparent;
+    color: $text-primary;
+    border: 2px solid rgba($text-primary, 0.3);
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    max-width: 50px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    margin: 0;
     @include flex-center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
     
     i {
       font-size: $font-size-lg;
+      line-height: 1;
     }
     
     &:hover {
+      background: rgba($text-primary, 0.1);
+      border-color: $text-primary;
+      color: $text-primary;
       transform: translateY(-3px);
+      text-decoration: none;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($primary, 0.3);
     }
   }
   
@@ -111,13 +130,12 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacer-sm $spacer-lg;
     
     .footer-nav-item {
-      margin-bottom: $spacer-sm;
-      
-      &:last-child {
-        margin-bottom: 0;
-      }
+      margin-bottom: 0; // Remove individual margins since grid handles spacing
       
       .footer-nav-link {
         @include body-base;
@@ -129,6 +147,8 @@
         cursor: pointer;
         transition: $transition-base;
         position: relative;
+        width: 100%;
+        text-align: left;
         
         &::before {
           content: '';
@@ -153,11 +173,20 @@
       }
     }
     
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacer-xs $spacer-md;
+    }
+    
     @include mobile {
-      text-align: center;
+      grid-template-columns: 1fr; // Single column on mobile
+      gap: $spacer-sm;
+      text-align: start; // Use start instead of center
       
       .footer-nav-item {
         .footer-nav-link {
+          text-align: start; // Use start instead of center
+          
           &::before {
             display: none;
           }

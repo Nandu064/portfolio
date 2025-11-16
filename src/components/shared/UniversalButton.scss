@@ -1,0 +1,167 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.universal-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  font-family: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  min-width: 200px;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  &--loading {
+    cursor: wait;
+  }
+  
+  // Primary variant (gradient with wave animation)
+  &--primary {
+    background: $gradient-primary;
+    color: $text-primary;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba($primary, 0.4);
+      text-decoration: none;
+      color: $text-primary;
+      
+      .universal-btn__wave {
+        animation: waveRise 2s ease forwards;
+      }
+    }
+    
+    .universal-btn__wave {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: height 0.3s ease;
+      z-index: 1;
+    }
+    
+    .universal-btn__content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+  }
+  
+  // Outline variant
+  &--outline {
+    background: transparent;
+    color: $text-primary;
+    border: 2px solid rgba($text-primary, 0.3);
+    
+    &:hover {
+      background: rgba($text-primary, 0.1);
+      border-color: $text-primary;
+      color: $text-primary;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba($text-primary, 0.2);
+      text-decoration: none;
+    }
+  }
+  
+  // Text variant (minimal styling)
+  &--text {
+    background: transparent;
+    color: $primary;
+    border: none;
+    padding: 8px 16px;
+    min-width: auto;
+    
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+      text-decoration: none;
+    }
+  }
+  
+  // Size variants
+  &--small {
+    padding: 12px 24px;
+    font-size: $font-size-sm;
+    min-width: 140px;
+    height: 44px;
+  }
+  
+  &--default {
+    padding: 15px 40px;
+    font-size: $font-size-base;
+    min-width: 200px;
+    height: 54px;
+  }
+  
+  &--large {
+    padding: 18px 48px;
+    font-size: $font-size-lg;
+    min-width: 240px;
+    height: 60px;
+  }
+  
+  // Spinner animation
+  &__spinner {
+    animation: spin 1s linear infinite;
+  }
+  
+  // Mobile responsiveness
+  @include mobile {
+    width: 100% !important;
+    max-width: 280px !important;
+    min-width: 280px !important;
+    margin: 0 auto;
+    
+    &--small {
+      max-width: 200px !important;
+      min-width: 200px !important;
+    }
+    
+    &--large {
+      max-width: 320px !important;
+      min-width: 320px !important;
+    }
+  }
+}
+
+// Wave animation keyframes
+@keyframes waveRise {
+  0% { height: 0%; }
+  100% { height: 100%; }
+}
+
+// Spinner animation keyframes
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

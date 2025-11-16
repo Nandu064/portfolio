@@ -88,13 +88,20 @@
 }
 
 .about-actions {
+  display: flex;
+  gap: $spacer-md;
+  align-items: center;
+  
   @include mobile {
+    flex-direction: column;
     text-align: center;
+    gap: $spacer-md;
+    align-items: center;
     
-    .btn-lg {
-      width: 100%;
-      max-width: 200px;
-      margin-bottom: $spacer-md;
+    .btn {
+      width: 100% !important;
+      max-width: 280px !important;
+      min-width: 280px !important;
     }
   }
 }
@@ -260,11 +267,25 @@
   }
   
   .cta-contact {
+    display: flex;
+    gap: $spacer-lg;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
     @include mobile {
+      flex-direction: column;
+      gap: $spacer-md;
+      
       .btn-lg {
         width: 100%;
-        max-width: 250px;
-        margin-bottom: $spacer-md;
+        max-width: 280px;
+        margin: 0; // Remove any default margins
+      }
+      
+      // Override Bootstrap me-* classes on mobile
+      a[class*="me-"] {
+        margin-right: 0 !important;
       }
     }
   }

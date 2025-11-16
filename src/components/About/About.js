@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Card, CardBody } from "reactstrap";
 import { useInView } from "react-intersection-observer";
 import { summary, highlights, personalInfo } from "../../data/portfolio";
+import Button from "../shared/Button/Button";
 import "./About.scss";
 
 const About = () => {
@@ -57,20 +58,22 @@ const About = () => {
               </div>
 
               <div className="about-actions">
-                <button
-                  className="btn-primary btn-lg me-3"
+                <Button
+                  variant="primary"
+                  size="default"
                   onClick={() => scrollToSection("experience")}
                 >
                   View Experience
-                </button>
-                <a
-                  href="/resume.pdf"
+                </Button>
+                <Button
+                  variant="outline"
+                  size="default"
+                  href="/Harish_Yerraguntla_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-outline btn-lg"
                 >
                   Download Resume
-                </a>
+                </Button>
               </div>
             </div>
           </Col>
