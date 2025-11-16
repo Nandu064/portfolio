@@ -1,0 +1,633 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.education-section {
+  background: $bg-secondary;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include grid-pattern;
+    opacity: 0.02;
+    z-index: 1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &.in-view {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .education-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.section-title {
+  @include heading-lg;
+  margin-bottom: $spacer-md;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.section-subtitle {
+  @include body-lg;
+  color: $text-muted;
+  margin-bottom: 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.2s;
+}
+
+.education-timeline {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.4s;
+  
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: $gradient-primary;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: $gradient-primary;
+      animation: timeline-grow 2s ease 1s forwards;
+      border-radius: 2px;
+    }
+    
+    @include mobile {
+      left: 30px;
+    }
+  }
+}
+
+.education-item {
+  position: relative;
+  margin-bottom: $spacer-4xl;
+  opacity: 1;
+  transform: translateY(0);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &.left {
+    .education-card {
+      margin-right: calc(50% + 40px);
+      
+      @include mobile {
+        margin-right: 0;
+        margin-left: 60px;
+      }
+    }
+    
+    .timeline-marker {
+      right: calc(50% - 25px);
+      
+      @include mobile {
+        left: 5px;
+        right: auto;
+      }
+    }
+  }
+  
+  &.right {
+    .education-card {
+      margin-left: calc(50% + 40px);
+      
+      @include mobile {
+        margin-left: 60px;
+        margin-right: 0;
+      }
+    }
+    
+    .timeline-marker {
+      left: calc(50% - 25px);
+      
+      @include mobile {
+        left: 5px;
+      }
+    }
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  top: $spacer-xl;
+  z-index: 3;
+  
+  .timeline-dot {
+    width: 50px;
+    height: 50px;
+    background: $gradient-primary;
+    border: 4px solid $bg-secondary;
+    border-radius: 50%;
+    @include flex-center;
+    position: relative;
+    z-index: 2;
+    
+    i {
+      color: $text-primary;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .timeline-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba($primary, 0.3);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+}
+
+.education-card {
+  background: rgba($bg-card, 0.9);
+  border: 1px solid rgba($primary, 0.1);
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    border-color: rgba($primary, 0.3);
+  }
+}
+
+.education-header {
+  .degree-title {
+    @include heading-sm;
+    color: $primary;
+    margin-bottom: $spacer-sm;
+    font-size: $font-size-xl;
+  }
+  
+  .institution-name {
+    @include heading-sm;
+    color: $text-primary;
+    margin-bottom: $spacer-lg;
+    font-size: $font-size-lg;
+    
+    .institution-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-base;
+    }
+  }
+  
+  .education-meta {
+    margin-bottom: $spacer-lg;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacer-lg;
+    
+    .education-location,
+    .education-duration,
+    .current-status {
+      @include body-sm;
+      color: $text-muted;
+      display: flex;
+      align-items: center;
+      
+      i {
+        color: $primary;
+        margin-right: $spacer-xs;
+        font-size: $font-size-xs;
+      }
+    }
+    
+    .current-status {
+      color: $primary;
+      font-weight: $font-weight-semibold;
+    }
+    
+    @include mobile {
+      flex-direction: column;
+      gap: $spacer-sm;
+    }
+  }
+  
+  .focus-area {
+    background: rgba($primary, 0.1);
+    border: 1px solid rgba($primary, 0.2);
+    border-radius: $border-radius;
+    padding: $spacer-lg;
+    margin-bottom: $spacer-lg;
+    
+    .focus-title {
+      @include body-lg;
+      color: $text-primary;
+      font-weight: $font-weight-semibold;
+      margin-bottom: $spacer-sm;
+      display: flex;
+      align-items: center;
+      
+      .focus-icon {
+        color: $primary;
+        margin-right: $spacer-sm;
+        font-size: $font-size-sm;
+      }
+    }
+    
+    .focus-description {
+      @include body-base;
+      color: $text-secondary;
+      margin: 0;
+      line-height: $line-height-relaxed;
+    }
+  }
+}
+
+.education-achievements {
+  margin-bottom: $spacer-xl;
+  
+  .achievements-title {
+    @include body-lg;
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacer-lg;
+    display: flex;
+    align-items: center;
+    
+    .achievements-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacer-md;
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+    
+    .achievement-item {
+      background: rgba($secondary, 0.1);
+      border: 1px solid rgba($secondary, 0.2);
+      border-radius: $border-radius;
+      padding: $spacer-md;
+      display: flex;
+      align-items: flex-start;
+      transition: $transition-base;
+      
+      &:hover {
+        background: rgba($secondary, 0.15);
+        border-color: rgba($secondary, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      .achievement-icon {
+        color: $primary;
+        margin-right: $spacer-sm;
+        margin-top: 2px;
+        font-size: $font-size-sm;
+        flex-shrink: 0;
+      }
+      
+      span {
+        @include body-sm;
+        color: $text-secondary;
+        line-height: $line-height-normal;
+      }
+    }
+  }
+}
+
+.research-section {
+  .research-title {
+    @include body-lg;
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacer-lg;
+    display: flex;
+    align-items: center;
+    
+    .research-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .research-items {
+    .research-item {
+      background: rgba($accent, 0.1);
+      border: 1px solid rgba($accent, 0.2);
+      border-radius: $border-radius-lg;
+      padding: $spacer-lg;
+      margin-bottom: $spacer-lg;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      .research-project-title {
+        @include body-lg;
+        color: $primary;
+        font-weight: $font-weight-semibold;
+        margin-bottom: $spacer-sm;
+      }
+      
+      .research-description {
+        @include body-base;
+        color: $text-secondary;
+        margin: 0;
+        line-height: $line-height-relaxed;
+      }
+    }
+  }
+}
+
+.education-summary {
+  background: rgba($bg-card, 0.8);
+  border: 1px solid rgba($primary, 0.2);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.8s;
+  
+  .summary-title {
+    @include heading-md;
+  }
+  
+  .summary-stat {
+    .stat-number {
+      @include heading-lg;
+      margin-bottom: $spacer-sm;
+      font-size: $font-size-3xl;
+    }
+    
+    .stat-label {
+      @include body-base;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+  
+  .learning-philosophy {
+    margin-top: $spacer-2xl;
+    padding-top: $spacer-2xl;
+    border-top: 1px solid rgba($primary, 0.2);
+    
+    .philosophy-title {
+      @include heading-sm;
+      margin-bottom: $spacer-xl;
+      text-align: center;
+    }
+    
+    .philosophy-points {
+      .philosophy-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: $spacer-lg;
+        padding: $spacer-lg;
+        background: rgba($primary, 0.05);
+        border: 1px solid rgba($primary, 0.1);
+        border-radius: $border-radius-lg;
+        transition: $transition-base;
+        
+        &:hover {
+          background: rgba($primary, 0.1);
+          border-color: rgba($primary, 0.3);
+          transform: translateY(-2px);
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .philosophy-icon {
+          color: $primary;
+          margin-right: $spacer-lg;
+          margin-top: $spacer-xs;
+          font-size: $font-size-xl;
+          flex-shrink: 0;
+        }
+        
+        div {
+          h6 {
+            @include body-lg;
+            color: $text-primary;
+            font-weight: $font-weight-semibold;
+            margin-bottom: $spacer-sm;
+          }
+          
+          p {
+            @include body-base;
+            color: $text-secondary;
+            margin: 0;
+            line-height: $line-height-relaxed;
+          }
+        }
+      }
+    }
+  }
+  
+  .skills-gained {
+    margin-top: $spacer-2xl;
+    padding-top: $spacer-2xl;
+    border-top: 1px solid rgba($primary, 0.2);
+    
+    .skills-title {
+      @include heading-sm;
+      margin-bottom: $spacer-xl;
+      text-align: center;
+    }
+    
+    .skills-categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: $spacer-2xl;
+      
+      @include mobile {
+        grid-template-columns: 1fr;
+        gap: $spacer-xl;
+      }
+      
+      .skill-category {
+        background: rgba($secondary, 0.1);
+        border: 1px solid rgba($secondary, 0.2);
+        border-radius: $border-radius-lg;
+        padding: $spacer-xl;
+        
+        .category-name {
+          @include body-lg;
+          color: $primary;
+          font-weight: $font-weight-semibold;
+          margin-bottom: $spacer-lg;
+          display: flex;
+          align-items: center;
+          
+          .category-icon {
+            margin-right: $spacer-sm;
+            font-size: $font-size-lg;
+          }
+        }
+        
+        .skills-list {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          
+          li {
+            @include body-base;
+            color: $text-secondary;
+            margin-bottom: $spacer-md;
+            padding-left: $spacer-lg;
+            position: relative;
+            
+            &::before {
+              content: '';
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 8px;
+              height: 8px;
+              background: $primary;
+              border-radius: 50%;
+            }
+            
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes timeline-grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.3);
+    opacity: 0.1;
+  }
+}
+
+// Animation delays for staggered effect
+.education-section.in-view {
+  .education-item {
+    @for $i from 1 through 2 {
+      &:nth-child(#{$i + 1}) { // +1 because timeline-line is first child
+        animation: slideInEducation 0.8s ease #{0.4s + $i * 0.3s} both;
+      }
+    }
+  }
+}
+
+@keyframes slideInEducation {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Design
+@include tablet {
+  .education-item {
+    &.left,
+    &.right {
+      .education-card {
+        margin-left: 60px;
+        margin-right: 0;
+      }
+      
+      .timeline-marker {
+        left: 5px;
+        right: auto;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .education-achievements {
+    .achievements-grid {
+      gap: $spacer-sm;
+      
+      .achievement-item {
+        padding: $spacer-sm;
+      }
+    }
+  }
+  
+  .research-section {
+    .research-items {
+      .research-item {
+        padding: $spacer-md;
+      }
+    }
+  }
+  
+  .education-summary {
+    .learning-philosophy {
+      .philosophy-points {
+        .philosophy-item {
+          padding: $spacer-md;
+          
+          .philosophy-icon {
+            margin-right: $spacer-md;
+            font-size: $font-size-lg;
+          }
+        }
+      }
+    }
+    
+    .skills-gained {
+      .skills-categories {
+        .skill-category {
+          padding: $spacer-lg;
+        }
+      }
+    }
+  }
+}

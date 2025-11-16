@@ -1,0 +1,328 @@
+@import 'variables';
+
+// Responsive Breakpoint Mixins
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
+
+// Typography Mixins
+@mixin heading-xl {
+  font-family: $font-family-heading;
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  
+  @include mobile {
+    font-size: $font-size-4xl;
+  }
+}
+
+@mixin heading-lg {
+  font-family: $font-family-heading;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  
+  @include mobile {
+    font-size: $font-size-3xl;
+  }
+}
+
+@mixin heading-md {
+  font-family: $font-family-heading;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-tight;
+  
+  @include mobile {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin heading-sm {
+  font-family: $font-family-heading;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-semibold;
+  line-height: $line-height-normal;
+  
+  @include mobile {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin body-lg {
+  font-family: $font-family-primary;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+}
+
+@mixin body-base {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+@mixin body-sm {
+  font-family: $font-family-primary;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+}
+
+// Gradient Text Effect
+@mixin gradient-text {
+  background: $gradient-text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+// Section Padding
+@mixin section {
+  padding: $section-padding;
+  
+  @include mobile {
+    padding: $section-padding-sm;
+  }
+}
+
+// Card Styling
+@mixin card {
+  background: $bg-card;
+  border-radius: $card-border-radius;
+  box-shadow: $card-shadow;
+  padding: $card-padding;
+  transition: $transition-base;
+  border: 1px solid rgba($primary, 0.1);
+  
+  @include mobile {
+    padding: $card-padding-sm;
+  }
+  
+  &:hover {
+    box-shadow: $card-shadow-hover;
+    transform: translateY(-5px);
+    border-color: rgba($primary, 0.3);
+  }
+}
+
+// Button Styling
+@mixin button($variant: 'primary') {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $button-padding;
+  border-radius: $button-border-radius;
+  font-weight: $button-font-weight;
+  text-decoration: none;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: $button-transition;
+  font-family: $font-family-primary;
+  
+  @if $variant == 'primary' {
+    background: $gradient-primary;
+    color: $text-primary;
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba($primary, 0.3);
+      color: $text-primary;
+      text-decoration: none;
+    }
+  }
+  
+  @if $variant == 'secondary' {
+    background: transparent;
+    color: $primary;
+    border-color: $primary;
+    
+    &:hover {
+      background: $primary;
+      color: $text-primary;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+  }
+  
+  @if $variant == 'outline' {
+    background: transparent;
+    color: $text-primary;
+    border-color: rgba($text-primary, 0.3);
+    
+    &:hover {
+      background: rgba($text-primary, 0.1);
+      border-color: $text-primary;
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+  }
+  
+  @include mobile {
+    padding: $button-padding-sm;
+    font-size: $font-size-sm;
+  }
+}
+
+// Button Size Variants
+@mixin button-sm {
+  padding: $button-padding-sm;
+  font-size: $font-size-sm;
+}
+
+@mixin button-lg {
+  padding: $button-padding-lg;
+  font-size: $font-size-lg;
+}
+
+// Form Input Styling
+@mixin input {
+  width: 100%;
+  padding: $input-padding;
+  background: $bg-secondary;
+  border: $input-border-width solid rgba($primary, 0.3);
+  border-radius: $input-border-radius;
+  color: $text-primary;
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  transition: $input-transition;
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.2);
+  }
+}
+
+// Flexbox Utilities
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Animation Mixins
+@mixin fade-in($duration: $animation-duration-normal) {
+  opacity: 0;
+  animation: fadeIn $duration ease forwards;
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin slide-up($duration: $animation-duration-normal) {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp $duration ease forwards;
+  
+  @keyframes slideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@mixin bounce-in($duration: $animation-duration-slow) {
+  opacity: 0;
+  transform: scale(0.9);
+  animation: bounceIn $duration ease forwards;
+  
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+// Background Patterns
+@mixin grid-pattern {
+  background-image: 
+    linear-gradient(rgba($primary, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($primary, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+// Scroll Behavior
+@mixin smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+// Container Utilities
+@mixin container {
+  width: 100%;
+  max-width: $container-xl;
+  margin: 0 auto;
+  padding: 0 $spacer-lg;
+  
+  @include mobile {
+    padding: 0 $spacer-md;
+  }
+}
+
+// Glass Effect
+@mixin glass-effect {
+  background: rgba($bg-card, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba($primary, 0.2);
+}
+
+// Hover Lift Effect
+@mixin hover-lift {
+  transition: $transition-base;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba($shadow-heavy, 0.2);
+  }
+}

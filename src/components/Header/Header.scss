@@ -1,0 +1,318 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba($bg-primary, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($primary, 0.1);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  padding: $spacer-sm 0;
+  
+  &.scrolled {
+    @include glass-effect;
+    box-shadow: 0 2px 20px rgba($shadow-heavy, 0.1);
+  }
+  
+  .navbar {
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .brand {
+    text-decoration: none;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    
+    &:hover {
+      text-decoration: none;
+    }
+    
+    .navbar-logo {
+      filter: drop-shadow(0 2px 4px rgba($primary, 0.2));
+    }
+    
+    .brand-name {
+      @include gradient-text;
+    }
+    
+    @include mobile {
+      flex: none;
+      
+      .navbar-logo {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+  
+  .navbar-toggler-custom {
+    border: none;
+    padding: $spacer-sm;
+    background: transparent;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: $border-radius;
+    transition: $transition-base;
+    align-self: center;
+    margin: 0;
+    
+    @include mobile {
+      display: flex;
+      align-items: center;
+    }
+    
+    @media (max-width: 991.98px) {
+      display: flex;
+      align-items: center;
+    }
+    
+    &:hover {
+      background: rgba($primary, 0.1);
+    }
+    
+    span {
+      display: block;
+      height: 3px;
+      width: 24px;
+      background: $primary;
+      margin: 2px 0;
+      transition: $transition-base;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 2px rgba($primary, 0.3);
+      outline: none;
+    }
+    
+    &:not(.collapsed) {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+      }
+      
+      span:nth-child(2) {
+        opacity: 0;
+        transform: scale(0);
+      }
+      
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+    }
+    
+    &.collapsed {
+      span:nth-child(1) {
+        transform: rotate(0) translate(0, 0);
+      }
+      
+      span:nth-child(2) {
+        opacity: 1;
+        transform: scale(1);
+      }
+      
+      span:nth-child(3) {
+        transform: rotate(0) translate(0, 0);
+      }
+    }
+  }
+  
+  .nav-link-custom {
+    color: $text-secondary !important;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-base;
+    padding: $spacer-sm $spacer-md !important;
+    margin: 0 $spacer-xs;
+    border-radius: $border-radius;
+    transition: $transition-base;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background: $gradient-primary;
+      transition: $transition-base;
+      transform: translateX(-50%);
+      border-radius: 1px;
+    }
+    
+    &:hover {
+      color: $primary !important;
+      background: rgba($primary, 0.1);
+      text-decoration: none;
+      
+      &::before {
+        width: 80%;
+      }
+    }
+    
+    &:focus,
+    &:active {
+      color: $primary !important;
+      text-decoration: none;
+    }
+    
+    @include mobile {
+      padding: $spacer-md $spacer-lg !important;
+      margin: $spacer-xs 0;
+      border-left: 3px solid transparent;
+      
+      &:hover {
+        border-left-color: $primary;
+        background: rgba($primary, 0.1);
+      }
+      
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+// Tablet Menu Styles
+@include tablet {
+  .navbar-collapse {
+    .navbar-nav {
+      .nav-item {
+        .nav-link-custom {
+          padding: $spacer-sm $spacer-md !important;
+          font-size: $font-size-sm;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Menu Styles
+@include mobile {
+  .header {
+    padding: $spacer-xs 0;
+    
+    .container {
+      padding: 0 15px;
+    }
+    
+    .brand {
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .navbar-collapse {
+    &:not(.show) {
+      display: none !important;
+    }
+    
+    &.show {
+      background: rgba($bg-secondary, 0.98);
+      border-radius: $border-radius-lg;
+      margin-top: $spacer-md;
+      padding: $spacer-md;
+      border: 1px solid rgba($primary, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba($shadow-heavy, 0.3);
+      position: absolute;
+      top: 100%;
+      left: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+  }
+}
+
+// Responsive breakpoint for tablets and small laptops
+@media (max-width: 991.98px) {
+  .header {
+    .container {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    
+    .navbar-brand {
+      margin-right: auto;
+    }
+  }
+  
+  .navbar-collapse {
+    &:not(.show) {
+      display: none !important;
+    }
+    
+    &.show {
+      background: rgba($bg-secondary, 0.98);
+      border-radius: $border-radius-lg;
+      margin-top: $spacer-md;
+      padding: $spacer-md;
+      border: 1px solid rgba($primary, 0.2);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba($shadow-heavy, 0.3);
+      position: absolute;
+      top: 100%;
+      left: 15px;
+      right: 15px;
+      z-index: 1000;
+    }
+  }
+  
+  .navbar-nav {
+    .nav-item {
+      .nav-link-custom {
+        border-radius: $border-radius;
+      }
+    }
+  }
+}
+
+// Animation for mobile menu
+.navbar-collapse {
+  @include mobile {
+    &.show {
+      animation: slideDown 0.3s ease forwards;
+    }
+    
+    &.collapsing {
+      animation: slideUp 0.3s ease forwards;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}

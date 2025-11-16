@@ -1,0 +1,464 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.contact-section {
+  background: $bg-primary;
+  position: relative;
+  
+  &.in-view {
+    .animate-on-scroll,
+    .animate-slide-left,
+    .animate-slide-right {
+      opacity: 1;
+      transform: translateY(0) translateX(0);
+    }
+  }
+}
+
+.section-title {
+  @include heading-lg;
+  margin-bottom: $spacer-md;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.section-subtitle {
+  @include body-lg;
+  color: $text-muted;
+  margin-bottom: 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.2s;
+}
+
+.contact-form-card {
+  background: rgba($bg-card, 0.9);
+  border: 1px solid rgba($primary, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s ease 0.4s;
+  
+  &:hover {
+    border-color: rgba($primary, 0.3);
+  }
+  
+  .form-title {
+    @include heading-sm;
+    color: $text-primary;
+    margin-bottom: $spacer-md;
+    display: flex;
+    align-items: center;
+    
+    .form-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .form-description {
+    @include body-base;
+    color: $text-secondary;
+    margin-bottom: $spacer-2xl;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.form-label {
+  @include body-base;
+  color: $text-primary;
+  font-weight: $font-weight-semibold;
+  margin-bottom: $spacer-sm;
+  display: flex;
+  align-items: center;
+  
+  .label-icon {
+    color: $primary;
+    margin-right: $spacer-sm;
+    font-size: $font-size-sm;
+  }
+}
+
+.form-input {
+  @include input;
+  background: rgba($bg-secondary, 0.8);
+  border: 2px solid rgba($primary, 0.2);
+  color: $text-primary;
+  
+  &:focus {
+    background: rgba($bg-secondary, 0.9);
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.2);
+    color: $text-primary;
+  }
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+  
+  &.is-invalid {
+    border-color: $danger;
+    
+    &:focus {
+      border-color: $danger;
+      box-shadow: 0 0 0 3px rgba($danger, 0.2);
+    }
+  }
+}
+
+
+
+.invalid-feedback {
+  @include body-sm;
+  color: $danger;
+  margin-top: $spacer-xs;
+  display: flex;
+  align-items: center;
+  
+  &::before {
+    content: '\f06a';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: $spacer-xs;
+  }
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: $spacer-2xl;
+  
+  .submit-btn {
+    min-width: 200px;
+    
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.contact-info {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.8s ease 0.6s;
+  
+  .info-title {
+    @include heading-sm;
+    color: $text-primary;
+    margin-bottom: $spacer-md;
+    display: flex;
+    align-items: center;
+    
+    .info-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .info-description {
+    @include body-base;
+    color: $text-secondary;
+    margin-bottom: $spacer-2xl;
+    line-height: $line-height-relaxed;
+  }
+}
+
+.contact-methods {
+  margin-bottom: $spacer-2xl;
+  
+  .contact-method-card {
+    background: rgba($bg-card, 0.8);
+    border: 1px solid rgba($primary, 0.1);
+    margin-bottom: $spacer-lg;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &:hover {
+      border-color: rgba($primary, 0.3);
+    }
+    
+    .method-header {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: $spacer-md;
+      
+      .method-icon {
+        width: 50px;
+        height: 50px;
+        background: $gradient-primary;
+        border-radius: $border-radius-lg;
+        @include flex-center;
+        margin-right: $spacer-md;
+        flex-shrink: 0;
+        
+        i {
+          color: $text-primary;
+          font-size: $font-size-lg;
+        }
+      }
+      
+      .method-info {
+        flex: 1;
+        
+        .method-title {
+          @include body-lg;
+          color: $text-primary;
+          font-weight: $font-weight-semibold;
+          margin-bottom: $spacer-xs;
+        }
+        
+        .method-description {
+          @include body-sm;
+          color: $text-muted;
+          margin: 0;
+          line-height: $line-height-normal;
+        }
+      }
+    }
+    
+    .method-action {
+      .method-link {
+        @include body-base;
+        color: $primary;
+        text-decoration: none;
+        font-weight: $font-weight-medium;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: $transition-base;
+        
+        &:hover {
+          color: $secondary;
+          text-decoration: none;
+          
+          .method-link-icon {
+            transform: translateX(3px);
+          }
+        }
+        
+        .method-link-icon {
+          font-size: $font-size-sm;
+          transition: $transition-base;
+        }
+      }
+    }
+  }
+}
+
+.availability-card {
+  background: rgba($bg-card, 0.8);
+  border: 1px solid rgba($primary, 0.1);
+  
+  &:hover {
+    border-color: rgba($primary, 0.3);
+  }
+  
+  .availability-title {
+    @include body-lg;
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacer-lg;
+    display: flex;
+    align-items: center;
+    
+    .availability-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-base;
+    }
+  }
+  
+  .availability-info {
+    .availability-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: $spacer-md;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      &:first-child {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: $spacer-lg;
+        
+        .availability-text {
+          margin-top: $spacer-sm;
+        }
+      }
+      
+      .availability-status {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: $spacer-sm;
+        
+        &.available {
+          background: $success;
+          box-shadow: 0 0 0 3px rgba($success, 0.3);
+        }
+      }
+      
+      .availability-text {
+        @include body-base;
+        color: $primary;
+        font-weight: $font-weight-semibold;
+      }
+      
+      .availability-label {
+        @include body-sm;
+        color: $text-muted;
+      }
+      
+      .availability-value {
+        @include body-sm;
+        color: $text-primary;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+}
+
+.cta-card {
+  background: rgba($bg-card, 0.8);
+  border: 1px solid rgba($primary, 0.2);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.8s;
+  
+  &:hover {
+    border-color: rgba($primary, 0.4);
+  }
+  
+  .cta-title {
+    @include heading-md;
+    margin-bottom: $spacer-lg;
+  }
+  
+  .cta-description {
+    @include body-lg;
+    color: $text-secondary;
+    margin-bottom: $spacer-2xl;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: $line-height-relaxed;
+  }
+  
+  .cta-actions {
+    @include mobile {
+      .btn-lg {
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+  }
+}
+
+// Alert Styling
+.alert {
+  border-radius: $border-radius-lg;
+  border: none;
+  
+  &.alert-success {
+    background: rgba($success, 0.2);
+    color: $success;
+    border: 1px solid rgba($success, 0.3);
+  }
+  
+  &.alert-danger {
+    background: rgba($danger, 0.2);
+    color: $danger;
+    border: 1px solid rgba($danger, 0.3);
+  }
+}
+
+// Animation delays for staggered effect
+.contact-section.in-view {
+  .contact-method-card {
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        animation: slideInCard 0.6s ease #{0.6s + $i * 0.1s} both;
+      }
+    }
+  }
+}
+
+@keyframes slideInCard {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Responsive Design
+@include tablet {
+  .contact-methods {
+    .contact-method-card {
+      .method-header {
+        .method-icon {
+          width: 40px;
+          height: 40px;
+          
+          i {
+            font-size: $font-size-base;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .contact-form-card,
+  .contact-info {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .contact-info {
+    margin-top: $spacer-2xl;
+  }
+  
+  .contact-methods {
+    .contact-method-card {
+      .method-header {
+        .method-icon {
+          width: 45px;
+          height: 45px;
+        }
+      }
+    }
+  }
+  
+  .form-actions {
+    .submit-btn {
+      width: 100%;
+    }
+  }
+  
+  .cta-card {
+    .cta-actions {
+      .btn-lg {
+        margin-bottom: $spacer-md;
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

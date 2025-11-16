@@ -1,0 +1,500 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.projects-section {
+  background: $bg-primary;
+  position: relative;
+  
+  &.in-view {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .project-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.section-title {
+  @include heading-lg;
+  margin-bottom: $spacer-md;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.section-subtitle {
+  @include body-lg;
+  color: $text-muted;
+  margin-bottom: 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.2s;
+}
+
+.filter-container {
+  text-align: center;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.4s;
+  
+  .project-filters {
+    display: inline-flex;
+    background: rgba($bg-card, 0.5);
+    border-radius: $border-radius-lg;
+    padding: $spacer-sm;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba($primary, 0.1);
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacer-xs;
+    
+    @include mobile {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: $spacer-sm;
+    }
+  }
+  
+  .filter-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: $border-radius;
+    color: $text-muted;
+    cursor: pointer;
+    padding: $spacer-sm $spacer-lg;
+    transition: $transition-base;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: $spacer-sm;
+    white-space: nowrap;
+    
+    &:hover {
+      background: rgba($primary, 0.1);
+      color: $primary;
+      text-decoration: none;
+      border-color: rgba($primary, 0.3);
+    }
+    
+    &.active {
+      background: $gradient-primary;
+      color: $text-primary;
+      border-color: $primary;
+      box-shadow: 0 4px 12px rgba($primary, 0.3);
+    }
+    
+    .filter-count {
+      background: rgba($text-primary, 0.2);
+      border-radius: $border-radius-full;
+      padding: 2px 8px;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      min-width: 20px;
+      text-align: center;
+    }
+    
+    &.active .filter-count {
+      background: rgba($text-primary, 0.3);
+    }
+    
+    @include mobile {
+      justify-content: center;
+      padding: $spacer-sm;
+    }
+  }
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: $spacer-2xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: $spacer-xl;
+  }
+  
+  .project-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+    
+    &.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.project-card {
+  background: rgba($bg-card, 0.9);
+  border: 1px solid rgba($primary, 0.1);
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    border-color: rgba($primary, 0.3);
+    
+    .project-image {
+      transform: scale(1.05);
+    }
+    
+    .project-overlay {
+      opacity: 1;
+    }
+  }
+}
+
+.project-image-container {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  
+  .project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($bg-primary, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    @include flex-center;
+    
+    .overlay-content {
+      text-align: center;
+      
+      .project-links {
+        display: flex;
+        gap: $spacer-md;
+        
+        .btn-outline,
+        .btn-primary {
+          padding: $spacer-sm $spacer-lg;
+          font-size: $font-size-sm;
+          font-weight: $font-weight-semibold;
+          
+          i {
+            margin-right: $spacer-xs;
+          }
+        }
+      }
+    }
+  }
+  
+  .project-category-badge {
+    position: absolute;
+    top: $spacer-md;
+    right: $spacer-md;
+    
+    .category-badge {
+      padding: $spacer-xs $spacer-sm;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-semibold;
+      border: none;
+      
+      &.full-stack {
+        background: linear-gradient(135deg, #10b981, #059669);
+      }
+      
+      &.frontend {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+      }
+      
+      &.backend {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+      }
+      
+      &.devops {
+        background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+      }
+    }
+  }
+}
+
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  
+  .project-header {
+    margin-bottom: $spacer-lg;
+    
+    .project-title {
+      @include heading-sm;
+      color: $text-primary;
+      margin-bottom: $spacer-sm;
+      font-size: $font-size-xl;
+    }
+    
+    .project-metrics {
+      .metrics-text {
+        @include body-sm;
+        color: $primary;
+        font-weight: $font-weight-semibold;
+        
+        .metrics-icon {
+          margin-right: $spacer-xs;
+          font-size: $font-size-xs;
+        }
+      }
+    }
+  }
+  
+  .project-description {
+    @include body-base;
+    color: $text-secondary;
+    margin-bottom: $spacer-xl;
+    line-height: $line-height-relaxed;
+    flex: 1;
+  }
+  
+  .project-tech-stack {
+    margin-bottom: $spacer-xl;
+    
+    .tech-title {
+      @include body-base;
+      color: $text-primary;
+      font-weight: $font-weight-semibold;
+      margin-bottom: $spacer-md;
+      display: flex;
+      align-items: center;
+      
+      .tech-icon {
+        color: $primary;
+        margin-right: $spacer-sm;
+        font-size: $font-size-sm;
+      }
+    }
+    
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $spacer-sm;
+      
+      .tech-badge {
+        background: rgba($secondary, 0.2);
+        color: $text-primary;
+        border: 1px solid rgba($secondary, 0.3);
+        padding: $spacer-xs $spacer-sm;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-medium;
+        border-radius: $border-radius;
+        transition: $transition-base;
+        
+        &:hover {
+          background: rgba($secondary, 0.3);
+          border-color: $secondary;
+          transform: translateY(-1px);
+        }
+      }
+    }
+  }
+  
+  .project-actions {
+    margin-top: auto;
+    
+    .btn-outline,
+    .btn-primary {
+      font-size: $font-size-sm;
+      padding: $spacer-sm $spacer-lg;
+    }
+  }
+}
+
+.projects-summary {
+  background: rgba($bg-card, 0.8);
+  border: 1px solid rgba($primary, 0.2);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.8s;
+  
+  .summary-title {
+    @include heading-md;
+  }
+  
+  .summary-stat {
+    .stat-number {
+      @include heading-lg;
+      margin-bottom: $spacer-sm;
+      font-size: $font-size-3xl;
+    }
+    
+    .stat-label {
+      @include body-base;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+  
+  .project-highlights {
+    margin-top: $spacer-2xl;
+    padding-top: $spacer-2xl;
+    border-top: 1px solid rgba($primary, 0.2);
+    
+    .highlights-title {
+      @include heading-sm;
+      margin-bottom: $spacer-xl;
+      text-align: center;
+    }
+    
+    .highlight-list {
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: $spacer-lg;
+        padding: $spacer-md;
+        background: rgba($primary, 0.05);
+        border: 1px solid rgba($primary, 0.1);
+        border-radius: $border-radius;
+        transition: $transition-base;
+        
+        &:hover {
+          background: rgba($primary, 0.1);
+          border-color: rgba($primary, 0.3);
+          transform: translateX(5px);
+        }
+        
+        &:last-child {
+          margin-bottom: 0;
+        }
+        
+        .highlight-icon {
+          color: $primary;
+          margin-right: $spacer-md;
+          margin-top: 2px;
+          font-size: $font-size-lg;
+          flex-shrink: 0;
+        }
+        
+        span {
+          @include body-base;
+          color: $text-secondary;
+          line-height: $line-height-relaxed;
+        }
+      }
+    }
+  }
+  
+  .cta-section {
+    margin-top: $spacer-2xl;
+    padding-top: $spacer-2xl;
+    border-top: 1px solid rgba($primary, 0.2);
+    
+    .cta-title {
+      @include heading-sm;
+      margin-bottom: $spacer-md;
+    }
+    
+    .cta-description {
+      @include body-lg;
+      color: $text-muted;
+      margin-bottom: $spacer-xl;
+    }
+  }
+}
+
+// Animation delays for staggered effect
+.projects-section.in-view {
+  .project-item {
+    @for $i from 1 through 8 {
+      &:nth-child(#{$i}) {
+        animation: slideInProject 0.6s ease #{0.4s + $i * 0.1s} both;
+      }
+    }
+  }
+}
+
+@keyframes slideInProject {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Filter animation
+.projects-grid .project-item {
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Responsive Design
+@include tablet {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .filter-container {
+    .project-filters {
+      .filter-btn {
+        padding: $spacer-sm $spacer-md;
+        font-size: $font-size-sm;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .project-card {
+    .project-image-container {
+      height: 180px;
+      
+      .project-overlay {
+        .overlay-content {
+          .project-links {
+            flex-direction: column;
+            gap: $spacer-sm;
+            
+            .btn-outline,
+            .btn-primary {
+              padding: $spacer-sm $spacer-md;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .projects-summary {
+    .project-highlights {
+      .highlight-list {
+        .highlight-item {
+          padding: $spacer-sm;
+          
+          .highlight-icon {
+            margin-right: $spacer-sm;
+          }
+        }
+      }
+    }
+  }
+}

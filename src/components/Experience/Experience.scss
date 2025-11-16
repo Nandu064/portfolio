@@ -1,0 +1,566 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.experience-section {
+  background: $bg-secondary;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    @include grid-pattern;
+    opacity: 0.02;
+    z-index: 1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  &.in-view {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .timeline-item {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.section-title {
+  @include heading-lg;
+  margin-bottom: $spacer-md;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease;
+}
+
+.section-subtitle {
+  @include body-lg;
+  color: $text-muted;
+  margin-bottom: 0;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.2s;
+}
+
+.timeline-container {
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s ease 0.4s;
+  
+  .timeline-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: $gradient-primary;
+    transform: translateX(-50%);
+    border-radius: 2px;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: $gradient-primary;
+      animation: timeline-grow 2s ease 1s forwards;
+      border-radius: 2px;
+    }
+    
+    @include mobile {
+      left: 30px;
+    }
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: $spacer-4xl;
+  opacity: 1;
+  transform: translateY(0);
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  &.left {
+    .experience-card {
+      margin-right: calc(50% + 40px);
+      
+      @include tablet {
+        margin-right: calc(50% + 20px);
+      }
+      
+      @include mobile {
+        margin-right: 0;
+        margin-left: 60px;
+      }
+    }
+    
+    .timeline-marker {
+      right: calc(50% - 20px);
+      
+      @include mobile {
+        left: 10px;
+        right: auto;
+      }
+    }
+  }
+  
+  &.right {
+    .experience-card {
+      margin-left: calc(50% + 40px);
+      
+      @include tablet {
+        margin-left: calc(50% + 20px);
+      }
+      
+      @include mobile {
+        margin-left: 60px;
+        margin-right: 0;
+      }
+    }
+    
+    .timeline-marker {
+      left: calc(50% - 20px);
+      
+      @include mobile {
+        left: 10px;
+      }
+    }
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  top: $spacer-xl;
+  z-index: 3;
+  
+  .timeline-dot {
+    width: 50px;
+    height: 50px;
+    background: $gradient-primary;
+    border: 4px solid $bg-secondary;
+    border-radius: 50%;
+    @include flex-center;
+    position: relative;
+    z-index: 2;
+    
+    i {
+      color: $text-primary;
+      font-size: $font-size-lg;
+    }
+  }
+  
+  .timeline-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    background: rgba($primary, 0.3);
+    border-radius: 50%;
+    animation: pulse-dot 2s infinite;
+  }
+}
+
+.experience-card {
+  background: rgba($bg-card, 0.9);
+  border: 1px solid rgba($primary, 0.1);
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    border-color: rgba($primary, 0.3);
+  }
+}
+
+.experience-header {
+  .job-title {
+    @include heading-sm;
+    color: $primary;
+    margin-bottom: $spacer-sm;
+    font-size: $font-size-xl;
+  }
+  
+  .company-name {
+    @include heading-sm;
+    color: $text-primary;
+    margin-bottom: $spacer-md;
+    font-size: $font-size-lg;
+    
+    .company-icon {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .job-meta {
+    margin-bottom: $spacer-md;
+    
+    .job-location,
+    .job-duration {
+      @include body-sm;
+      color: $text-muted;
+      margin-right: $spacer-lg;
+      display: inline-block;
+      margin-bottom: $spacer-xs;
+      
+      .location-icon,
+      .duration-icon {
+        color: $primary;
+        margin-right: $spacer-xs;
+        font-size: $font-size-xs;
+      }
+      
+      .duration-length {
+        color: $text-secondary;
+        font-style: italic;
+        margin-left: $spacer-xs;
+      }
+    }
+    
+    .current-badge {
+      background: $gradient-primary;
+      border: none;
+      font-size: $font-size-xs;
+      padding: $spacer-xs $spacer-sm;
+      border-radius: $border-radius;
+    }
+    
+    @include mobile {
+      .job-location,
+      .job-duration {
+        display: block;
+        margin-right: 0;
+        margin-bottom: $spacer-sm;
+      }
+    }
+  }
+  
+  .job-note {
+    @include body-sm;
+    color: $text-muted;
+    background: rgba($primary, 0.1);
+    border: 1px solid rgba($primary, 0.2);
+    border-radius: $border-radius;
+    padding: $spacer-sm $spacer-md;
+    margin-bottom: $spacer-md;
+    font-style: italic;
+    
+    .note-icon {
+      color: $primary;
+      margin-right: $spacer-xs;
+      font-size: $font-size-xs;
+    }
+  }
+}
+
+.experience-content {
+  .description-title,
+  .achievements-title,
+  .tech-title {
+    @include body-lg;
+    color: $text-primary;
+    font-weight: $font-weight-semibold;
+    margin-bottom: $spacer-lg;
+    display: flex;
+    align-items: center;
+    
+    i {
+      color: $primary;
+      margin-right: $spacer-sm;
+      font-size: $font-size-sm;
+    }
+  }
+  
+  .description-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: $spacer-xl;
+    
+    .description-item {
+      @include body-sm;
+      color: $text-secondary;
+      margin-bottom: $spacer-md;
+      padding-left: $spacer-lg;
+      position: relative;
+      line-height: $line-height-relaxed;
+      
+      .item-icon {
+        position: absolute;
+        left: 0;
+        top: 6px;
+        color: $primary;
+        font-size: $font-size-xs;
+      }
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.achievements-section {
+  margin-bottom: $spacer-xl;
+  
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacer-md;
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+    
+    .achievement-item {
+      background: rgba($primary, 0.1);
+      border: 1px solid rgba($primary, 0.2);
+      border-radius: $border-radius;
+      padding: $spacer-md;
+      display: flex;
+      align-items: flex-start;
+      transition: $transition-base;
+      
+      &:hover {
+        background: rgba($primary, 0.15);
+        border-color: rgba($primary, 0.4);
+        transform: translateY(-2px);
+      }
+      
+      .achievement-icon {
+        color: $primary;
+        margin-right: $spacer-sm;
+        margin-top: 2px;
+        font-size: $font-size-sm;
+        flex-shrink: 0;
+      }
+      
+      span {
+        @include body-sm;
+        color: $text-secondary;
+        line-height: $line-height-normal;
+      }
+    }
+  }
+}
+
+.technologies-section {
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacer-sm;
+    
+    .tech-badge {
+      background: rgba($secondary, 0.2);
+      color: $text-primary;
+      border: 1px solid rgba($secondary, 0.3);
+      padding: $spacer-xs $spacer-sm;
+      font-size: $font-size-xs;
+      font-weight: $font-weight-medium;
+      border-radius: $border-radius;
+      transition: $transition-base;
+      
+      &:hover {
+        background: rgba($secondary, 0.3);
+        border-color: $secondary;
+        transform: translateY(-1px);
+      }
+    }
+  }
+}
+
+.summary-card {
+  background: rgba($bg-card, 0.8);
+  border: 1px solid rgba($primary, 0.2);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 0.8s;
+  
+  .summary-title {
+    @include heading-md;
+  }
+  
+  .summary-stat {
+    .stat-number {
+      @include heading-lg;
+      margin-bottom: $spacer-sm;
+      font-size: $font-size-3xl;
+    }
+    
+    .stat-label {
+      @include body-base;
+      color: $text-muted;
+      margin: 0;
+    }
+  }
+  
+  .journey-highlights {
+    margin-top: $spacer-2xl;
+    padding-top: $spacer-2xl;
+    border-top: 1px solid rgba($primary, 0.2);
+    
+    .highlights-title {
+      @include heading-sm;
+      margin-bottom: $spacer-xl;
+      text-align: center;
+    }
+    
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: $spacer-lg;
+      
+      @include mobile {
+        grid-template-columns: 1fr;
+      }
+      
+      .highlight-item {
+        display: flex;
+        align-items: flex-start;
+        padding: $spacer-lg;
+        background: rgba($primary, 0.05);
+        border: 1px solid rgba($primary, 0.1);
+        border-radius: $border-radius-lg;
+        transition: $transition-base;
+        
+        &:hover {
+          background: rgba($primary, 0.1);
+          border-color: rgba($primary, 0.3);
+          transform: translateY(-2px);
+        }
+        
+        .highlight-icon {
+          color: $primary;
+          margin-right: $spacer-md;
+          margin-top: 2px;
+          font-size: $font-size-lg;
+          flex-shrink: 0;
+        }
+        
+        span {
+          @include body-base;
+          color: $text-secondary;
+          line-height: $line-height-relaxed;
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes timeline-grow {
+  from {
+    height: 0;
+  }
+  to {
+    height: 100%;
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0.1;
+  }
+}
+
+// Animation delays for staggered effect
+.experience-section.in-view {
+  .timeline-item {
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i + 1}) { // +1 because timeline-line is first child
+        animation: slideInTimeline 0.8s ease #{0.4s + $i * 0.2s} both;
+      }
+    }
+  }
+}
+
+@keyframes slideInTimeline {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Responsive Design
+@include tablet {
+  .timeline-item {
+    &.left,
+    &.right {
+      .experience-card {
+        margin-left: 60px;
+        margin-right: 0;
+      }
+      
+      .timeline-marker {
+        left: 10px;
+        right: auto;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .experience-card {
+    .experience-content {
+      .description-list {
+        .description-item {
+          padding-left: $spacer-md;
+        }
+      }
+    }
+  }
+  
+  .achievements-section {
+    .achievements-grid {
+      gap: $spacer-sm;
+      
+      .achievement-item {
+        padding: $spacer-sm;
+      }
+    }
+  }
+  
+  .technologies-section {
+    .tech-stack {
+      gap: $spacer-xs;
+    }
+  }
+  
+  .summary-card {
+    .journey-highlights {
+      .highlights-grid {
+        gap: $spacer-md;
+        
+        .highlight-item {
+          padding: $spacer-md;
+        }
+      }
+    }
+  }
+}

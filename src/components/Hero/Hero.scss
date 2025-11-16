@@ -1,0 +1,517 @@
+@import '../../styles/base/variables';
+@import '../../styles/base/mixins';
+
+.hero-section {
+  @include section;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: $bg-primary;
+  @include flex-center;
+  padding-top: 80px; // Account for fixed header height
+  
+  &.in-view {
+    .animate-on-scroll,
+    .animate-slide-left,
+    .animate-slide-up,
+    .animate-fade-in,
+    .animate-bounce-in {
+      opacity: 1;
+      transform: translateY(0) translateX(0) scale(1);
+    }
+  }
+}
+
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  .hero-greeting {
+    @include body-lg;
+    color: $text-secondary;
+    margin-bottom: $spacer-sm;
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 0.8s ease 0.2s;
+  }
+  
+  .hero-name {
+    @include heading-xl;
+    margin-bottom: $spacer-md;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease 0.4s;
+    
+    @include mobile {
+      font-size: $font-size-4xl;
+    }
+  }
+  
+  .hero-title {
+    @include heading-md;
+    color: $text-primary;
+    margin-bottom: $spacer-sm;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease 0.6s;
+    
+    .typed-text {
+      border-right: 2px solid $primary;
+      animation: blink 1s infinite;
+    }
+    
+    @include mobile {
+      height: 45px;
+      font-size: $font-size-2xl;
+    }
+  }
+  
+  .hero-location {
+    @include body-base;
+    color: $text-muted;
+    margin-bottom: $spacer-lg;
+    opacity: 0;
+    transition: all 0.8s ease 0.8s;
+  }
+  
+  .hero-description {
+    @include body-lg;
+    color: $text-secondary;
+    margin-bottom: $spacer-2xl;
+    max-width: 600px;
+    line-height: $line-height-relaxed;
+    opacity: 0;
+    transition: all 0.8s ease 1s;
+    
+    @include mobile {
+      font-size: $font-size-base;
+    }
+  }
+}
+
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacer-xl;
+  margin-bottom: $spacer-2xl;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease 1.2s;
+  
+  .metric {
+    text-align: center;
+    
+    .metric-number {
+      display: block;
+      @include heading-sm;
+      font-weight: $font-weight-bold;
+      margin-bottom: $spacer-xs;
+    }
+    
+    .metric-label {
+      @include body-sm;
+      color: $text-muted;
+      font-weight: $font-weight-medium;
+    }
+  }
+  
+  @include mobile {
+    gap: $spacer-lg;
+    justify-content: center;
+    
+    .metric {
+      .metric-number {
+        font-size: $font-size-xl;
+      }
+    }
+  }
+}
+
+.hero-actions {
+  margin-bottom: $spacer-2xl;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.8s ease 1.4s;
+  
+  @include mobile {
+    text-align: center;
+    
+    .btn-lg {
+      width: 100%;
+      max-width: 250px;
+    }
+  }
+}
+
+.hero-social {
+  display: flex;
+  gap: $spacer-md;
+  opacity: 0;
+  transition: all 0.8s ease 1.6s;
+  
+  .social-link {
+    @include flex-center;
+    width: 50px;
+    height: 50px;
+    background: rgba($primary, 0.1);
+    border: 2px solid rgba($primary, 0.3);
+    border-radius: $border-radius-full;
+    color: $primary;
+    font-size: $font-size-lg;
+    text-decoration: none;
+    transition: $transition-base;
+    
+    &:hover {
+      background: $primary;
+      color: $text-primary;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba($primary, 0.3);
+      text-decoration: none;
+    }
+  }
+  
+  @include mobile {
+    justify-content: center;
+  }
+}
+
+.hero-visual {
+  @include flex-center;
+  
+  .hero-avatar {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.8s ease 1.8s;
+  }
+}
+
+.avatar-container {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  @include flex-center;
+  
+  .avatar-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $gradient-primary;
+    border-radius: $border-radius-xl;
+    opacity: 0.1;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .avatar-content {
+    position: relative;
+    z-index: 2;
+    background: rgba($bg-card, 0.9);
+    border: 1px solid rgba($primary, 0.2);
+    border-radius: $border-radius-lg;
+    padding: $spacer-2xl;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 40px rgba($shadow-heavy, 0.1);
+  }
+  
+  @include mobile {
+    width: 100%;
+    max-width: 300px;
+    height: 300px;
+    
+    .avatar-content {
+      padding: $spacer-lg;
+    }
+  }
+}
+
+.code-snippet {
+  font-family: $font-family-mono;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  
+  .code-line {
+    margin-bottom: $spacer-xs;
+    animation: typewriter 2s steps(40) 2s both;
+    
+    &.code-indent {
+      margin-left: $spacer-md;
+    }
+    
+    &.code-indent-2 {
+      margin-left: $spacer-xl;
+    }
+  }
+  
+  .code-keyword {
+    color: #ff79c6;
+  }
+  
+  .code-variable {
+    color: #f8f8f2;
+  }
+  
+  .code-operator {
+    color: #ff79c6;
+  }
+  
+  .code-property {
+    color: #50fa7b;
+  }
+  
+  .code-string {
+    color: #f1fa8c;
+  }
+  
+  @include mobile {
+    font-size: $font-size-xs;
+  }
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: $spacer-2xl;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: $text-muted;
+  opacity: 0;
+  transition: all 0.8s ease 2s;
+  
+  .scroll-mouse {
+    width: 24px;
+    height: 40px;
+    border: 2px solid $primary;
+    border-radius: 12px;
+    margin: 0 auto $spacer-sm;
+    position: relative;
+    
+    .scroll-wheel {
+      width: 4px;
+      height: 8px;
+      background: $primary;
+      border-radius: 2px;
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: scroll-wheel 2s infinite;
+    }
+  }
+  
+  p {
+    @include body-sm;
+    margin: 0;
+    font-weight: $font-weight-medium;
+  }
+}
+
+// Keyframe Animations
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes typewriter {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  1% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes scroll-wheel {
+  0% {
+    top: 6px;
+    opacity: 1;
+  }
+  100% {
+    top: 20px;
+    opacity: 0;
+  }
+}
+
+// Download Resume Button with Wave Animation
+.btn-download-resume {
+  position: relative;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 50px;
+  background: $gradient-primary;
+  color: $text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 200px;
+  justify-content: center;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba($primary, 0.4);
+    text-decoration: none;
+    color: $text-primary;
+    
+    .wave {
+      animation: waveRise 2s ease forwards;
+    }
+  }
+  
+  .wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: height 0.3s ease;
+    z-index: 1;
+  }
+  
+  .btn-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@keyframes waveRise {
+  0% { height: 0%; }
+  100% { height: 100%; }
+}
+
+// Get In Touch Button - Match Download Resume styling
+.hero-actions {
+  .btn-outline {
+    position: relative;
+    padding: 15px 40px;
+    border: 2px solid rgba($text-primary, 0.3);
+    border-radius: 50px;
+    background: transparent;
+    color: $text-primary;
+    font-size: $font-size-base;
+    font-weight: $font-weight-semibold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 200px;
+    justify-content: center;
+    text-decoration: none;
+    
+    &:hover {
+      background: rgba($text-primary, 0.1);
+      border-color: $text-primary;
+      color: $text-primary;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba($text-primary, 0.2);
+      text-decoration: none;
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($text-primary, 0.3);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
+
+
+
+// Responsive Design
+@include tablet {
+  .hero-metrics {
+    justify-content: space-around;
+    
+    .metric {
+      .metric-number {
+        font-size: $font-size-2xl;
+      }
+    }
+  }
+  
+  .avatar-container {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@include mobile {
+  .hero-section {
+    text-align: center;
+  }
+  
+  .hero-content {
+    margin-bottom: $spacer-2xl;
+  }
+  
+  .hero-visual {
+    margin-top: $spacer-xl;
+  }
+
+  .btn-download-resume {
+    padding: 12px 30px;
+    min-width: 180px;
+    font-size: $font-size-sm;
+  }
+  
+  .btn-outline {
+    padding: 12px 30px;
+    min-width: 180px;
+    font-size: $font-size-sm;
+  }
+}

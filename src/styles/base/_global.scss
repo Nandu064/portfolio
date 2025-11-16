@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap');
+@import 'bootstrap/scss/bootstrap';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import 'variables';
+@import 'mixins';
+
+// Global Reset and Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  @include smooth-scroll;
+  font-size: 16px;
+  scroll-padding-top: 80px; // Account for fixed header
+  
+  @include tablet {
+    font-size: 15px;
+  }
+  
+  @include mobile {
+    font-size: 14px;
+  }
+}
+
+body {
+  font-family: $font-family-primary;
+  background: $bg-primary;
+  color: $text-primary;
+  line-height: $line-height-normal;
+  overflow-x: hidden;
+  
+  // Custom Scrollbar
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: $bg-secondary;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: $primary;
+    border-radius: $border-radius-full;
+    
+    &:hover {
+      background: $secondary;
+    }
+  }
+}
+
+// Typography Base Styles
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+  margin-bottom: $spacer-md;
+  color: $text-primary;
+}
+
+h1 {
+  @include heading-xl;
+}
+
+h2 {
+  @include heading-lg;
+}
+
+h3 {
+  @include heading-md;
+}
+
+h4 {
+  @include heading-sm;
+}
+
+p {
+  @include body-base;
+  margin-bottom: $spacer-md;
+  color: $text-secondary;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: $transition-base;
+  
+  &:hover {
+    color: $secondary;
+    text-decoration: none;
+  }
+}
+
+// Utility Classes
+.text-gradient {
+  @include gradient-text;
+}
+
+.section {
+  @include section;
+  position: relative;
+}
+
+.container-custom {
+  @include container;
+}
+
+.btn-primary {
+  @include button('primary');
+}
+
+.btn-secondary {
+  @include button('secondary');
+}
+
+.btn-outline {
+  @include button('outline');
+}
+
+.btn-sm {
+  @include button-sm;
+}
+
+.btn-lg {
+  @include button-lg;
+}
+
+.card-custom {
+  @include card;
+}
+
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+.fade-in {
+  @include fade-in;
+}
+
+.slide-up {
+  @include slide-up;
+}
+
+.bounce-in {
+  @include bounce-in;
+}
+
+.hover-lift {
+  @include hover-lift;
+}
+
+// Animation Classes
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+  
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  
+  &.in-view {
+    opacity: 1;
+  }
+}
+
+.animate-slide-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.6s ease;
+  
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.6s ease;
+  
+  &.in-view {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Background Animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.pulse {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+// Background Shapes
+.bg-shape {
+  position: absolute;
+  background: $gradient-primary;
+  border-radius: $border-radius-full;
+  opacity: 0.1;
+  z-index: -1;
+  
+  &.shape-1 {
+    width: 200px;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  &.shape-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 15%;
+    animation: float 12s ease-in-out infinite reverse;
+  }
+  
+  &.shape-3 {
+    width: 100px;
+    height: 100px;
+    bottom: 20%;
+    left: 20%;
+    animation: pulse 6s ease-in-out infinite;
+  }
+}
+
+// Loading States
+.loading {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid transparent;
+    border-top-color: $primary;
+    border-radius: $border-radius-full;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// Focus Styles
+.focus-visible {
+  outline: 2px solid $primary;
+  outline-offset: 2px;
+}
+
+// Selection Styles
+::selection {
+  background: rgba($primary, 0.3);
+  color: $text-primary;
+}
+
+::-moz-selection {
+  background: rgba($primary, 0.3);
+  color: $text-primary;
+}
+
+// Print Styles
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none;
+  }
+}
+
+// Responsive Utility Classes
+.hide-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hide-tablet {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hide-desktop {
+  @include desktop {
+    display: none !important;
+  }
+}
+
+.show-mobile {
+  display: none !important;
+  
+  @include mobile {
+    display: block !important;
+  }
+}
+
+.show-tablet {
+  display: none !important;
+  
+  @include tablet {
+    display: block !important;
+  }
+}
+
+.show-desktop {
+  display: none !important;
+  
+  @include desktop {
+    display: block !important;
+  }
+}
+
+// Container Improvements
+.container,
+.container-fluid {
+  @include mobile {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+// Mobile-First Responsive Grid Improvements
+.row {
+  @include mobile {
+    margin-left: -10px;
+    margin-right: -10px;
+    
+    [class*="col-"] {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+}
+
+// Touch-Friendly Interactive Elements
+@media (hover: none) and (pointer: coarse) {
+  .btn,
+  .card,
+  .nav-link,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  // Remove hover effects on touch devices
+  .hover-lift:hover {
+    transform: none;
+  }
+  
+  .nav-link-custom:hover {
+    transform: none;
+  }
+}
+
+// Accessibility Improvements
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+// High contrast mode support
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid $text-primary;
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
+
+// Better mobile viewport handling
+@viewport {
+  width: device-width;
+  zoom: 1.0;
+}
