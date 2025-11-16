@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /static/
+
+# Sitemap
+Sitemap: https://nandu064.github.io/portfolio/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
