@@ -187,7 +187,7 @@ const Hero = () => {
 
               <div className="hero-actions animate-bounce-in">
                 <Button
-                  href="/Harish_Yerraguntla_Resume.pdf"
+                  href="/Harish_Yerraguntla_VueJS.pdf"
                   download="Harish_Yerraguntla_Resume.pdf"
                   variant="primary"
                   size="default"
@@ -254,6 +254,9 @@ const Hero = () => {
                     <div className="code-line code-indent">
                       <span className="code-property">skills</span>
                       <span className="code-operator">:</span> [
+                    </div>
+                    <div className="code-line code-indent-2">
+                      <span className="code-string">'Vue3'</span>,
                     </div>
                     <div className="code-line code-indent-2">
                       <span className="code-string">'React'</span>,

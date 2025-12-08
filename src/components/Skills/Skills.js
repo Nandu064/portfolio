@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import {
   Container,
   Row,
@@ -13,6 +13,7 @@ import {
 } from "reactstrap";
 import { useInView } from "react-intersection-observer";
 import { technicalSkills } from "../../data/portfolio";
+import { resumeQA } from "../ChatBot/resumeData";
 import "./Skills.scss";
 
 const Skills = () => {
@@ -26,44 +27,146 @@ const Skills = () => {
     if (activeTab !== tab) setActiveTab(tab);
   };
 
-  const skillCategories = [
-    {
-      id: "languages",
-      label: "Languages",
-      icon: "fas fa-code",
-      data: technicalSkills.languages,
-    },
-    {
-      id: "frontend",
-      label: "Frontend",
-      icon: "fas fa-laptop-code",
-      data: technicalSkills.frontend,
-    },
-    {
-      id: "backend",
-      label: "Backend",
-      icon: "fas fa-server",
-      data: technicalSkills.backend,
-    },
-    {
-      id: "databases",
-      label: "Databases",
-      icon: "fas fa-database",
-      data: technicalSkills.databases,
-    },
-    {
-      id: "cloudDevOps",
-      label: "Cloud & DevOps",
-      icon: "fas fa-cloud",
-      data: technicalSkills.cloudDevOps,
-    },
-    {
-      id: "dataEngineering",
-      label: "Data Engineering",
-      icon: "fas fa-chart-line",
-      data: technicalSkills.dataEngineering,
-    },
-  ];
+  // Function to extract skills from resumeData dynamically
+  const extractSkillsFromResumeData = useMemo(() => {
+    const skillsEntry = resumeQA.find(
+      (entry) =>
+        entry.category === "skills" && entry.keywords.includes("skills")
+    );
+
+    if (!skillsEntry || !skillsEntry.answer) {
+      return null;
+    }
+
+    const answer = skillsEntry.answer;
+    const skills = {
+      frontend: [],
+      backend: [],
+      databases: [],
+      realtime: [],
+      devops: [],
+      testing: [],
+    };
+
+    // Parse the structured answer to extract skills
+    if (answer.includes("**Frontend:**")) {
+      const frontendMatch = answer.match(/\*\*Frontend:\*\*\s*([^*]+)/);
+      if (frontendMatch) {
+        skills.frontend = frontendMatch[1].split(",").map((s) => s.trim());
+      }
+    }
+
+    if (answer.includes("**Backend:**")) {
+      const backendMatch = answer.match(/\*\*Backend:\*\*\s*([^*]+)/);
+      if (backendMatch) {
+        skills.backend = backendMatch[1].split(",").map((s) => s.trim());
+      }
+    }
+
+    if (answer.includes("**Databases:**")) {
+      const databasesMatch = answer.match(/\*\*Databases:\*\*\s*([^*]+)/);
+      if (databasesMatch) {
+        skills.databases = databasesMatch[1].split(",").map((s) => s.trim());
+      }
+    }
+
+    if (answer.includes("**Real-time:**")) {
+      const realtimeMatch = answer.match(/\*\*Real-time:\*\*\s*([^*]+)/);
+      if (realtimeMatch) {
+        skills.realtime = realtimeMatch[1].split(",").map((s) => s.trim());
+      }
+    }
+
+    if (answer.includes("**DevOps:**")) {
+      const devopsMatch = answer.match(/\*\*DevOps:\*\*\s*([^*]+)/);
+      if (devopsMatch) {
+        skills.devops = devopsMatch[1].split(",").map((s) => s.trim());
+      }
+    }
+
+    if (answer.includes("**Testing:**")) {
+      const testingMatch = answer.match(/\*\*Testing:\*\*\s*([^*]+)/);
+      if (testingMatch) {
+        skills.testing = testingMatch[1].split(",").map((s) => s.trim());
+      }
+    }
+
+    return skills;
+  }, []);
+
+  // Generate skill categories dynamically
+  const skillCategories = useMemo(() => {
+    const resumeSkills = extractSkillsFromResumeData;
+
+    return [
+      {
+        id: "languages",
+        label: "Languages",
+        icon: "fas fa-code",
+        data: technicalSkills.languages,
+      },
+      {
+        id: "frontend",
+        label: "Frontend",
+        icon: "fas fa-laptop-code",
+        data:
+          resumeSkills?.frontend.length > 0
+            ? resumeSkills.frontend
+            : technicalSkills.frontend,
+      },
+      {
+        id: "backend",
+        label: "Backend",
+        icon: "fas fa-server",
+        data:
+          resumeSkills?.backend.length > 0
+            ? resumeSkills.backend
+            : technicalSkills.backend,
+      },
+      {
+        id: "databases",
+        label: "Databases",
+        icon: "fas fa-database",
+        data:
+          resumeSkills?.databases.length > 0
+            ? resumeSkills.databases
+            : technicalSkills.databases,
+      },
+      {
+        id: "cloudDevOps",
+        label: "Cloud & DevOps",
+        icon: "fas fa-cloud",
+        data:
+          resumeSkills?.devops.length > 0
+            ? resumeSkills.devops
+            : technicalSkills.cloudDevOps,
+      },
+      {
+        id: "dataVisualization",
+        label: "Data Visualization",
+        icon: "fas fa-chart-line",
+        data: technicalSkills.dataVisualization,
+      },
+      {
+        id: "testing",
+        label: "Testing",
+        icon: "fas fa-vial",
+        data:
+          resumeSkills?.testing.length > 0
+            ? resumeSkills.testing
+            : ["Jest", "Cypress", "Vitest", "React Testing Library"],
+      },
+      {
+        id: "realtime",
+        label: "Real-time & Streaming",
+        icon: "fas fa-bolt",
+        data:
+          resumeSkills?.realtime.length > 0
+            ? resumeSkills.realtime
+            : ["Kafka", "WebSockets", "Socket.io"],
+      },
+    ];
+  }, [extractSkillsFromResumeData]);
 
   const getSkillProficiency = (skill) => {
     // Define proficiency levels based on the skill name

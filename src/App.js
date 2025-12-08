@@ -12,6 +12,7 @@ import Experience from "./components/Experience/Experience";
 import Education from "./components/Education/Education";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
+import ChatBot from "./components/ChatBot/ChatBot";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
         <Contact />
       </main>
       <Footer />
+
+      {/* ChatBot - appears as floating button */}
+      <ChatBot />
     </div>
   );
 }
