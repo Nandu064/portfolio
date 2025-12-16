@@ -7,21 +7,16 @@
 ## 🔥 Featured Projects
 
 ### CSV Plot Studio
-Interactive data visualization tool processing large datasets
+An interactive data visualization tool processing large datasets
 - **Tech:** React, D3.js, Web Workers
 - **Impact:** Handles 500k+ data points with 90+ Lighthouse score
-- [Live Demo](#) | [Code](#)
+- [Live Demo](https://csv-plot-studio.netlify.app/) | [Code](https://github.com/Nandu064/csv-plot-studio)
 
 ### Real-Time IoT Dashboard
 Enterprise dashboard monitoring 500+ devices
 - **Tech:** Vue.js, Plotly, WebSockets
 - **Impact:** Reduced load times by 60%
 - Currently in production at Progress Solutions
-
-### Crypto Analytics Platform
-Mobile-first cryptocurrency tracking with "Financial Brutalism" design
-- **Tech:** React, CoinGecko API, Dark mode
-- [Live Demo](#) | [Code](#)
 
 ## 💼 Experience
 
