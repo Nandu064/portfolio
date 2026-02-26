@@ -322,7 +322,7 @@ export const projects = [
     category: "Frontend",
     theme: "cyan",
     github: "https://github.com/Nandu064/portfolio",
-    demo: "https://nandu064.github.io/portfolio/",
+    demo: "https://harishyerraguntla.vercel.app/",
     technologies: [
       "React 19",
       "SCSS",
@@ -347,8 +347,8 @@ export const projects = [
       "Production URL shortener with custom aliases, Edge Middleware redirects, and a privacy-safe analytics pipeline — geo, device, browser, OS, and referrer — with zero redirect latency.",
     category: "Full-Stack",
     theme: "purple",
-    github: "https://github.com/yerraguntlaharish/sniplink",
-    demo: "https://sniplink.vercel.app",
+    github: "https://github.com/Nandu064/sniplink",
+    demo: "https://sniplink-green.vercel.app/",
     technologies: [
       "Next.js 14",
       "TypeScript",
@@ -380,8 +380,8 @@ export const projects = [
       "Browser-only data visualization tool — drop a CSV, map your columns, pick from 10+ chart types, and export PNG or SVG. No backend, no signup. Built to show what pure frontend can do.",
     category: "Frontend",
     theme: "emerald",
-    github: "https://github.com/nandu064/csv-plot-studio",
-    demo: "https://csv-plot-studio.vercel.app",
+    github: "https://github.com/Nandu064/csv-plot-studio",
+    demo: "https://csv-plot-studio.netlify.app/",
     technologies: [
       "React.js",
       "Plotly.js",
