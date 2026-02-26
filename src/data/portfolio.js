@@ -381,7 +381,7 @@ export const projects = [
     category: "Frontend",
     theme: "emerald",
     github: "https://github.com/Nandu064/csv-plot-studio",
-    demo: "https://csv-plot-studio.netlify.app/",
+    demo: "https://csv-plot-studio.vercel.app/",
     technologies: [
       "React.js",
       "Plotly.js",
