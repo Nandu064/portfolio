@@ -161,35 +161,40 @@
   .info-description {
     @include body-base;
     color: $text-secondary;
-    margin-bottom: $spacer-2xl;
+    margin-bottom: $spacer-lg;
     line-height: $line-height-relaxed;
   }
 }
 
 .contact-methods {
-  margin-bottom: $spacer-2xl;
-  
+  margin-bottom: $spacer-lg;
+
   .contact-method-card {
     background: rgba($bg-card, 0.8);
     border: 1px solid rgba($primary, 0.1);
-    margin-bottom: $spacer-lg;
-    
+    margin-bottom: $spacer-sm;
+    padding: 0;
+
+    .card-body {
+      padding: $spacer-md;
+    }
+
     &:last-child {
       margin-bottom: 0;
     }
-    
+
     &:hover {
       border-color: rgba($primary, 0.3);
     }
-    
+
     .method-header {
       display: flex;
       align-items: flex-start;
-      margin-bottom: $spacer-md;
-      
+      margin-bottom: $spacer-sm;
+
       .method-icon {
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         background: $gradient-primary;
         border-radius: $border-radius-lg;
         @include flex-center;

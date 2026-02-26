@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 3000
+    },
+    {
+      "name": "banner",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve", "linkedin-banner", "-p", "3001", "--no-clipboard"],
+      "port": 3001
+    }
+  ]
+}

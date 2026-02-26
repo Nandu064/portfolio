@@ -4,9 +4,9 @@
 
 export const getWelcomeMessage = () => {
   const messages = [
-    "Hi! I'm Harish Yerraguntla 👋\n\nI can answer questions about my Vue.js expertise, work experience, technical skills, projects, and more.\n\nWhat would you like to know?",
-    "Hey there! 👋 I'm Harish Yerraguntla.\n\nAsk me anything about my:\n• Vue.js & frontend expertise\n• Work experience & projects\n• Technical skills & achievements\n• Education & contact info",
-    "Hello! Welcome to my portfolio.\n\nI'm Harish Yerraguntla, and I can help you learn about my 5+ years of Vue.js and frontend development experience.\n\nWhat interests you?",
+    "👋 Hi! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Tailwind CSS · Storybook · 5+ years\n\nAsk me anything — projects, tech stack, work history, or how to get in touch.",
+    "👋 Hey there!\n\nHarish builds production apps with React & Next.js (primary) and Vue.js (secondary) — SSR/SSG apps, real-time dashboards, and Tailwind CSS + Storybook component libraries. Apps serving 100K+ users, LCP improvements of 60%+.\n\nWhat would you like to know?",
+    "👋 Welcome to Harish's portfolio chat!\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Node.js · Python\nMS Computer Science, SUNY New Paltz · Currently @ Progress Solutions Inc.\n\nAsk about experience, skills, or projects!",
   ];
 
   return messages[Math.floor(Math.random() * messages.length)];
@@ -14,10 +14,10 @@ export const getWelcomeMessage = () => {
 
 export const getSuggestions = () => {
   return [
-    "What's your Vue.js expertise?",
-    "Tell me about your experience",
+    "Tell me about yourself",
+    "What's your tech stack?",
     "What projects have you built?",
-    "How can I contact you?",
+    "Are you open to work?",
   ];
 };
 
@@ -26,15 +26,15 @@ export const getErrorMessage = () => {
 };
 
 export const getNoMatchMessage = () => {
-  return "I'm not sure I understand that question. I can help you learn about my:\n\n• Vue.js expertise and frontend skills\n• Work experience and achievements\n• Education background\n• Projects and portfolio\n• Contact information\n\nWhat would you like to know?";
+  return "Not sure I caught that — try rephrasing! Topics available:\n\n• 💼 Work experience (Progress Solutions, Harns, QS, SUNY)\n• 🛠️ Tech stack (React, Next.js, Vue.js, Tailwind CSS, Storybook, Node.js…)\n• 🚀 Projects (Sniplink, CSV Plot Studio, IoT platform…)\n• 📊 Data visualization & performance optimization\n• 🎓 Education (MS CS, SUNY New Paltz — GPA 3.81)\n• 📍 Location, availability & contact info\n\nWhat would you like to know?";
 };
 
 export const getTypingMessages = () => {
   return [
     "Let me think...",
-    "Just a moment...",
+    "Good question...",
     "Looking that up...",
-    "Hmm, interesting question...",
+    "One moment...",
   ];
 };
 

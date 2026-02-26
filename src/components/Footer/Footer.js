@@ -1,206 +1,185 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
 import { personalInfo } from "../../data/portfolio";
-import Button from "../shared/Button/Button";
 import "./Footer.scss";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const headerHeight = 80;
-      const elementPosition = element.offsetTop - headerHeight;
-
-      window.scrollTo({
-        top: elementPosition,
-        behavior: "smooth",
-      });
-    }
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const footerLinks = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
+  const navLinks = [
+    { id: "home",       label: "Home" },
+    { id: "about",      label: "About" },
+    { id: "skills",     label: "Skills" },
     { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-    { id: "education", label: "Education" },
-    { id: "contact", label: "Contact" },
-  ];
-
-  const socialLinks = [
-    {
-      icon: "fab fa-github",
-      url: personalInfo.github,
-      label: "GitHub",
-    },
-    {
-      icon: "fab fa-linkedin",
-      url: personalInfo.linkedin,
-      label: "LinkedIn",
-    },
-    {
-      icon: "fas fa-envelope",
-      url: `mailto:${personalInfo.email}`,
-      label: "Email",
-    },
+    { id: "projects",   label: "Projects" },
+    { id: "education",  label: "Education" },
+    { id: "contact",    label: "Contact" },
   ];
 
   return (
-    <footer className="footer-section">
-      <Container>
-        <Row>
-          <Col lg={12}>
-            <div className="footer-content">
-              {/* Footer Header */}
-              <div className="footer-header">
-                <div className="footer-brand">
-                  <h3 className="brand-name">
-                    <span className="text-gradient">{personalInfo.name}</span>
-                  </h3>
-                  <p className="brand-tagline">
-                    Full-Stack Software Engineer | React/Next.js Specialist
-                  </p>
-                </div>
+    <footer className="site-footer" role="contentinfo">
+      {/* ── Tri-color top rule ── */}
+      <div className="footer-rule" aria-hidden="true" />
 
-                <Button
-                  onClick={scrollToTop}
-                  variant="outline"
-                  size="small"
-                  className="scroll-top-btn d-none d-lg-flex"
-                >
-                  <i className="fas fa-arrow-up"></i>
-                </Button>
-              </div>
+      {/* ── Background grid ── */}
+      <div className="footer-grid-bg" aria-hidden="true" />
 
-              {/* Footer Main */}
-              <div className="footer-main">
-                <Row>
-                  <Col md={4} className="mb-4 mb-md-0">
-                    <div className="footer-section-content">
-                      <h4 className="footer-section-title">Quick Links</h4>
-                      <nav className="footer-nav">
-                        <ul className="footer-nav-list">
-                          {footerLinks.map((link) => (
-                            <li key={link.id} className="footer-nav-item">
-                              <Button
-                                onClick={() => scrollToSection(link.id)}
-                                variant="text"
-                                size="small"
-                                className="footer-nav-link"
-                              >
-                                {link.label}
-                              </Button>
-                            </li>
-                          ))}
-                        </ul>
-                      </nav>
-                    </div>
-                  </Col>
+      <div className="footer-container">
 
-                  <Col md={4} className="mb-4 mb-md-0">
-                    <div className="footer-section-content">
-                      <h4 className="footer-section-title">Contact Info</h4>
-                      <div className="contact-info">
-                        <div className="contact-item">
-                          <i className="fas fa-envelope contact-icon"></i>
-                          <a
-                            href={`mailto:${personalInfo.email}`}
-                            className="contact-link"
-                          >
-                            {personalInfo.email}
-                          </a>
-                        </div>
-                        <div className="contact-item">
-                          <i className="fas fa-phone contact-icon"></i>
-                          <a
-                            href={`tel:${personalInfo.phone}`}
-                            className="contact-link"
-                          >
-                            {personalInfo.phone}
-                          </a>
-                        </div>
-                        <div className="contact-item">
-                          <i className="fas fa-map-marker-alt contact-icon"></i>
-                          <span className="contact-text">
-                            {personalInfo.location}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
+        {/* ── CTA Banner ── */}
+        <div className="footer-cta">
+          <div className="footer-cta-text">
+            <h2 className="cta-heading">Have a project in mind?</h2>
+            <p className="cta-sub">
+              Let's build something great together — I'm currently available for
+              full-time roles and freelance work.
+            </p>
+          </div>
+          <div className="cta-actions">
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="cta-btn cta-primary"
+              aria-label="Send an email"
+            >
+              <i className="fas fa-paper-plane" />
+              <span>Send a Message</span>
+            </a>
+            <a
+              href="/Harish_Yerraguntla_VueJS.pdf"
+              download="Harish_Yerraguntla_Resume.pdf"
+              className="cta-btn cta-outline"
+              aria-label="Download resume"
+            >
+              <i className="fas fa-download" />
+              <span>Download Resume</span>
+            </a>
+          </div>
+        </div>
 
-                  <Col md={4}>
-                    <div className="footer-section-content">
-                      <h4 className="footer-section-title">Let's Connect</h4>
-                      <p className="connect-description">
-                        Follow me on social media for updates on my latest
-                        projects and tech insights.
-                      </p>
-                      <div className="social-links">
-                        {socialLinks.map((social, index) => (
-                          <a
-                            key={index}
-                            href={social.url}
-                            target={
-                              social.url.startsWith("http") ? "_blank" : "_self"
-                            }
-                            rel={
-                              social.url.startsWith("http")
-                                ? "noopener noreferrer"
-                                : undefined
-                            }
-                            className="social-link"
-                            aria-label={social.label}
-                          >
-                            <i className={social.icon}></i>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
+        {/* ── Divider ── */}
+        <div className="footer-divider" />
 
-              {/* Footer Bottom */}
-              <div className="footer-bottom">
-                <Row className="align-items-center">
-                  <Col
-                    md={6}
-                    className="text-center text-md-start mb-3 mb-md-0"
-                  >
-                    <p className="copyright-text">
-                      © {currentYear} {personalInfo.name}. All rights reserved.
-                    </p>
-                  </Col>
-                  <Col md={6} className="text-center text-md-end">
-                    <div className="footer-meta">
-                      <span className="meta-item">
-                        Built with <i className="fas fa-heart heart-icon"></i>{" "}
-                        using React.js
-                      </span>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
+        {/* ── Main grid ── */}
+        <div className="footer-grid">
+
+          {/* Brand column */}
+          <div className="footer-brand">
+            <div className="brand-monogram" aria-hidden="true">HY</div>
+            <h3 className="brand-name">
+              <span className="text-gradient">{personalInfo.name}</span>
+            </h3>
+            <p className="brand-role">Frontend Engineer</p>
+            <div className="availability-badge">
+              <span className="avail-dot" />
+              Open to opportunities
             </div>
-          </Col>
-        </Row>
-      </Container>
+            <div className="brand-contacts">
+              <a href={`mailto:${personalInfo.email}`} className="brand-contact-link">
+                <i className="fas fa-envelope" />
+                {personalInfo.email}
+              </a>
+              <a href={`tel:${personalInfo.phone}`} className="brand-contact-link">
+                <i className="fas fa-phone" />
+                {personalInfo.phone}
+              </a>
+              <span className="brand-contact-link brand-location">
+                <i className="fas fa-map-marker-alt" />
+                {personalInfo.location}
+              </span>
+            </div>
+          </div>
 
-      {/* Background Elements */}
-      <div className="footer-bg-elements">
-        <div className="bg-shape shape-1"></div>
-        <div className="bg-shape shape-2"></div>
+          {/* Nav column */}
+          <div className="footer-nav-col">
+            <h4 className="footer-col-heading">Navigate</h4>
+            <nav aria-label="Footer navigation">
+              <ul className="footer-nav-list">
+                {navLinks.map(({ id, label }) => (
+                  <li key={id}>
+                    <button
+                      onClick={() => scrollTo(id)}
+                      className="footer-nav-btn"
+                      aria-label={`Go to ${label} section`}
+                    >
+                      <span className="nav-arrow">→</span>
+                      {label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Social column */}
+          <div className="footer-social-col">
+            <h4 className="footer-col-heading">Connect</h4>
+            <div className="footer-socials">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-card"
+                aria-label="GitHub profile"
+              >
+                <i className="fab fa-github social-icon" />
+                <div className="social-info">
+                  <span className="social-label">GitHub</span>
+                  <span className="social-handle">@nandu064</span>
+                </div>
+              </a>
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-card"
+                aria-label="LinkedIn profile"
+              >
+                <i className="fab fa-linkedin social-icon social-linkedin" />
+                <div className="social-info">
+                  <span className="social-label">LinkedIn</span>
+                  <span className="social-handle">harish-yerraguntla</span>
+                </div>
+              </a>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="social-card"
+                aria-label="Email contact"
+              >
+                <i className="fas fa-envelope social-icon social-email" />
+                <div className="social-info">
+                  <span className="social-label">Email</span>
+                  <span className="social-handle">Get in touch</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Bottom bar ── */}
+        <div className="footer-bottom">
+          <p className="footer-copy">
+            © {currentYear} {personalInfo.name}. All rights reserved.
+          </p>
+          <p className="footer-built">
+            Crafted with{" "}
+            <i className="fas fa-heart heart-icon" aria-hidden="true" />{" "}
+            using React &amp; SCSS
+          </p>
+          <button
+            onClick={scrollToTop}
+            className="back-to-top"
+            aria-label="Scroll back to top"
+          >
+            <i className="fas fa-arrow-up" />
+          </button>
+        </div>
+
       </div>
     </footer>
   );

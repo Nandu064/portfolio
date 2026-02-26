@@ -1,411 +1,486 @@
 /**
- * Resume data structured for intelligent Q&A matching
- * Each entry contains:
- * - keywords: Terms that might appear in questions
- * - patterns: Regex patterns for matching
- * - answer: Response text or function
- * - category: Grouping for follow-up suggestions
- * - suggestions: Follow-up question suggestions
+ * Resume Q&A data — structured third-person format
+ * Style: emoji section headers · neutral labels · bullet lists · no first-person "I/my/me"
  */
 
 export const resumeQA = [
-  // CURRENT ROLE
+  // ─── GREETING ────────────────────────────────────────────────────────────
   {
-    keywords: [
-      "current",
-      "now",
-      "currently",
-      "working",
-      "job",
-      "role",
-      "position",
-      "doing",
+    keywords: ["hello", "hi", "hey", "greetings", "sup", "howdy"],
+    patterns: [/^(hi|hello|hey|greetings|sup|howdy)/i],
+    questionType: "greeting",
+    category: "general",
+    answer:
+      "👋 Hey! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Tailwind CSS · Storybook\n\nWhat would you like to know?",
+    suggestions: [
+      "Tell me about Harish",
+      "What's the tech stack?",
+      "What are the main skills?",
     ],
-    patterns: [
-      /what.*doing/i,
-      /current.*role/i,
-      /where.*work/i,
-      /working.*now/i,
+  },
+
+  // ─── WHO ARE YOU / INTRO ─────────────────────────────────────────────────
+  {
+    keywords: ["who", "about", "yourself", "intro", "introduction", "tell me about you", "overview"],
+    patterns: [/who.*are.*you/i, /tell.*about.*yourself/i, /introduce/i, /overview/i, /summary/i],
+    questionType: "who",
+    category: "general",
+    answer:
+      "👨‍💻 Harish Yerraguntla — Full-Stack Engineer\n\n5+ years building production React, Next.js & Vue.js applications.\n\n🎓 MS Computer Science — SUNY New Paltz (GPA 3.81)\n💼 Software Developer @ Progress Solutions Inc. (promoted intern → full-time)\n🚀 Apps serving 100K+ daily users · 99.8% uptime\n📍 New York, USA — open to remote & hybrid\n\n⚡ Known for: Next.js SSR migrations (LCP 4.1s → 1.6s), Canvas API rendering optimizations (83% faster), and Tailwind CSS + Storybook component libraries used across multiple teams.",
+    suggestions: [
+      "What's the tech stack?",
+      "Where has Harish worked?",
+      "What projects has he built?",
     ],
+  },
+
+  // ─── CURRENT ROLE ────────────────────────────────────────────────────────
+  {
+    keywords: ["current", "now", "currently", "working", "job", "role", "position", "doing", "employed"],
+    patterns: [/what.*doing/i, /current.*role/i, /where.*work/i, /working.*now/i, /current.*job/i],
     questionType: "what",
     category: "experience",
     answer:
-      "Right now, I'm working as a Software Developer at Progress Solutions Inc. I work remotely from New York. Most of my day goes into building real-time data visualization tools using Vue.js 3 and TypeScript. The applications I work on are used by around 50,000 people daily, and I was promoted from intern to full-time in July 2025.",
+      "💼 Current Role\nSoftware Developer @ Progress Solutions Inc.\nRemote · Texas · Promoted July 2025\n\nKey work:\n• Next.js SSR migration — LCP improved 4.1s → 1.6s (61%)\n• Vue.js 3 + TypeScript dashboards serving 50,000+ daily users\n• Reusable Storybook component library — 40% dev time reduction\n• Kafka processing 1.6M+ IoT events/day · sub-second latency\n• MongoDB optimization: 800ms → 200ms (75% improvement)\n• Bundle: 2.8MB → 1.5MB (46% reduction via code splitting)\n• Redis caching — 45% fewer API calls\n• 90%+ test coverage · Jest + Cypress + GitHub Actions CI/CD",
     suggestions: [
-      "What do you work on daily?",
-      "What's your tech stack?",
-      "Tell me about your projects",
-    ],
-  },
-
-  // DAILY WORK
-  {
-    keywords: [
-      "daily",
-      "day to day",
-      "typical day",
-      "responsibilities",
-      "work on",
-    ],
-    patterns: [/what.*do.*daily/i, /day.*to.*day/i, /typical.*day/i],
-    questionType: "what",
-    category: "experience",
-    answer:
-      "My typical day is a mix of frontend and backend work. I build interactive dashboards using Plotly.js — some of them render over a million data points. I also optimize performance a lot… for example, I brought the rendering time down from about 2–3 seconds to under 500ms. Apart from that, I work with Kafka for real-time data and build APIs using Node.js and FastAPI.",
-    suggestions: [
-      "What technologies do you use?",
-      "How did you optimize performance?",
-      "Tell me about your Vue.js work",
-    ],
-  },
-
-  // VUE EXPERTISE
-  {
-    keywords: ["vue", "vuejs", "vue.js", "vue 3", "vuex", "composition api"],
-    patterns: [/vue/i, /vuex/i, /composition.*api/i],
-    questionType: "what",
-    category: "skills",
-    answer:
-      "Vue.js is what I specialize in. I've built more than 14 production apps using Vue 3. I mainly work with Composition API, Pinia, and a lot of custom reusable components. I've also done quite a bit of real-time data visualization with Plotly and D3. And because I care a lot about performance, I've reduced code duplication and improved UI responsiveness across multiple apps.",
-    suggestions: [
-      "What projects did you build with Vue?",
-      "Tell me about your state management experience",
-      "What's your frontend expertise?",
-    ],
-  },
-
-  // TECH STACK
-  {
-    keywords: [
-      "skills",
-      "technologies",
-      "tech stack",
-      "tools",
-      "know",
-      "expertise",
-      "proficient",
-    ],
-    patterns: [/what.*skills/i, /tech.*stack/i, /technologies/i, /good.*at/i],
-    questionType: "what",
-    category: "skills",
-    answer:
-      "My main stack is pretty balanced across frontend and backend. On the frontend, I work with Vue.js, React, Next.js, and TypeScript. On the backend, I use Node.js and FastAPI, and I've worked with GraphQL too. I've used MongoDB, PostgreSQL, Redis, Kafka for real-time systems, Docker, AWS… and for testing I'm comfortable with Jest, Cypress, and Vitest.",
-    suggestions: [
-      "What's your Vue.js experience?",
-      "Tell me about your backend skills",
-      "What about data visualization?",
-    ],
-  },
-
-  // REACT SKILLS
-  {
-    keywords: ["react", "reactjs", "next", "nextjs"],
-    patterns: [/react/i, /next/i],
-    questionType: "what",
-    category: "skills",
-    answer:
-      "Yeah, I have solid experience with React as well. I've worked on apps that get more than 15 million visitors a year. I used Redux Toolkit, optimized load times from around 8 seconds down to 2.5 seconds, and built component libraries to speed up the team's development workflow.",
-    suggestions: [
-      "What's your Vue.js experience?",
-      "Tell me about performance optimization",
-      "What projects did you build?",
-    ],
-  },
-
-  // WORK EXPERIENCE OVERVIEW
-  {
-    keywords: [
-      "experience",
-      "worked",
-      "companies",
-      "jobs",
-      "career",
-      "background",
-    ],
-    patterns: [
-      /work.*experience/i,
-      /where.*worked/i,
-      /previous.*jobs/i,
-      /career/i,
-    ],
-    questionType: "what",
-    category: "experience",
-    answer:
-      "I have a little over 5 years of experience. I'm currently at Progress Solutions. Before that, I was a Research Assistant at SUNY New Paltz. Earlier, I worked at Harns Technologies where I built 14 production apps. Before that, I was at QS as a Frontend Developer, and I started out freelancing for small businesses back in 2019.",
-    suggestions: [
-      "Tell me about Progress Solutions",
-      "What did you build at Harns?",
-      "What about your education?",
-    ],
-  },
-
-  // PROGRESS SOLUTIONS DETAILS
-  {
-    keywords: ["progress solutions", "progress", "current company"],
-    patterns: [/progress.*solutions/i, /current.*company/i],
-    questionType: "tell",
-    category: "experience",
-    answer:
-      "At Progress Solutions, my main focus is on real-time dashboards and high-performance visualizations. One of my biggest improvements was switching our rendering approach from SVG to Canvas. That single change brought our dashboards from 2–3 seconds of lag to under half a second. I've also worked on Kafka integrations and improved our API performance significantly.",
-    suggestions: [
-      "How did you optimize performance?",
-      "What's your tech stack?",
+      "What does the day-to-day look like?",
+      "What's the tech stack?",
       "Tell me about other companies",
     ],
   },
 
-  // HARNS EXPERIENCE
+  // ─── DAILY WORK ──────────────────────────────────────────────────────────
   {
-    keywords: ["harns", "harns technologies"],
+    keywords: ["daily", "day to day", "typical day", "responsibilities", "work on", "what do you do"],
+    patterns: [/what.*do.*daily/i, /day.*to.*day/i, /typical.*day/i, /responsibilities/i],
+    questionType: "what",
+    category: "experience",
+    answer:
+      "📋 Day-to-Day at Progress Solutions\n\n• Building React/Next.js SSR features and Vue.js 3 dashboards with Plotly.js (1M+ data points)\n• Consuming Kafka streams via Socket.io for live sub-second data updates\n• Shipping Tailwind CSS + Storybook components shared across teams\n• Writing Node.js / FastAPI endpoints with proper validation and Swagger docs\n• Running Jest unit tests + Cypress E2E targeting 90%+ coverage\n• Profiling with Chrome DevTools and Lighthouse — Core Web Vitals (LCP <2.5s, INP <200ms)",
+    suggestions: [
+      "What technologies are used?",
+      "How was performance optimized?",
+      "Tell me about the React/Next.js work",
+    ],
+  },
+
+  // ─── REACT / NEXT.JS (PRIMARY) ────────────────────────────────────────────
+  {
+    keywords: ["react", "reactjs", "next", "nextjs", "redux", "tailwind", "storybook"],
+    patterns: [/react/i, /next\.js/i, /redux/i, /tailwind/i, /storybook/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "⚛️ React & Next.js — Primary Stack\n\nNext.js (SSR/SSG/ISR):\n• Progress Solutions — migrated legacy pages to Next.js SSR · LCP 4.1s → 1.6s\n• Harns — Next.js ISR e-commerce product pages · LCP 2.1s\n\nReact SPAs:\n• QS Quacquarelli Symonds — 8 React + TypeScript SPAs · 15M+ annual visitors · load time 8s → 2.5s\n• SUNY — React + TypeScript component library · Apollo Client · GraphQL\n\n🎨 Tailwind CSS:\n• Used across all recent projects for rapid, consistent styling\n• Paired with Storybook for documented component libraries used across teams\n\n📚 Storybook:\n• Documented 50+ React components at Harns Technologies\n• SUNY component library — Storybook docs reused across 4 platforms\n\n⚙️ State:\n• Redux Toolkit · React Query · Apollo Client · React Context\n• React Testing Library + Jest + Cypress for quality",
+    suggestions: [
+      "What's the Vue.js experience?",
+      "Tell me about performance optimization",
+      "What projects were built with React?",
+    ],
+  },
+
+  // ─── VUE.JS (SECONDARY) ──────────────────────────────────────────────────
+  {
+    keywords: ["vue", "vuejs", "vue.js", "vue 3", "vuex", "pinia", "composition api", "nuxt", "nuxtjs"],
+    patterns: [/vue/i, /vuex/i, /pinia/i, /composition.*api/i, /nuxt/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "🟢 Vue.js — Strong Secondary Specialization\n\nHarish has deep Vue.js 3 expertise alongside React:\n\n🔧 Core:\n• Vue 3 Composition API + <script setup lang=\"ts\">\n• Vuex (modular store) · Pinia · Vue Router · Nuxt.js\n• Migrated legacy Options API codebases to Composition API + TypeScript — 25% bundle reduction\n\n📊 Production:\n• Vue.js 3 dashboards @ Progress Solutions — 50K+ daily users · 1M+ Plotly.js data points\n• Nuxt.js SSR — boosted SEO 40%, improved initial render performance\n• Reusable Vue 3 + Storybook component library — 40% dev time reduction\n\n🧪 Testing:\n• Vitest + Vue Test Utils — 90%+ coverage\n• Paired with GitHub Actions CI/CD on every PR",
+    suggestions: [
+      "What's the React/Next.js experience?",
+      "Tell me about state management",
+      "What's the full tech stack?",
+    ],
+  },
+
+  // ─── FULL TECH STACK ─────────────────────────────────────────────────────
+  {
+    keywords: ["skills", "technologies", "tech stack", "tools", "know", "expertise", "proficient", "stack", "languages"],
+    patterns: [/what.*skills/i, /tech.*stack/i, /technologies/i, /good.*at/i, /what.*know/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "🛠 Tech Stack\n\n🎨 Frontend (Primary):\n• React.js · Next.js (SSR/SSG/ISR) · TypeScript · Tailwind CSS · Storybook\n\n🎨 Frontend (Secondary):\n• Vue.js 3 · Nuxt.js · Composition API · Vuex · Pinia\n\n⚙️ State Management:\n• Redux Toolkit · React Query · Apollo Client · Vuex · Pinia\n\n🖥️ Backend:\n• Node.js/Express.js · Python (FastAPI · Django · Flask) · GraphQL\n\n📊 Data Viz:\n• Plotly.js · D3.js · Chart.js · Canvas API · SVG · Real-time dashboards\n\n🌊 Real-time:\n• Apache Kafka · WebSockets · Socket.io\n\n🗄️ Databases:\n• MongoDB · PostgreSQL · Redis · MySQL\n\n☁️ Cloud/DevOps:\n• AWS (EC2, Lambda, S3, RDS) · GCP · Docker · Kubernetes · GitHub Actions CI/CD\n\n🧪 Testing:\n• Jest · Vitest · Cypress · React Testing Library · Vue Test Utils · Playwright",
+    suggestions: [
+      "What's the React/Next.js experience?",
+      "Tell me about backend skills",
+      "What about data visualization?",
+    ],
+  },
+
+  // ─── WORK EXPERIENCE OVERVIEW ────────────────────────────────────────────
+  {
+    keywords: ["experience", "worked", "companies", "jobs", "career", "background", "history", "previous"],
+    patterns: [/work.*experience/i, /where.*worked/i, /previous.*jobs/i, /career/i, /companies/i],
+    questionType: "what",
+    category: "experience",
+    answer:
+      "📊 Career Overview — 5+ years across 4 companies\n\n1️⃣ Progress Solutions Inc. — Software Developer (Jan 2025 – Present)\n   React/Next.js · Vue.js 3 · Tailwind CSS · Storybook · Node.js · Kafka\n   ↳ Started as Intern · promoted to Full-Time (Jul 2025)\n\n2️⃣ SUNY New Paltz — Graduate Research Assistant (2024)\n   React · TypeScript · Storybook · FastAPI · PostgreSQL · GCP\n\n3️⃣ Harns Technologies — Full-Stack Developer (Oct 2021 – Jul 2023)\n   Next.js · React · Vue.js · Storybook · Canvas API · Node.js\n\n4️⃣ QS Quacquarelli Symonds — Full-Stack Developer (Dec 2020 – Jul 2021)\n   React · TypeScript · Redux Toolkit · Storybook · Node.js",
+    suggestions: [
+      "Tell me about Progress Solutions",
+      "What was built at Harns?",
+      "What about education?",
+    ],
+  },
+
+  // ─── PROGRESS SOLUTIONS ──────────────────────────────────────────────────
+  {
+    keywords: ["progress solutions", "progress", "current company", "current employer"],
+    patterns: [/progress.*solutions/i, /current.*company/i, /current.*employer/i],
+    questionType: "tell",
+    category: "experience",
+    answer:
+      "🏢 Progress Solutions Inc. — Software Developer\nRemote · Texas · Jan 2025 – Present (Promoted Jul 2025)\n\nKey achievements:\n• Next.js SSR migration — LCP improved 4.1s → 1.6s (61% improvement)\n• SVG → Canvas API rendering — 2–3s → 500ms (83% faster)\n• Vue.js 3 + TypeScript + Storybook component library — 40% dev time reduction\n• Kafka consumer: 1.6M+ IoT events/day · sub-second latency\n• MongoDB query optimization: 800ms → 200ms (75% improvement)\n• Redis caching: 45% fewer redundant API calls\n• Bundle: 2.8MB → 1.5MB (46% reduction)\n• 90%+ test coverage — Jest · Cypress · GitHub Actions CI/CD\n\nDashboards serve 50,000+ daily users.",
+    suggestions: [
+      "How was performance optimized?",
+      "What's the tech stack?",
+      "Tell me about other companies",
+    ],
+  },
+
+  // ─── SUNY RESEARCH ASSISTANT ─────────────────────────────────────────────
+  {
+    keywords: ["suny", "research assistant", "university", "research", "new paltz", "academic"],
+    patterns: [/suny/i, /research.*assistant/i, /new.*paltz/i, /university.*work/i],
+    questionType: "tell",
+    category: "experience",
+    answer:
+      "🎓 SUNY New Paltz — Graduate Research Assistant (2024)\nPart-time during Master's program\n\nStack: React.js · TypeScript · Storybook · Python FastAPI · PostgreSQL · Redis · GCP · Docker\n\nKey work:\n• React + TypeScript component library with Storybook — reused across 4 platforms\n• Apollo Client + GraphQL with optimistic updates\n• Redux Toolkit for normalized state management\n• Page load: 8s → 4.4s (45% improvement) via code splitting + lazy loading\n• API response: 300ms → 150ms via Redis caching\n• 90%+ test coverage with Jest + React Testing Library\n• CI/CD: GitHub Actions — lint · test · Docker build · GCP deploy\n\nServed 15M+ annual visitors across 4 university platforms.",
+    suggestions: [
+      "Tell me about the education",
+      "What other projects were built?",
+      "What's the full tech stack?",
+    ],
+  },
+
+  // ─── HARNS TECHNOLOGIES ──────────────────────────────────────────────────
+  {
+    keywords: ["harns", "harns technologies", "india", "previous company"],
     patterns: [/harns/i],
     questionType: "tell",
     category: "experience",
     answer:
-      "Harns Technologies was a very hands-on role for me. I built 14 production applications there. One of the coolest projects was a real-time IoT platform that processed data from more than 500 devices. I also built an e-commerce CMS that handled around 10,000 monthly transactions and a few large publishing platforms.",
+      "🏢 Harns Technologies Private Ltd — Full-Stack Developer\nIndia · Oct 2021 – Jul 2023\n\n14 production applications shipped.\n\nKey projects:\n• E-commerce platform — Next.js SSG/ISR product pages (LCP 2.1s) · 50+ Storybook-documented React components · Stripe/PayPal/Razorpay · 10K+ monthly transactions\n• IoT real-time dashboard — Canvas API (replaced SVG · 67% render improvement) · Node.js + WebSockets · 500+ devices · MongoDB time-series\n• Publishing platforms — 100K+ daily users · 99.8% uptime · 90+ Lighthouse\n\nTailwind CSS + Storybook libraries accelerated cross-team development.",
     suggestions: [
-      "What technologies did you use?",
       "Tell me about the IoT platform",
-      "What about your other work?",
+      "What about QS?",
+      "Tell me about React at Harns",
     ],
   },
 
-  // EDUCATION
+  // ─── QS QUACQUARELLI ─────────────────────────────────────────────────────
   {
-    keywords: [
-      "education",
-      "degree",
-      "university",
-      "college",
-      "studied",
-      "school",
-      "masters",
-      "bachelor",
+    keywords: ["qs", "quacquarelli", "symonds", "qs quacquarelli"],
+    patterns: [/quacquarelli/i, /\bqs\b/i],
+    questionType: "tell",
+    category: "experience",
+    answer:
+      "🏢 QS Quacquarelli Symonds — Full-Stack Developer\nIndia · Dec 2020 – Jul 2021\n\n8 React + TypeScript SPAs serving 15M+ annual visitors.\n\nKey results:\n• Page load: 8s → 2.5s (69% improvement) via React.lazy() + code splitting\n• API response: 400ms → 180ms via query optimization + Redis caching\n• React Query — 45% fewer API calls · stale-while-revalidate\n• Storybook component library — documented reusable component system\n• Express.js APIs: 1M+ daily requests handled\n• WCAG 2.1 AA accessible · mobile-first CSS Grid + Flexbox",
+    suggestions: [
+      "How did the career start?",
+      "What's the React experience overall?",
+      "What projects have been built?",
     ],
-    patterns: [
-      /education/i,
-      /degree/i,
-      /university/i,
-      /studied/i,
-      /graduated/i,
-    ],
+  },
+
+  // ─── EDUCATION ───────────────────────────────────────────────────────────
+  {
+    keywords: ["education", "degree", "university", "college", "studied", "school", "masters", "bachelor", "gpa", "graduate"],
+    patterns: [/education/i, /degree/i, /university/i, /studied/i, /graduated/i, /masters/i, /bachelor/i, /gpa/i],
     questionType: "what",
     category: "education",
     answer:
-      "I completed my Master's in Computer Science at SUNY New Paltz with a 3.81 GPA. Before that, I did my Bachelor's in Computer Science at Lovely Professional University. During my Master's, I also worked as a Research Assistant on data visualization and UI engineering.",
+      "🎓 Education\n\nMaster of Science — Computer Science\n• State University of New York (SUNY), New Paltz\n• 2023 – 2025 · GPA: 3.81 / 4.0\n• Coursework: Web Development · Full-Stack Dev · Database Systems · Software Engineering · Cloud Computing\n• Also worked as Graduate Research Assistant (React · Storybook · FastAPI · GCP)\n\nBachelor of Technology — Computer Science\n• Lovely Professional University, Punjab, India\n• 2017 – 2021 · GPA: 3.2 / 4.0",
     suggestions: [
-      "What was your role at SUNY?",
-      "What's your work experience?",
-      "Tell me about your skills",
+      "What was the SUNY role?",
+      "What's the work experience?",
+      "Tell me about the skills",
     ],
   },
 
-  // PROJECTS
+  // ─── PORTFOLIO PROJECTS OVERVIEW ─────────────────────────────────────────
   {
-    keywords: [
-      "projects",
-      "built",
-      "created",
-      "portfolio",
-      "work samples",
-      "made",
-      "developed",
-    ],
-    patterns: [/what.*built/i, /projects/i, /portfolio/i, /work.*samples/i],
+    keywords: ["projects", "built", "created", "portfolio", "work samples", "made", "developed", "apps", "applications"],
+    patterns: [/what.*built/i, /projects/i, /portfolio/i, /work.*samples/i, /what.*apps/i],
     questionType: "what",
     category: "projects",
     answer:
-      "I've worked on a variety of projects. Some highlights:\n• A real-time IoT platform using Vue and D3 that supported 500+ devices.\n• An e-commerce CMS handling 10k+ monthly transactions.\n• Dashboards built with Plotly.js that render over a million points with smooth performance.\n• Multiple publishing platforms with tens of thousands of daily readers.\n• And a few internal component libraries to speed up development for my teams.",
+      "🚀 Featured Projects\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Intersection Observer animations · EmailJS pipeline\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages\n\nWork apps: 14 production apps at Harns · IoT platform (500+ devices) · dashboards serving 50K+ users.",
     suggestions: [
+      "Tell me about Sniplink",
+      "Tell me about CSV Plot Studio",
       "Tell me about the IoT platform",
-      "What technologies did you use?",
-      "How did you optimize performance?",
     ],
   },
 
-  // IOT PLATFORM DETAILS
+  // ─── SNIPLINK ────────────────────────────────────────────────────────────
   {
-    keywords: ["iot", "sensors", "real-time", "devices"],
-    patterns: [/iot/i, /sensors/i, /real.*time.*data/i],
+    keywords: ["sniplink", "url shortener", "link shortener", "short url", "url"],
+    patterns: [/sniplink/i, /url.*short/i, /link.*short/i, /short.*link/i],
     questionType: "tell",
     category: "projects",
     answer:
-      "The IoT platform was one of my favorite projects. It used Vue.js and D3 for visualizations — real-time line charts, bar charts, heatmaps, all updating live. The backend used Node.js with WebSockets to stream data from over 500 devices. We used MongoDB's time-series collections to store everything efficiently.",
+      "🔗 Sniplink — Production URL Shortener\nLive: sniplink.vercel.app\n\nArchitecture highlights:\n• Edge Middleware issues 301 redirects — visitor never hits Node.js · near-instant\n• Click analytics: SHA-256 hashed IPs · ua-parser-js (device/browser/OS) · Vercel geo headers — no raw PII stored\n• Atomic $inc on totalClicks — O(1) reads vs O(n) countDocuments at scale\n• Custom 3-tier rate limiter — 429 + Retry-After + X-RateLimit headers\n• Auth: NextAuth v5 · bcrypt password hashing\n• Custom aliases with nanoid-generated short codes\n\nStack: Next.js 14 · TypeScript · MongoDB · NextAuth v5 · Vercel Edge",
     suggestions: [
-      "What visualization libraries did you use?",
+      "Tell me about CSV Plot Studio",
+      "What other projects exist?",
+      "What's the full-stack expertise?",
+    ],
+  },
+
+  // ─── CSV PLOT STUDIO ─────────────────────────────────────────────────────
+  {
+    keywords: ["csv", "plot studio", "csv plot", "chart tool", "visualization tool", "data tool"],
+    patterns: [/csv.*plot/i, /plot.*studio/i, /csv.*tool/i],
+    questionType: "tell",
+    category: "projects",
+    answer:
+      "📊 CSV Plot Studio — Browser-Only Data Visualization\nLive: csv-plot-studio.vercel.app\n\nKey technical choices:\n• Papa Parse streaming worker — large CSVs parsed off main thread · UI stays responsive at any file size\n• 10+ chart types: line · bar · scatter · pie · histogram · heatmap · bubble — all live-update on column change\n• Dynamic column-mapping UI with instant chart preview — zero page reloads\n• One-click PNG/SVG export via Plotly's Kaleido utilities with configurable resolution\n• Zero backend = zero hosting cost · full privacy · works offline\n\nStack: React.js · Plotly.js · Papa Parse · Tailwind CSS · Vite · Vercel",
+    suggestions: [
+      "Tell me about Sniplink",
+      "What data visualization skills exist?",
+      "What other projects were built?",
+    ],
+  },
+
+  // ─── IOT PLATFORM DETAILS ────────────────────────────────────────────────
+  {
+    keywords: ["iot", "sensors", "devices", "real-time data", "websocket", "streaming"],
+    patterns: [/iot/i, /sensors/i, /real.*time.*data/i, /websocket/i, /streaming/i],
+    questionType: "tell",
+    category: "projects",
+    answer:
+      "📡 IoT Real-Time Platform — Harns Technologies\n\nArchitecture:\n• Canvas API frontend: real-time line charts · bar charts · heatmaps updating live (replaced SVG · 67% render improvement)\n• Node.js backend: WebSockets streaming data from 500+ IoT devices\n• MongoDB time-series collections: efficient storage + querying\n• Sub-second response times under high concurrency\n• Robust reconnection logic + error handling for WebSocket stability\n\nEvery device sends metrics every few seconds — all rendered in browser without lag.",
+    suggestions: [
+      "What visualization libraries were used?",
       "Tell me about other projects",
-      "What's your Vue.js expertise?",
+      "What's the Vue.js expertise?",
     ],
   },
 
-  // PERFORMANCE WORK
+  // ─── PERFORMANCE OPTIMIZATION ────────────────────────────────────────────
   {
-    keywords: [
-      "performance",
-      "optimization",
-      "optimize",
-      "fast",
-      "speed",
-      "improved",
-    ],
-    patterns: [/performance/i, /optimiz/i, /faster/i, /speed/i, /improve/i],
+    keywords: ["performance", "optimization", "optimize", "fast", "speed", "improved", "lighthouse", "core web vitals", "lcp", "cls"],
+    patterns: [/performance/i, /optimiz/i, /faster/i, /speed/i, /improve/i, /lighthouse/i, /web.*vital/i],
     questionType: "how",
     category: "skills",
     answer:
-      "I really enjoy performance optimization. A few examples: I brought dashboard rendering time from 2–3 seconds down to under 500ms, reduced API response times from around 800ms to about 200ms, improved page load times from 8 seconds to roughly 2.5 seconds, and cut almost half of redundant API calls using Redis caching.",
+      "⚡ Performance Optimization — Key Results\n\n🚀 Rendering:\n• SVG → Canvas API: 2–3s → <500ms (83% improvement)\n• Next.js SSR migration: LCP 4.1s → 1.6s (61% improvement)\n\n📦 Bundle:\n• Webpack/Vite code splitting: 2.8MB → 1.5MB (46% reduction)\n• Options API → Composition API + TypeScript: 25% bundle reduction\n\n🔗 API:\n• MongoDB indexing + query optimization: 800ms → 200ms (75%)\n• API response: 400ms → 180ms at QS\n\n🗄️ Caching:\n• Redis reduced redundant API calls by 45%\n• React Query stale-while-revalidate — 45% fewer API calls at QS\n\n📄 Page Load:\n• QS: 8s → 2.5s (69%) · SUNY: 8s → 4.4s (45%)\n\n🎯 Core Web Vitals targets: LCP <2.5s · CLS <0.1 · INP <200ms",
     suggestions: [
-      "How did you optimize rendering?",
-      "What about database optimization?",
-      "Tell me about your tech stack",
+      "How was rendering optimized?",
+      "Tell me about the Next.js migration",
+      "What tools were used?",
     ],
   },
 
-  // CONTACT
+  // ─── DATA VISUALIZATION ──────────────────────────────────────────────────
   {
-    keywords: [
-      "contact",
-      "email",
-      "phone",
-      "reach",
-      "connect",
-      "linkedin",
-      "github",
-    ],
-    patterns: [
-      /contact/i,
-      /email/i,
-      /reach.*you/i,
-      /connect/i,
-      /linkedin/i,
-      /github/i,
-    ],
-    questionType: "how",
-    category: "contact",
-    answer:
-      "Sure — here's how you can reach me:\nEmail: yerraguntlaharish98@gmail.com\nPhone: +1 (205) 736-5808\nLinkedIn: linkedin.com/in/harish-yerraguntla-70695416b\nGitHub: github.com/nandu064\nPortfolio: nandu064.github.io/portfolio",
-    suggestions: [
-      "Where are you located?",
-      "What's your current role?",
-      "Tell me about your experience",
-    ],
-  },
-
-  // LOCATION
-  {
-    keywords: ["location", "where", "based", "live", "city", "remote"],
-    patterns: [/where.*located/i, /where.*based/i, /where.*live/i, /location/i],
-    questionType: "where",
-    category: "contact",
-    answer:
-      "I'm currently based in Painted Post, New York. I work remotely for Progress Solutions in Texas. I'm authorized to work in the US through June 2028 under the OPT STEM extension.",
-    suggestions: [
-      "What's your current role?",
-      "How can I contact you?",
-      "Tell me about your background",
-    ],
-  },
-
-  // YEARS OF EXPERIENCE
-  {
-    keywords: ["how long", "years", "experience years", "how many years"],
-    patterns: [/how.*long/i, /how.*many.*years/i, /years.*experience/i],
-    questionType: "how",
-    category: "experience",
-    answer:
-      "I have a little over 5 years of professional experience. I started freelancing in 2019, then worked at QS and Harns Technologies, completed my Master's, and now I'm a full-time developer at Progress Solutions.",
-    suggestions: [
-      "Where have you worked?",
-      "What's your expertise?",
-      "Tell me about your projects",
-    ],
-  },
-
-  // TESTING
-  {
-    keywords: ["testing", "test", "quality", "jest", "cypress", "coverage"],
-    patterns: [/testing/i, /test.*coverage/i, /quality/i, /jest/i, /cypress/i],
+    keywords: ["visualization", "charts", "graphs", "plotly", "d3", "dashboard", "canvas", "svg", "data viz"],
+    patterns: [/visualization/i, /charts/i, /plotly/i, /d3/i, /dashboard/i, /data.*viz/i],
     questionType: "what",
     category: "skills",
     answer:
-      "I'm big on testing. I usually aim for around 90% coverage for critical features. I work with Jest for unit testing, Cypress for end-to-end tests, and Vitest for Vue components. Everything runs through CI pipelines so issues are caught early.",
+      "📊 Data Visualization Toolkit\n\n• Plotly.js — heavy dashboards · 1M+ data points · interactive plots (Progress Solutions)\n• D3.js — custom charts: line · bar · heatmaps · area charts (Harns IoT platform)\n• Canvas API — performance-critical rendering (replaced SVG · 83% faster at Progress Solutions)\n• Chart.js — lightweight charts for simpler use cases\n• CSV Plot Studio — 10+ chart types, browser-only, Tailwind CSS UI\n\n🌐 Real-time pipeline:\nKafka + Socket.io → sub-second data delivery to Plotly.js dashboards\n\nDashboards serve 50,000+ daily users with single charts rendering 1M+ data points.",
     suggestions: [
-      "What's your CI/CD experience?",
-      "Tell me about your dev practices",
-      "What tools do you use?",
+      "How was performance optimized?",
+      "Tell me about the Plotly.js projects",
+      "What's the tech stack?",
     ],
   },
 
-  // DATA VISUALIZATION
+  // ─── BACKEND SKILLS ──────────────────────────────────────────────────────
   {
-    keywords: [
-      "visualization",
-      "charts",
-      "graphs",
-      "plotly",
-      "d3",
-      "dashboard",
-    ],
-    patterns: [/visualization/i, /charts/i, /plotly/i, /d3/i, /dashboard/i],
+    keywords: ["backend", "api", "server", "node", "python", "fastapi", "django", "graphql", "rest"],
+    patterns: [/backend/i, /server.*side/i, /node/i, /python/i, /fastapi/i, /graphql/i, /rest.*api/i],
     questionType: "what",
     category: "skills",
     answer:
-      "Data visualization is a big part of what I do. I use Plotly.js for heavy dashboards that handle a million+ points, D3.js for custom visualizations, and the Canvas API when I need raw performance. Many of the dashboards I worked on serve tens of thousands of users daily.",
-    suggestions: [
-      "How did you optimize performance?",
-      "Tell me about your projects",
-      "What's your tech stack?",
-    ],
-  },
-
-  // BACKEND
-  {
-    keywords: [
-      "backend",
-      "api",
-      "server",
-      "node",
-      "python",
-      "fastapi",
-      "django",
-    ],
-    patterns: [/backend/i, /api/i, /server/i, /node/i, /python/i, /fastapi/i],
-    questionType: "what",
-    category: "skills",
-    answer:
-      "On the backend, I work with Node.js, Express, and Python FastAPI. I've built GraphQL APIs as well. I've used MongoDB, PostgreSQL, and Redis for caching. With indexing and query optimization, I've brought some endpoints down to under 200ms response time.",
+      "🖥️ Backend Skills\n\n🟢 Node.js + Express.js:\n• RESTful APIs handling 1M+ daily requests (QS)\n• WebSocket streaming for 500+ IoT devices (Harns)\n\n🐍 Python:\n• FastAPI — schema validation · async routes · Swagger docs (SUNY · Progress Solutions)\n• Django — ORM · admin · e-commerce backend (Harns)\n• Flask — lightweight services\n\n🔗 GraphQL + Apollo Server:\n• Optimistic updates · cache normalization (SUNY)\n\n🔴 Redis:\n• Caching layer: 45% API call reduction · session management\n\n🍃 MongoDB:\n• Time-series storage · compound indexes · aggregation pipelines\n• 800ms → 200ms optimization at Progress Solutions\n\n🐘 PostgreSQL:\n• SUNY New Paltz via GCP with Docker deployment\n\nAll APIs documented with Swagger/OpenAPI.",
     suggestions: [
       "What about frontend?",
       "Tell me about databases",
-      "What projects did you build?",
+      "What projects were built?",
     ],
   },
 
-  // GREETING
+  // ─── STATE MANAGEMENT ────────────────────────────────────────────────────
   {
-    keywords: ["hello", "hi", "hey", "greetings"],
-    patterns: [/^(hi|hello|hey|greetings)/i],
-    questionType: "greeting",
-    category: "general",
+    keywords: ["state management", "vuex", "pinia", "redux", "context", "store", "global state"],
+    patterns: [/state.*management/i, /vuex/i, /pinia/i, /redux/i, /global.*state/i],
+    questionType: "what",
+    category: "skills",
     answer:
-      "Hey! I'm Harish. I'm a frontend engineer who loves Vue.js, real-time dashboards, and solving performance problems. What would you like to know about me?",
+      "⚙️ State Management\n\nReact (primary):\n• Redux Toolkit — normalized state · createSlice · RTK Query (QS · SUNY)\n• React Query — client-side caching · background refetching · 45% API call reduction\n• Apollo Client — optimistic updates · cache normalization (SUNY)\n• React Context — lightweight local state\n\nVue.js (secondary):\n• Pinia — modern Vue 3 store · TypeScript-first (Progress Solutions)\n• Vuex — modular store · actions/mutations/getters · 40% code duplication reduction\n\nRule: Redux Toolkit for large React apps · Pinia for new Vue 3 apps · React Query for data fetching.",
     suggestions: [
-      "What's your current role?",
-      "What are your main skills?",
-      "Tell me about your experience",
+      "What's the React/Next.js experience?",
+      "Tell me about Vue.js skills",
+      "What's the tech stack?",
     ],
   },
 
-  // WHO ARE YOU
+  // ─── TYPESCRIPT ──────────────────────────────────────────────────────────
   {
-    keywords: ["who", "about", "yourself", "intro", "introduction"],
-    patterns: [/who.*are.*you/i, /tell.*about.*yourself/i, /introduce/i],
-    questionType: "who",
+    keywords: ["typescript", "ts", "type safety", "types", "typed"],
+    patterns: [/typescript/i, /type.*safe/i, /\bts\b/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "🔷 TypeScript\n\nTypeScript is Harish's default on all serious projects:\n\n• React + TypeScript (strict mode) — QS (8 SPAs) · SUNY (component libraries)\n• Vue.js 3 <script setup lang=\"ts\"> — Progress Solutions · Composition API throughout\n• Next.js 14 — end-to-end typed API routes + MongoDB schemas (Sniplink)\n• Migrated legacy JS Options API → Composition API + TypeScript at Progress Solutions — 25% bundle reduction\n• Custom hooks · generics · discriminated unions · Zod runtime validation",
+    suggestions: [
+      "Tell me about the Vue.js work",
+      "What's the React experience?",
+      "What projects were built?",
+    ],
+  },
+
+  // ─── TESTING ─────────────────────────────────────────────────────────────
+  {
+    keywords: ["testing", "test", "quality", "jest", "cypress", "vitest", "coverage", "tdd", "e2e"],
+    patterns: [/testing/i, /test.*coverage/i, /quality/i, /jest/i, /cypress/i, /tdd/i, /e2e/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "🧪 Testing Strategy\n\n• Unit: Jest (React/Node.js) · Vitest (Vue 3) · Vue Test Utils\n• Integration: React Testing Library — behavior-focused testing\n• E2E: Cypress — full user-flow coverage\n• Coverage target: 90%+ on all critical features\n• CI/CD: GitHub Actions — PRs blocked if tests fail\n\nTest pipelines established from scratch at both Progress Solutions and SUNY.\n\nPhilosophy: test behavior, not implementation — what the user experiences, not internal details.",
+    suggestions: [
+      "What's the CI/CD experience?",
+      "Tell me about dev practices",
+      "What tools are used?",
+    ],
+  },
+
+  // ─── CLOUD / DEVOPS ──────────────────────────────────────────────────────
+  {
+    keywords: ["cloud", "aws", "gcp", "docker", "kubernetes", "devops", "ci cd", "deployment", "github actions"],
+    patterns: [/cloud/i, /aws/i, /gcp/i, /docker/i, /kubernetes/i, /devops/i, /ci.*cd/i, /deploy/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "☁️ Cloud & DevOps\n\n• AWS: EC2 · Lambda · S3 (static hosting) · RDS (PostgreSQL)\n• GCP: SUNY university apps deployed with Docker containers\n• Docker: all recent projects containerized for consistent dev/prod environments\n• Kubernetes: orchestration for microservices at scale\n• CI/CD: GitHub Actions — lint → test → build → deploy on every PR\n• Vercel/Render: Sniplink + CSV Plot Studio deployed with edge functions\n\nFull CI/CD pipeline set up from scratch at SUNY — automated ESLint · Jest · Docker builds · GCP deployment with health checks.",
+    suggestions: [
+      "Tell me about the testing setup",
+      "What's the tech stack?",
+      "Tell me about the projects",
+    ],
+  },
+
+  // ─── KAFKA / REALTIME ────────────────────────────────────────────────────
+  {
+    keywords: ["kafka", "websocket", "realtime", "real-time", "socket", "streaming", "events", "queue"],
+    patterns: [/kafka/i, /websocket/i, /real.*time/i, /socket\.io/i, /message.*queue/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "🌊 Real-Time Systems\n\n📨 Apache Kafka:\n• Processing 1.6M+ events/day from IoT sensors @ Progress Solutions\n• Kafka consumers with error handling · dead-letter queues · sub-second latency\n\n🔌 WebSockets + Socket.io:\n• Bidirectional communication for live dashboards (Harns IoT — 500+ devices)\n• Thousands of concurrent users · robust reconnection logic\n\n⚡ Architecture pattern:\nKafka (reliable event streaming) → Socket.io (browser delivery) → Plotly.js (real-time charts)\n\nAll real-time updates are non-blocking — users see data refresh in under a second.",
+    suggestions: [
+      "Tell me about data visualization",
+      "What's the tech stack?",
+      "How was performance optimized?",
+    ],
+  },
+
+  // ─── CONTACT ─────────────────────────────────────────────────────────────
+  {
+    keywords: ["contact", "email", "phone", "reach", "connect", "linkedin", "github", "hire", "message"],
+    patterns: [/contact/i, /email/i, /reach.*you/i, /connect/i, /linkedin/i, /github/i, /hire/i],
+    questionType: "how",
+    category: "contact",
+    answer:
+      "📬 Contact Harish\n\n📧 Email: yerraguntlaharish98@gmail.com\n📱 Phone: +1 (205) 736-5808\n💼 LinkedIn: linkedin.com/in/harish-yerraguntla-70695416b\n🐙 GitHub: github.com/nandu064\n🌐 Portfolio: nandu064.github.io/portfolio\n\nOpen to: React/Next.js · Vue.js · Full-Stack · Software Engineer roles.\nResponse time: usually within 24 hours.",
+    suggestions: [
+      "Is Harish open to work?",
+      "Where is Harish located?",
+      "What roles is he looking for?",
+    ],
+  },
+
+  // ─── LOCATION ────────────────────────────────────────────────────────────
+  {
+    keywords: ["location", "where", "based", "live", "city", "remote", "new york", "relocate"],
+    patterns: [/where.*located/i, /where.*based/i, /where.*live/i, /location/i, /relocat/i],
+    questionType: "where",
+    category: "contact",
+    answer:
+      "📍 Location\n\nNew York, USA — currently working remote for Progress Solutions (Texas-based).\n\n• Remote-first: 4+ years of fully remote professional experience\n• Open to: remote · hybrid · on-site anywhere in the US\n• Relocation: open for the right opportunity\n• Work Authorization: F-1 OPT (STEM extension available) — no sponsorship needed through June 2028",
+    suggestions: [
+      "What's the work authorization?",
+      "What roles is Harish looking for?",
+      "How to get in contact?",
+    ],
+  },
+
+  // ─── OPEN TO WORK / AVAILABILITY ─────────────────────────────────────────
+  {
+    keywords: ["available", "open to work", "hiring", "open", "looking", "job search", "opportunities", "roles"],
+    patterns: [/open.*to.*work/i, /available.*for/i, /looking.*for.*job/i, /hiring/i, /opportunity/i],
+    questionType: "what",
+    category: "contact",
+    answer:
+      "🟢 Open to New Opportunities\n\n🎯 Target roles:\n• React / Next.js Developer\n• Frontend Engineer\n• Full-Stack Engineer\n• Software Engineer\n\n⚡ What Harish brings:\n• React/Next.js as primary stack + Vue.js as strong secondary\n• Tailwind CSS + Storybook component libraries\n• Full-stack: Node.js · Python · PostgreSQL · MongoDB · Redis · AWS\n• Performance specialist: Core Web Vitals · SSR migrations · rendering optimization\n\n📋 Authorization: F-1 OPT (STEM extension available) — no sponsorship needed through June 2028\n\nReach out directly: yerraguntlaharish98@gmail.com",
+    suggestions: [
+      "How to get in contact?",
+      "What's the tech stack?",
+      "Tell me about the experience",
+    ],
+  },
+
+  // ─── YEARS OF EXPERIENCE ─────────────────────────────────────────────────
+  {
+    keywords: ["how long", "years", "experience years", "how many years", "since when"],
+    patterns: [/how.*long/i, /how.*many.*years/i, /years.*experience/i, /since.*when/i],
+    questionType: "how",
+    category: "experience",
+    answer:
+      "📅 Experience Timeline — 5+ years\n\n• 2020–2021 — QS Quacquarelli Symonds (React SPAs · 15M+ annual visitors)\n• 2021–2023 — Harns Technologies (Next.js · React · 14 production apps)\n• 2023–2025 — MS Computer Science, SUNY New Paltz + Research Assistant\n• Jan 2025 – Now — Progress Solutions Inc. (React/Next.js · Vue.js · intern → full-time Jul 2025)\n\n5+ years of professional production experience.",
+    suggestions: [
+      "Where has Harish worked?",
+      "What's the expertise?",
+      "Tell me about the projects",
+    ],
+  },
+
+  // ─── STRENGTHS / WHY HIRE ─────────────────────────────────────────────────
+  {
+    keywords: ["strengths", "why hire", "why you", "best at", "good at", "standout", "unique", "value", "offer"],
+    patterns: [/why.*hire/i, /why.*you/i, /what.*strengths/i, /what.*offer/i, /stand.*out/i],
+    questionType: "what",
     category: "general",
     answer:
-      "Sure! I'm Harish Yerraguntla. I'm a frontend-focused engineer with strong experience in Vue.js and real-time data visualization. I've worked on applications that serve more than 100,000 users, and I love improving performance and building clean UI experiences. I also recently finished my Master's in CS from SUNY New Paltz.",
+      "🏆 What Sets Harish Apart\n\n⚡ Performance obsession:\n• Data-driven results: LCP 4.1s → 1.6s · render 2–3s → 500ms · load 8s → 2.5s\n• Tools: Lighthouse · Chrome DevTools · Core Web Vitals profiling\n\n🧩 Dual-framework depth:\n• React/Next.js (primary) + Vue.js (secondary) — can contribute to any modern codebase\n• Storybook component libraries adopted by multiple teams\n\n📊 Data visualization specialist:\n• Most engineers avoid complex charts — Harish builds them at scale (1M+ data points)\n\n🔢 Numbers-driven:\n• Every improvement is measurable and documented\n\n🤝 Promoted intern → full-time:\n• Impact recognized at Progress Solutions within 6 months",
     suggestions: [
-      "What's your current project?",
-      "What technologies do you use?",
-      "Tell me about your achievements",
+      "Tell me about the projects",
+      "What's the tech stack?",
+      "How to get in contact?",
+    ],
+  },
+
+  // ─── SOFT SKILLS / WORKING STYLE ─────────────────────────────────────────
+  {
+    keywords: ["soft skills", "team", "collaboration", "communication", "work style", "leadership", "agile", "scrum"],
+    patterns: [/soft.*skills/i, /team.*work/i, /collaborat/i, /work.*style/i, /agile/i, /scrum/i],
+    questionType: "what",
+    category: "general",
+    answer:
+      "🤝 Soft Skills & Work Style\n\n👥 Collaboration:\n• Cross-functional teams (design + product + engineering) @ Progress Solutions — features shipped that increased engagement 20%\n\n📋 Agile/Scrum:\n• Daily standups · sprint planning · code reviews — standard across all full-time roles\n\n🗣️ Communication:\n• APIs documented with Swagger · clear PR descriptions · explains the 'why' behind decisions\n\n📚 Continuous learning:\n• Completed a Master's degree while working professionally\n\n🧑‍🏫 Knowledge sharing:\n• Built Storybook component libraries to accelerate team onboarding\n• Helped junior devs ramp up on Vue.js 3 Composition API patterns",
+    suggestions: [
+      "What's the work experience?",
+      "Tell me about the projects",
+      "How to get in contact?",
+    ],
+  },
+
+  // ─── WORK AUTHORIZATION ──────────────────────────────────────────────────
+  {
+    keywords: ["visa", "authorization", "work authorization", "opt", "stem", "sponsorship", "h1b", "green card"],
+    patterns: [/visa/i, /work.*auth/i, /opt/i, /stem/i, /sponsor/i, /h1b/i, /green.*card/i],
+    questionType: "what",
+    category: "contact",
+    answer:
+      "📋 Work Authorization\n\nStatus: F-1 OPT (STEM extension available)\n📅 OPT valid now · STEM extension extends authorization through June 2028\n✅ No sponsorship needed through June 2028\n🔄 After 2028: open to H-1B sponsorship or other work visa options\n📍 Available for: remote · hybrid · on-site positions across the US\n\nCan start immediately with zero visa processing delays.",
+    suggestions: [
+      "Is Harish open to work?",
+      "Where is Harish located?",
+      "How to get in contact?",
     ],
   },
 ];

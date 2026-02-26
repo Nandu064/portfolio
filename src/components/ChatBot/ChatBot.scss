@@ -1,111 +1,104 @@
 @import '../../styles/base/variables';
 @import '../../styles/base/mixins';
 
-// ChatBot Toggle Button
+// ── Toggle Button ─────────────────────────────────────────────────────────
 .chatbot-toggle {
   position: fixed;
   bottom: $spacer-2xl;
   right: $spacer-2xl;
-  width: 64px;
-  height: 64px;
+  width: 60px;
+  height: 60px;
   border-radius: $border-radius-full;
   background: $gradient-primary;
   border: none;
   cursor: pointer;
   @include flex-center;
-  box-shadow: 0 10px 30px rgba($primary, 0.4);
+  box-shadow: 0 8px 32px rgba($primary, 0.45);
   transition: $transition-base;
   z-index: $z-fixed;
 
   @include mobile {
     bottom: $spacer-lg;
     right: $spacer-lg;
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
   }
 
   svg {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     color: $text-primary;
     transition: $transition-fast;
   }
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 0 15px 40px rgba($primary, 0.5);
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 14px 40px rgba($primary, 0.55);
   }
 
-  &:active {
-    transform: scale(0.95);
-  }
+  &:active { transform: scale(0.95); }
 
   &.active {
     background: $bg-card;
     border: 2px solid $primary;
+    box-shadow: 0 4px 16px rgba($primary, 0.3);
   }
 }
 
 .chatbot-notification {
   position: absolute;
-  top: -5px;
-  right: -5px;
-  width: 24px;
-  height: 24px;
+  top: -4px;
+  right: -4px;
+  width: 20px;
+  height: 20px;
   background: $danger;
   border-radius: $border-radius-full;
   @include flex-center;
-  font-size: $font-size-xs;
-  animation: pulse 2s infinite;
+  font-size: 10px;
+  font-weight: $font-weight-bold;
+  color: #fff;
+  border: 2px solid $bg-primary;
+  animation: cb-pulse 2s infinite;
 }
 
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 0.8;
-  }
+@keyframes cb-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.15); opacity: 0.85; }
 }
 
-// ChatBot Window
+// ── Window ────────────────────────────────────────────────────────────────
 .chatbot-window {
   position: fixed;
   bottom: $spacer-2xl;
   right: $spacer-2xl;
-  width: 400px;
-  height: 600px;
+  width: 420px;
+  height: 620px;
   background: $bg-secondary;
-  border-radius: $border-radius-xl;
-  box-shadow: 0 20px 60px rgba($shadow-heavy, 0.4);
+  border-radius: 20px;
+  box-shadow:
+    0 24px 64px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba($primary, 0.18);
   display: flex;
   flex-direction: column;
   opacity: 0;
-  transform: translateY(20px) scale(0.95);
+  transform: translateY(24px) scale(0.94);
   pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.34, 1.4, 0.64, 1);
   z-index: $z-fixed;
-  border: 1px solid rgba($primary, 0.2);
   overflow: hidden;
 
   @include tablet {
-    width: 350px;
-    height: 550px;
+    width: 360px;
+    height: 560px;
     bottom: $spacer-xl;
     right: $spacer-xl;
   }
 
   @include mobile {
-    bottom: 0;
-    right: 0;
-    left: 0;
-    top: 0;
+    inset: 0;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     border-radius: 0;
-    max-height: 100vh;
   }
 
   &.open {
@@ -115,41 +108,68 @@
   }
 }
 
-// Header
+// ── Header ────────────────────────────────────────────────────────────────
 .chatbot-header {
   @include flex-between;
-  padding: $spacer-lg;
-  background: $gradient-primary;
-  border-radius: $border-radius-xl $border-radius-xl 0 0;
-  
+  padding: $spacer-md $spacer-lg;
+  background: linear-gradient(135deg, #0e1628 0%, #0a1120 60%, #0e1a30 100%);
+  border-bottom: 1px solid rgba($primary, 0.2);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  // Animated shimmer strip
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      105deg,
+      transparent 30%,
+      rgba($primary, 0.07) 50%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: header-shimmer 4s linear infinite;
+    pointer-events: none;
+  }
+
   @include mobile {
     border-radius: 0;
-    padding: $spacer-md $spacer-lg;
+    padding: $spacer-sm $spacer-lg;
   }
+}
+
+@keyframes header-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .chatbot-header-info {
   display: flex;
   align-items: center;
   gap: $spacer-md;
+  position: relative;
+  z-index: 1;
 }
 
 .chatbot-avatar {
   position: relative;
-  width: 45px;
-  height: 45px;
+  width: 44px;
+  height: 44px;
   border-radius: $border-radius-full;
-  background: $bg-card;
+  background: linear-gradient(135deg, $primary, darken($primary, 15%));
   @include flex-center;
   font-weight: $font-weight-bold;
-  font-size: $font-size-lg;
-  color: $primary;
-  box-shadow: 0 4px 10px rgba($shadow-medium, 0.3);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba($primary, 0.35), 0 4px 12px rgba($primary, 0.3);
 
   @include mobile {
-    width: 40px;
-    height: 40px;
-    font-size: $font-size-base;
+    width: 38px;
+    height: 38px;
+    font-size: 10px;
   }
 }
 
@@ -157,444 +177,441 @@
   position: absolute;
   bottom: 2px;
   right: 2px;
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
   background: $success;
   border-radius: $border-radius-full;
-  border: 2px solid $bg-card;
-  animation: pulse 2s infinite;
-
-  @include mobile {
-    width: 10px;
-    height: 10px;
-  }
+  border: 2px solid #0e1628;
+  animation: cb-pulse 2.5s ease-in-out infinite;
 }
 
 .chatbot-title {
+  position: relative;
+  z-index: 1;
+
   h3 {
-    margin: 0;
-    font-size: $font-size-lg;
+    margin: 0 0 2px;
+    font-size: $font-size-base;
     font-weight: $font-weight-semibold;
     color: $text-primary;
-
-    @include mobile {
-      font-size: $font-size-base;
-    }
+    letter-spacing: 0.2px;
   }
 
   p {
     margin: 0;
-    font-size: $font-size-sm;
-    color: rgba($text-primary, 0.8);
-
-    @include mobile {
-      font-size: $font-size-xs;
-    }
+    font-size: $font-size-xs;
+    color: rgba($text-primary, 0.65);
+    display: flex;
+    align-items: center;
+    gap: 5px;
   }
+}
+
+.header-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: $success;
+  display: inline-block;
+  animation: cb-pulse 2.5s ease-in-out infinite;
 }
 
 .chatbot-header-actions {
   display: flex;
-  gap: $spacer-sm;
-
-  @include mobile {
-    gap: $spacer-xs;
-  }
+  gap: $spacer-xs;
+  position: relative;
+  z-index: 1;
 }
 
 .chatbot-action-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: $border-radius;
-  background: rgba($text-primary, 0.1);
-  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: rgba($text-primary, 0.07);
+  border: 1px solid rgba($text-primary, 0.08);
   cursor: pointer;
   @include flex-center;
   transition: $transition-fast;
 
-  @include mobile {
-    width: 32px;
-    height: 32px;
-  }
-
   svg {
-    width: 18px;
-    height: 18px;
-    color: $text-primary;
-
-    @include mobile {
-      width: 16px;
-      height: 16px;
-    }
+    width: 16px;
+    height: 16px;
+    color: rgba($text-primary, 0.7);
   }
 
   &:hover {
-    background: rgba($text-primary, 0.2);
-    transform: scale(1.05);
+    background: rgba($text-primary, 0.14);
+    svg { color: $text-primary; }
   }
 
-  &:active {
-    transform: scale(0.95);
-  }
+  &:active { transform: scale(0.93); }
 }
 
-// Messages Container
+// ── Messages ──────────────────────────────────────────────────────────────
 .chatbot-messages {
   flex: 1;
   overflow-y: auto;
   padding: $spacer-lg;
   display: flex;
   flex-direction: column;
-  gap: $spacer-lg;
+  gap: $spacer-md;
   background: $bg-primary;
-  
+  min-height: 0;
+
   @include mobile {
     padding: $spacer-md;
-    gap: $spacer-md;
-  }
-  
-  &::-webkit-scrollbar {
-    width: 6px;
+    gap: $spacer-sm;
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
+  &::-webkit-scrollbar { width: 4px; }
+  &::-webkit-scrollbar-track { background: transparent; }
   &::-webkit-scrollbar-thumb {
-    background: rgba($primary, 0.3);
+    background: rgba($primary, 0.25);
     border-radius: $border-radius-full;
-
-    &:hover {
-      background: rgba($primary, 0.5);
-    }
+    &:hover { background: rgba($primary, 0.45); }
   }
 }
 
-// Message
+// ── Single message ────────────────────────────────────────────────────────
 .chatbot-message {
   display: flex;
   gap: $spacer-sm;
-  animation: messageSlideIn 0.3s ease;
+  animation: msg-in 0.28s cubic-bezier(0.34, 1.4, 0.64, 1);
 
-  @include mobile {
-    gap: $spacer-xs;
-  }
+  @include mobile { gap: $spacer-xs; }
 
   &.user {
     flex-direction: row-reverse;
-    
+
     .chatbot-message-bubble {
       background: $gradient-primary;
       color: $text-primary;
-      border-radius: $border-radius-lg $border-radius-lg 0 $border-radius-lg;
+      border-radius: 18px 18px 4px 18px;
+      box-shadow: 0 4px 16px rgba($primary, 0.28);
     }
 
-    .chatbot-message-time {
-      text-align: right;
-    }
+    .chatbot-message-time { text-align: right; }
   }
 
-  &.bot {
-    .chatbot-message-bubble {
-      background: $bg-card;
-      color: $text-primary;
-      border-radius: $border-radius-lg $border-radius-lg $border-radius-lg 0;
-    }
+  &.bot .chatbot-message-bubble {
+    background: $bg-card;
+    border-radius: 4px 18px 18px 18px;
+    border: 1px solid rgba($primary, 0.1);
   }
 }
 
-@keyframes messageSlideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes msg-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 .chatbot-message-avatar {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: $border-radius-full;
-  background: $gradient-primary;
+  background: linear-gradient(135deg, $primary, darken($primary, 15%));
   @include flex-center;
   font-weight: $font-weight-semibold;
-  font-size: $font-size-sm;
-  color: $text-primary;
+  font-size: 9px;
+  letter-spacing: 0.3px;
+  color: #fff;
+  align-self: flex-end;
+  margin-bottom: 18px; // offset above the timestamp
 
   @include mobile {
-    width: 28px;
-    height: 28px;
-    font-size: $font-size-xs;
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
   }
 }
 
 .chatbot-message-content {
   display: flex;
   flex-direction: column;
-  gap: $spacer-xs;
-  max-width: 75%;
+  gap: 4px;
+  max-width: 78%;
 
-  @include mobile {
-    max-width: 85%;
-  }
+  @include mobile { max-width: 88%; }
 }
 
+// ── Bubble ────────────────────────────────────────────────────────────────
 .chatbot-message-bubble {
   padding: $spacer-md $spacer-lg;
-  box-shadow: 0 2px 8px rgba($shadow-light, 0.2);
 
-  @include mobile {
-    padding: $spacer-sm $spacer-md;
-  }
+  @include mobile { padding: $spacer-sm $spacer-md; }
+}
 
-  p {
-    margin: 0;
-    font-size: $font-size-base;
-    line-height: $line-height-relaxed;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+// Greeting special bubble
+.greeting-bubble {
+  background: linear-gradient(
+    135deg,
+    rgba($primary, 0.12) 0%,
+    rgba(darken($primary, 10%), 0.08) 100%
+  ) !important;
+  border: 1px solid rgba($primary, 0.25) !important;
+  box-shadow: 0 0 28px rgba($primary, 0.12) !important;
+  position: relative;
+  overflow: hidden;
 
-    @include mobile {
-      font-size: $font-size-sm;
-      line-height: $line-height-normal;
-    }
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at 30% 40%,
+      rgba($primary, 0.08) 0%,
+      transparent 60%
+    );
+    pointer-events: none;
   }
 }
 
-.chatbot-message-time {
-  font-size: $font-size-xs;
-  color: $text-muted;
-  padding: 0 $spacer-sm;
-
-  @include mobile {
-    padding: 0 $spacer-xs;
-  }
-}
-
-// Suggestions
-.chatbot-suggestions {
+// ── Rich text rendering ───────────────────────────────────────────────────
+.cb-text {
   display: flex;
   flex-direction: column;
-  gap: $spacer-xs;
-  margin-top: $spacer-md;
+  gap: 4px;
+}
 
-  @include mobile {
-    margin-top: $spacer-sm;
-  }
+.cb-line {
+  margin: 0;
+  font-size: $font-size-sm;
+  line-height: 1.55;
+  color: $text-primary;
+  word-break: break-word;
+
+  @include mobile { font-size: $font-size-xs; }
+}
+
+// Emoji header lines
+.cb-emoji-header {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  padding-top: 6px;
+
+  &:first-child { padding-top: 0; }
+}
+
+// Greeting hero lines
+.cb-hero-line {
+  font-size: $font-size-base;
+  font-weight: $font-weight-semibold;
+  color: $text-primary;
+  letter-spacing: 0.1px;
+
+  @include mobile { font-size: $font-size-sm; }
+}
+
+// Bullet list
+.cb-list {
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cb-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: $font-size-sm;
+  line-height: 1.5;
+  color: rgba($text-primary, 0.9);
+
+  @include mobile { font-size: $font-size-xs; }
+}
+
+.cb-bullet-dot {
+  flex-shrink: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: $primary;
+  margin-top: 6px;
+}
+
+.cb-divider {
+  border: none;
+  border-top: 1px solid rgba($primary, 0.15);
+  margin: 4px 0;
+}
+
+// ── Timestamp ─────────────────────────────────────────────────────────────
+.chatbot-message-time {
+  font-size: 10px;
+  color: $text-muted;
+  padding: 0 4px;
+}
+
+// ── Suggestions ───────────────────────────────────────────────────────────
+.chatbot-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: $spacer-md;
+  padding-top: $spacer-sm;
+  border-top: 1px solid rgba($primary, 0.1);
 }
 
 .chatbot-suggestion-btn {
-  background: rgba($primary, 0.1);
-  border: 1px solid rgba($primary, 0.3);
-  border-radius: $border-radius;
-  padding: $spacer-sm $spacer-md;
+  background: rgba($primary, 0.08);
+  border: 1px solid rgba($primary, 0.22);
+  border-radius: 20px;
+  padding: 5px 12px;
   color: $primary;
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
   cursor: pointer;
   transition: $transition-fast;
-  text-align: left;
-
-  @include mobile {
-    padding: $spacer-xs $spacer-sm;
-    font-size: $font-size-xs;
-  }
+  white-space: nowrap;
 
   &:hover {
-    background: rgba($primary, 0.2);
+    background: rgba($primary, 0.18);
     border-color: $primary;
-    transform: translateX(3px);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba($primary, 0.2);
   }
 
-  &:active {
-    transform: scale(0.98);
-  }
+  &:active { transform: scale(0.97); }
 }
 
-// Typing Indicator
+// ── Typing indicator ──────────────────────────────────────────────────────
 .chatbot-typing {
   display: flex;
-  gap: $spacer-xs;
-  padding: $spacer-sm 0;
+  gap: 5px;
+  padding: 4px 2px;
+  align-items: center;
 
   span {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: $border-radius-full;
-    background: $text-muted;
-    animation: typing 1.4s infinite;
+    background: rgba($primary, 0.6);
+    animation: cb-typing 1.3s ease-in-out infinite;
 
-    @include mobile {
-      width: 6px;
-      height: 6px;
-    }
-
-    &:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    &:nth-child(3) {
-      animation-delay: 0.4s;
-    }
+    &:nth-child(2) { animation-delay: 0.18s; }
+    &:nth-child(3) { animation-delay: 0.36s; }
   }
 }
 
-@keyframes typing {
-  0%, 60%, 100% {
-    opacity: 0.3;
-    transform: translateY(0);
-  }
-  30% {
-    opacity: 1;
-    transform: translateY(-10px);
-  }
+@keyframes cb-typing {
+  0%, 60%, 100% { opacity: 0.35; transform: translateY(0); }
+  30%           { opacity: 1;    transform: translateY(-6px); }
 }
 
-// Input Container
+// ── Input area ────────────────────────────────────────────────────────────
 .chatbot-input-container {
-  padding: $spacer-lg;
+  padding: $spacer-md $spacer-lg $spacer-lg;
   background: $bg-secondary;
   border-top: 1px solid rgba($primary, 0.1);
+  flex-shrink: 0;
 
-  @include mobile {
-    padding: $spacer-md;
-  }
+  @include mobile { padding: $spacer-sm $spacer-md $spacer-md; }
 }
 
 .chatbot-input-wrapper {
   display: flex;
   gap: $spacer-sm;
-  align-items: flex-end;
+  align-items: center;
+  background: $bg-primary;
+  border: 1px solid rgba($primary, 0.25);
+  border-radius: 14px;
+  padding: $spacer-sm $spacer-sm $spacer-sm $spacer-md;
+  transition: $transition-base;
+
+  &:focus-within {
+    border-color: $primary;
+    box-shadow: 0 0 0 3px rgba($primary, 0.15);
+  }
 }
 
 .chatbot-input {
   flex: 1;
-  background: $bg-primary;
-  border: 1px solid rgba($primary, 0.3);
-  border-radius: $border-radius-lg;
-  padding: $spacer-md;
+  background: transparent;
+  border: none;
   color: $text-primary;
   font-family: $font-family-primary;
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   resize: none;
-  max-height: 100px;
-  transition: $transition-base;
+  max-height: 90px;
+  line-height: 1.5;
+  padding: 0;
+  display: block;
 
-  @include mobile {
-    padding: $spacer-sm;
-    font-size: $font-size-sm;
-  }
+  &::placeholder { color: $text-muted; }
+  &:focus        { outline: none; }
 
-  &::placeholder {
-    color: $text-muted;
-  }
-
-  &:focus {
-    outline: none;
-    border-color: $primary;
-    box-shadow: 0 0 0 3px rgba($primary, 0.2);
-  }
-
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
+  &::-webkit-scrollbar { width: 3px; }
   &::-webkit-scrollbar-thumb {
     background: rgba($primary, 0.3);
     border-radius: $border-radius-full;
   }
+
+  @include mobile { font-size: $font-size-xs; }
 }
 
 .chatbot-send-btn {
   flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: $border-radius-lg;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
   background: $gradient-primary;
   border: none;
   cursor: pointer;
   @include flex-center;
   transition: $transition-base;
 
-  @include mobile {
-    width: 40px;
-    height: 40px;
-  }
-
   svg {
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
     color: $text-primary;
-
-    @include mobile {
-      width: 18px;
-      height: 18px;
-    }
   }
 
   &:hover:not(:disabled) {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba($primary, 0.4);
+    transform: scale(1.07);
+    box-shadow: 0 4px 14px rgba($primary, 0.4);
   }
 
-  &:active:not(:disabled) {
-    transform: scale(0.95);
-  }
+  &:active:not(:disabled) { transform: scale(0.93); }
 
   &:disabled {
-    opacity: 0.5;
+    opacity: 0.35;
     cursor: not-allowed;
   }
 }
 
 .chatbot-disclaimer {
-  margin: $spacer-sm 0 0;
-  font-size: $font-size-xs;
+  margin: 8px 0 0;
+  font-size: 10px;
   color: $text-muted;
   text-align: center;
-
-  @include mobile {
-    margin: $spacer-xs 0 0;
-  }
+  letter-spacing: 0.2px;
 }
 
-// Mobile landscape adjustments
+// ── Responsive edge cases ─────────────────────────────────────────────────
 @media (max-height: 600px) and (orientation: landscape) {
   .chatbot-window {
-    height: 100vh;
-    
-    .chatbot-messages {
-      padding: $spacer-sm;
-    }
-    
-    .chatbot-input-container {
-      padding: $spacer-sm;
-    }
+    height: 100dvh;
+
+    .chatbot-messages { padding: $spacer-sm; }
+    .chatbot-input-container { padding: $spacer-sm; }
   }
 }
 
-// Small mobile screens
 @media (max-width: 480px) {
   .chatbot-toggle {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
     bottom: $spacer-md;
     right: $spacer-md;
-    
-    svg {
-      width: 24px;
-      height: 24px;
-    }
-  }
-  
-  .chatbot-notification {
-    width: 20px;
-    height: 20px;
-    top: -3px;
-    right: -3px;
+
+    svg { width: 22px; height: 22px; }
   }
 }

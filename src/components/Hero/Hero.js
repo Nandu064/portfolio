@@ -180,7 +180,7 @@ const Hero = () => {
                   <span className="metric-label">Users Served</span>
                 </div>
                 <div className="metric">
-                  <span className="metric-number text-gradient">99.9%</span>
+                  <span className="metric-number text-gradient">90%</span>
                   <span className="metric-label">Uptime</span>
                 </div>
               </div>
@@ -256,13 +256,13 @@ const Hero = () => {
                       <span className="code-operator">:</span> [
                     </div>
                     <div className="code-line code-indent-2">
-                      <span className="code-string">'Vue3'</span>,
-                    </div>
-                    <div className="code-line code-indent-2">
                       <span className="code-string">'React'</span>,
                     </div>
                     <div className="code-line code-indent-2">
-                      <span className="code-string">'Python'</span>,
+                      <span className="code-string">'Next.js'</span>,
+                    </div>
+                    <div className="code-line code-indent-2">
+                      <span className="code-string">'Vue.js'</span>,
                     </div>
                     <div className="code-line code-indent-2">
                       <span className="code-string">'Node.js'</span>
