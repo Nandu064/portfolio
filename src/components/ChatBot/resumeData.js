@@ -26,7 +26,7 @@ export const resumeQA = [
     questionType: "who",
     category: "general",
     answer:
-      "👨‍💻 Harish Yerraguntla — Full-Stack Engineer\n\n5+ years building production React, Next.js & Vue.js applications.\n\n🎓 MS Computer Science — SUNY New Paltz (GPA 3.81)\n💼 Software Developer @ Progress Solutions Inc. (promoted intern → full-time)\n🚀 Apps serving 100K+ daily users · 99.8% uptime\n📍 New York, USA — open to remote & hybrid\n\n⚡ Known for: Next.js SSR migrations (LCP 4.1s → 1.6s), Canvas API rendering optimizations (83% faster), and Tailwind CSS + Storybook component libraries used across multiple teams.",
+      "👨‍💻 Harish Yerraguntla — Full-Stack Engineer\n\n5+ years building production React, Next.js & Vue.js applications.\n\n🎓 MS Computer Science — SUNY New Paltz (GPA 3.81)\n💼 Software Developer @ Progress Solutions Inc.\n🚀 Apps serving 100K+ daily users · 99.8% uptime\n📍 New York, USA — open to remote & hybrid\n\n⚡ Known for: Next.js SSR migrations (LCP 4.1s → 1.6s), Canvas API rendering optimizations (83% faster), and Tailwind CSS + Storybook component libraries used across multiple teams.",
     suggestions: [
       "What's the tech stack?",
       "Where has Harish worked?",
@@ -116,7 +116,7 @@ export const resumeQA = [
     questionType: "what",
     category: "experience",
     answer:
-      "📊 Career Overview — 5+ years across 4 companies\n\n1️⃣ Progress Solutions Inc. — Software Developer (Jan 2025 – Present)\n   React/Next.js · Vue.js 3 · Tailwind CSS · Storybook · Node.js · Kafka\n   ↳ Started as Intern · promoted to Full-Time (Jul 2025)\n\n2️⃣ SUNY New Paltz — Graduate Research Assistant (2024)\n   React · TypeScript · Storybook · FastAPI · PostgreSQL · GCP\n\n3️⃣ Harns Technologies — Full-Stack Developer (Oct 2021 – Jul 2023)\n   Next.js · React · Vue.js · Storybook · Canvas API · Node.js\n\n4️⃣ QS Quacquarelli Symonds — Full-Stack Developer (Dec 2020 – Jul 2021)\n   React · TypeScript · Redux Toolkit · Storybook · Node.js",
+      "📊 Career Overview — 5+ years across 4 companies\n\n1️⃣ Progress Solutions Inc. — Software Developer (Jan 2025 – Present)\n   React/Next.js · Vue.js 3 · Tailwind CSS · Storybook · Node.js · Kafka\n\n2️⃣ SUNY New Paltz — Graduate Research Assistant (2024)\n   React · TypeScript · Storybook · FastAPI · PostgreSQL · GCP\n\n3️⃣ Harns Technologies — Full-Stack Developer (Oct 2021 – Jul 2023)\n   Next.js · React · Vue.js · Storybook · Canvas API · Node.js\n\n4️⃣ QS Quacquarelli Symonds — Full-Stack Developer (Dec 2020 – Jul 2021)\n   React · TypeScript · Redux Toolkit · Storybook · Node.js",
     suggestions: [
       "Tell me about Progress Solutions",
       "What was built at Harns?",
@@ -146,7 +146,7 @@ export const resumeQA = [
     questionType: "tell",
     category: "experience",
     answer:
-      "🎓 SUNY New Paltz — Graduate Research Assistant (2024)\nPart-time during Master's program\n\nStack: React.js · TypeScript · Storybook · Python FastAPI · PostgreSQL · Redis · GCP · Docker\n\nKey work:\n• React + TypeScript component library with Storybook — reused across 4 platforms\n• Apollo Client + GraphQL with optimistic updates\n• Redux Toolkit for normalized state management\n• Page load: 8s → 4.4s (45% improvement) via code splitting + lazy loading\n• API response: 300ms → 150ms via Redis caching\n• 90%+ test coverage with Jest + React Testing Library\n• CI/CD: GitHub Actions — lint · test · Docker build · GCP deploy\n\nServed 15M+ annual visitors across 4 university platforms.",
+      "🎓 SUNY New Paltz — Graduate Research Assistant (2024)\nDuring Master's program\n\nStack: React.js · TypeScript · Storybook · Python FastAPI · PostgreSQL · Redis · GCP · Docker\n\nKey work:\n• React + TypeScript component library with Storybook — reused across 4 platforms\n• Apollo Client + GraphQL with optimistic updates\n• Redux Toolkit for normalized state management\n• Page load: 8s → 4.4s (45% improvement) via code splitting + lazy loading\n• API response: 300ms → 150ms via Redis caching\n• 90%+ test coverage with Jest + React Testing Library\n• CI/CD: GitHub Actions — lint · test · Docker build · GCP deploy\n\nServed 15M+ annual visitors across 4 university platforms.",
     suggestions: [
       "Tell me about the education",
       "What other projects were built?",
@@ -416,7 +416,7 @@ export const resumeQA = [
     questionType: "what",
     category: "contact",
     answer:
-      "🟢 Open to New Opportunities\n\n🎯 Target roles:\n• React / Next.js Developer\n• Frontend Engineer\n• Full-Stack Engineer\n• Software Engineer\n\n⚡ What Harish brings:\n• React/Next.js as primary stack + Vue.js as strong secondary\n• Tailwind CSS + Storybook component libraries\n• Full-stack: Node.js · Python · PostgreSQL · MongoDB · Redis · AWS\n• Performance specialist: Core Web Vitals · SSR migrations · rendering optimization\n\n📋 Authorization: F-1 OPT (STEM extension available) — no sponsorship needed through June 2028\n\nReach out directly: yerraguntlaharish98@gmail.com",
+      "🟢 Open to New Opportunities\n\n🎯 Target roles:\n• Full-Stack Engineer\n• React / Next.js Developer\n• Software Engineer\n\n⚡ What Harish brings:\n• React/Next.js as primary stack + Vue.js as strong secondary\n• Tailwind CSS + Storybook component libraries\n• Full-stack: Node.js · Python · PostgreSQL · MongoDB · Redis · AWS\n• Performance specialist: Core Web Vitals · SSR migrations · rendering optimization\n\n📋 Authorization: F-1 OPT (STEM extension available) — no sponsorship needed through June 2028\n\nReach out directly: yerraguntlaharish98@gmail.com",
     suggestions: [
       "How to get in contact?",
       "What's the tech stack?",
@@ -431,7 +431,7 @@ export const resumeQA = [
     questionType: "how",
     category: "experience",
     answer:
-      "📅 Experience Timeline — 5+ years\n\n• 2020–2021 — QS Quacquarelli Symonds (React SPAs · 15M+ annual visitors)\n• 2021–2023 — Harns Technologies (Next.js · React · 14 production apps)\n• 2023–2025 — MS Computer Science, SUNY New Paltz + Research Assistant\n• Jan 2025 – Now — Progress Solutions Inc. (React/Next.js · Vue.js · intern → full-time Jul 2025)\n\n5+ years of professional production experience.",
+      "📅 Experience Timeline — 5+ years\n\n• 2020–2021 — QS Quacquarelli Symonds (React SPAs · 15M+ annual visitors)\n• 2021–2023 — Harns Technologies (Next.js · React · 14 production apps)\n• 2023–2025 — MS Computer Science, SUNY New Paltz + Research Assistant\n• Jan 2025 – Now — Progress Solutions Inc. (React/Next.js · Vue.js · Node.js · Kafka)\n\n5+ years of professional production experience.",
     suggestions: [
       "Where has Harish worked?",
       "What's the expertise?",
@@ -446,7 +446,7 @@ export const resumeQA = [
     questionType: "what",
     category: "general",
     answer:
-      "🏆 What Sets Harish Apart\n\n⚡ Performance obsession:\n• Data-driven results: LCP 4.1s → 1.6s · render 2–3s → 500ms · load 8s → 2.5s\n• Tools: Lighthouse · Chrome DevTools · Core Web Vitals profiling\n\n🧩 Dual-framework depth:\n• React/Next.js (primary) + Vue.js (secondary) — can contribute to any modern codebase\n• Storybook component libraries adopted by multiple teams\n\n📊 Data visualization specialist:\n• Most engineers avoid complex charts — Harish builds them at scale (1M+ data points)\n\n🔢 Numbers-driven:\n• Every improvement is measurable and documented\n\n🤝 Promoted intern → full-time:\n• Impact recognized at Progress Solutions within 6 months",
+      "🏆 What Sets Harish Apart\n\n⚡ Performance obsession:\n• Data-driven results: LCP 4.1s → 1.6s · render 2–3s → 500ms · load 8s → 2.5s\n• Tools: Lighthouse · Chrome DevTools · Core Web Vitals profiling\n\n🧩 Dual-framework depth:\n• React/Next.js (primary) + Vue.js (secondary) — can contribute to any modern codebase\n• Storybook component libraries adopted by multiple teams\n\n📊 Data visualization specialist:\n• Most engineers avoid complex charts — Harish builds them at scale (1M+ data points)\n\n🔢 Numbers-driven:\n• Every improvement is measurable and documented\n\n🚀 Consistent impact:\n• Tangible results delivered at every company — performance, scale, and quality",
     suggestions: [
       "Tell me about the projects",
       "What's the tech stack?",

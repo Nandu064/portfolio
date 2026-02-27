@@ -4,6 +4,12 @@
   "description": "Portfolio showcasing full-stack development expertise in React/Next.js, Vue.js, and modern web technologies",
   "icons": [
     {
+      "src": "logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    },
+    {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
@@ -22,7 +28,7 @@
   "start_url": "./",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "theme_color": "#6366f1",
+  "theme_color": "#64ffda",
   "background_color": "#0f0f23",
   "categories": ["portfolio", "developer", "software-engineer"],
   "lang": "en-US",

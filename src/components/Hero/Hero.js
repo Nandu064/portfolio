@@ -187,7 +187,7 @@ const Hero = () => {
 
               <div className="hero-actions animate-bounce-in">
                 <Button
-                  href="/Harish_Yerraguntla_VueJS.pdf"
+                  href="/Yerraguntla_Harish_Resume.pdf"
                   download="Harish_Yerraguntla_Resume.pdf"
                   variant="primary"
                   size="default"

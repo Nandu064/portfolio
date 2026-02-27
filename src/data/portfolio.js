@@ -464,9 +464,8 @@ export const metadata = {
   workAuthorization:
     "F-1 OPT (STEM extension available) — no sponsorship needed through June 2028",
   preferredRoles: [
-    "React / Next.js Developer",
-    "Frontend Engineer",
     "Full-Stack Engineer",
+    "React / Next.js Developer",
     "Software Engineer",
   ],
   topSkills: [

@@ -68,7 +68,7 @@ const About = () => {
                 <Button
                   variant="outline"
                   size="default"
-                  href="/Harish_Yerraguntla_VueJS.pdf"
+                  href="/Yerraguntla_Harish_Resume.pdf"
                   download="Harish_Yerraguntla_Resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"

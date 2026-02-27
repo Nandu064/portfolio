@@ -13,13 +13,13 @@ const Footer = () => {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const navLinks = [
-    { id: "home",       label: "Home" },
-    { id: "about",      label: "About" },
-    { id: "skills",     label: "Skills" },
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "skills", label: "Skills" },
     { id: "experience", label: "Experience" },
-    { id: "projects",   label: "Projects" },
-    { id: "education",  label: "Education" },
-    { id: "contact",    label: "Contact" },
+    { id: "projects", label: "Projects" },
+    { id: "education", label: "Education" },
+    { id: "contact", label: "Contact" },
   ];
 
   return (
@@ -31,7 +31,6 @@ const Footer = () => {
       <div className="footer-grid-bg" aria-hidden="true" />
 
       <div className="footer-container">
-
         {/* ── CTA Banner ── */}
         <div className="footer-cta">
           <div className="footer-cta-text">
@@ -51,7 +50,7 @@ const Footer = () => {
               <span>Send a Message</span>
             </a>
             <a
-              href="/Harish_Yerraguntla_VueJS.pdf"
+              href="/Yerraguntla_Harish_Resume.pdf"
               download="Harish_Yerraguntla_Resume.pdf"
               className="cta-btn cta-outline"
               aria-label="Download resume"
@@ -67,24 +66,31 @@ const Footer = () => {
 
         {/* ── Main grid ── */}
         <div className="footer-grid">
-
           {/* Brand column */}
           <div className="footer-brand">
-            <div className="brand-monogram" aria-hidden="true">HY</div>
+            <div className="brand-monogram" aria-hidden="true">
+              HY
+            </div>
             <h3 className="brand-name">
               <span className="text-gradient">{personalInfo.name}</span>
             </h3>
-            <p className="brand-role">Frontend Engineer</p>
+            <p className="brand-role">Full-Stack Engineer</p>
             <div className="availability-badge">
               <span className="avail-dot" />
               Open to opportunities
             </div>
             <div className="brand-contacts">
-              <a href={`mailto:${personalInfo.email}`} className="brand-contact-link">
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="brand-contact-link"
+              >
                 <i className="fas fa-envelope" />
                 {personalInfo.email}
               </a>
-              <a href={`tel:${personalInfo.phone}`} className="brand-contact-link">
+              <a
+                href={`tel:${personalInfo.phone}`}
+                className="brand-contact-link"
+              >
                 <i className="fas fa-phone" />
                 {personalInfo.phone}
               </a>
@@ -168,8 +174,8 @@ const Footer = () => {
           </p>
           <p className="footer-built">
             Crafted with{" "}
-            <i className="fas fa-heart heart-icon" aria-hidden="true" />{" "}
-            using React &amp; SCSS
+            <i className="fas fa-heart heart-icon" aria-hidden="true" /> using
+            React &amp; SCSS
           </p>
           <button
             onClick={scrollToTop}
@@ -179,7 +185,6 @@ const Footer = () => {
             <i className="fas fa-arrow-up" />
           </button>
         </div>
-
       </div>
     </footer>
   );
