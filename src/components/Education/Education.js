@@ -52,12 +52,14 @@ const Education = () => {
                           <i className="fas fa-university institution-icon"></i>
                           {edu.institution}
                         </h4>
-                        <div className="education-gpa">
-                          <span className="gpa-label text-white">GPA:</span>
-                          <span className="gpa-value text-white">
-                            {edu.gpa}
-                          </span>
-                        </div>
+                        {edu.gpa && (
+                          <div className="education-gpa">
+                            <span className="gpa-label text-white">GPA:</span>
+                            <span className="gpa-value text-white">
+                              {edu.gpa}
+                            </span>
+                          </div>
+                        )}
                       </div>
                     </CardBody>
                   </Card>

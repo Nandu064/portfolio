@@ -11,7 +11,7 @@ export const resumeQA = [
     questionType: "greeting",
     category: "general",
     answer:
-      "👋 Hey! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Tailwind CSS · Storybook\n\nWhat would you like to know?",
+      "👋 Hey! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Senior UI / Frontend Engineer\nReact.js · Angular · Vue.js · TypeScript · Next.js\n\nWhat would you like to know?",
     suggestions: [
       "Tell me about Harish",
       "What's the tech stack?",
@@ -26,7 +26,7 @@ export const resumeQA = [
     questionType: "who",
     category: "general",
     answer:
-      "👨‍💻 Harish Yerraguntla — Full-Stack Engineer\n\n5+ years building production React, Next.js & Vue.js applications.\n\n🎓 MS Computer Science — SUNY New Paltz (GPA 3.81)\n💼 Software Developer @ Progress Solutions Inc.\n🚀 Apps serving 100K+ daily users · 99.8% uptime\n📍 New York, USA — open to remote & hybrid\n\n⚡ Known for: Next.js SSR migrations (LCP 4.1s → 1.6s), Canvas API rendering optimizations (83% faster), and Tailwind CSS + Storybook component libraries used across multiple teams.",
+      "👨‍💻 Harish Yerraguntla — Senior UI / Frontend Engineer\n\n10+ years building enterprise web and mobile applications across Banking, Healthcare, Airlines, and Financial Services.\n\n🎓 MS Computer Science — SUNY New Paltz\n💼 Senior Frontend Developer @ Thomson Reuters\n🏭 Industries: Banking · Healthcare · Airlines · Mortgage · Financial Services\n📍 New York, USA — open to remote & hybrid\n\n⚡ Known for: Enterprise SPAs with React.js/Angular, WCAG 2.0/2.1 accessibility compliance, HIPAA-compliant healthcare dashboards, and AWS/Jenkins CI/CD deployments.",
     suggestions: [
       "What's the tech stack?",
       "Where has Harish worked?",
@@ -41,7 +41,7 @@ export const resumeQA = [
     questionType: "what",
     category: "experience",
     answer:
-      "💼 Current Role\nSoftware Developer @ Progress Solutions Inc.\nRemote · Texas · Promoted July 2025\n\nKey work:\n• Next.js SSR migration — LCP improved 4.1s → 1.6s (61%)\n• Vue.js 3 + TypeScript dashboards serving 50,000+ daily users\n• Reusable Storybook component library — 40% dev time reduction\n• Kafka processing 1.6M+ IoT events/day · sub-second latency\n• MongoDB optimization: 800ms → 200ms (75% improvement)\n• Bundle: 2.8MB → 1.5MB (46% reduction via code splitting)\n• Redis caching — 45% fewer API calls\n• 90%+ test coverage · Jest + Cypress + GitHub Actions CI/CD",
+      "💼 Current Role\nSenior Frontend Developer @ Thomson Reuters\nEagan, MN · May 2024 – Present\n\nKey work:\n• Responsive web apps with React.js, Next.js SSR, Tailwind CSS, and Bootstrap\n• Vue.js + TypeScript + Vuex/Vue Router enterprise components with Storybook\n• React Native and Xamarin cross-platform mobile applications\n• WCAG accessibility remediation — Lighthouse, axe-core, screen reader support\n• Redux middleware, GraphQL, WebSockets for real-time state sync\n• AWS cloud infrastructure with Jenkins CI/CD pipelines\n• ASP.NET Core services following SOA principles\n• Unit testing with Jest, Enzyme, and Jasmine",
     suggestions: [
       "What does the day-to-day look like?",
       "What's the tech stack?",
@@ -56,10 +56,10 @@ export const resumeQA = [
     questionType: "what",
     category: "experience",
     answer:
-      "📋 Day-to-Day at Progress Solutions\n\n• Building React/Next.js SSR features and Vue.js 3 dashboards with Plotly.js (1M+ data points)\n• Consuming Kafka streams via Socket.io for live sub-second data updates\n• Shipping Tailwind CSS + Storybook components shared across teams\n• Writing Node.js / FastAPI endpoints with proper validation and Swagger docs\n• Running Jest unit tests + Cypress E2E targeting 90%+ coverage\n• Profiling with Chrome DevTools and Lighthouse — Core Web Vitals (LCP <2.5s, INP <200ms)",
+      "📋 Day-to-Day at Thomson Reuters\n\n• Building React.js / Next.js SSR features and Vue.js + TypeScript components with Storybook\n• Integrating RESTful and SOAP web services; consuming GraphQL APIs and WebSockets for real-time data\n• Implementing Redux middleware, action creators, reducers, and store state management\n• Writing unit tests with Jest, Enzyme, and Jasmine; generating coverage reports with Istanbul\n• Leading WCAG accessibility compliance using ESLint, Lighthouse, and SCSS variable theming\n• Deploying microservices on AWS cloud via Jenkins CI/CD pipelines\n• Collaborating with QA teams, Scrum Masters, and Business Analysts in Agile sprints",
     suggestions: [
       "What technologies are used?",
-      "How was performance optimized?",
+      "Tell me about the accessibility work",
       "Tell me about the React/Next.js work",
     ],
   },
@@ -71,22 +71,37 @@ export const resumeQA = [
     questionType: "what",
     category: "skills",
     answer:
-      "⚛️ React & Next.js — Primary Stack\n\nNext.js (SSR/SSG/ISR):\n• Progress Solutions — migrated legacy pages to Next.js SSR · LCP 4.1s → 1.6s\n• Harns — Next.js ISR e-commerce product pages · LCP 2.1s\n\nReact SPAs:\n• QS Quacquarelli Symonds — 8 React + TypeScript SPAs · 15M+ annual visitors · load time 8s → 2.5s\n• SUNY — React + TypeScript component library · Apollo Client · GraphQL\n\n🎨 Tailwind CSS:\n• Used across all recent projects for rapid, consistent styling\n• Paired with Storybook for documented component libraries used across teams\n\n📚 Storybook:\n• Documented 50+ React components at Harns Technologies\n• SUNY component library — Storybook docs reused across 4 platforms\n\n⚙️ State:\n• Redux Toolkit · React Query · Apollo Client · React Context\n• React Testing Library + Jest + Cypress for quality",
+      "⚛️ React & Next.js — Core Stack\n\nThomson Reuters (2024–Present):\n• React.js SPAs with Tailwind CSS, Bootstrap, and Redux middleware\n• Next.js SSR for improved SEO and page load performance\n• React Native + Xamarin cross-platform mobile apps\n• Storybook component-driven development with Atomic Design\n\nDTCC (2021–2024):\n• React SPAs with microservice architecture — Redux, React Router, Hooks, HOCs, Render Props\n• Advanced patterns: Portals, Fragments, Custom Hooks\n• Optimized React Lifecycle Methods and Functional Components\n• React Testing Library + Jest for 90%+ test coverage\n\nUniversal Health Services (2020–2021):\n• React.js + TypeScript HIPAA-compliant patient dashboards\n• OAuth 2.0, OpenID Connect, Okta secure authentication\n• FHIR-based APIs in Next.js with JWT and GraphQL\n\n⚙️ State: Redux · Redux Toolkit · Flux · Context API",
     suggestions: [
-      "What's the Vue.js experience?",
-      "Tell me about performance optimization",
+      "What's the Angular experience?",
+      "Tell me about the DTCC work",
       "What projects were built with React?",
     ],
   },
 
-  // ─── VUE.JS (SECONDARY) ──────────────────────────────────────────────────
+  // ─── ANGULAR / ANGULARJS ──────────────────────────────────────────────────
   {
-    keywords: ["vue", "vuejs", "vue.js", "vue 3", "vuex", "pinia", "composition api", "nuxt", "nuxtjs"],
-    patterns: [/vue/i, /vuex/i, /pinia/i, /composition.*api/i, /nuxt/i],
+    keywords: ["angular", "angularjs", "rxjs", "angular material"],
+    patterns: [/angular/i, /rxjs/i, /angular.*material/i],
     questionType: "what",
     category: "skills",
     answer:
-      "🟢 Vue.js — Strong Secondary Specialization\n\nHarish has deep Vue.js 3 expertise alongside React:\n\n🔧 Core:\n• Vue 3 Composition API + <script setup lang=\"ts\">\n• Vuex (modular store) · Pinia · Vue Router · Nuxt.js\n• Migrated legacy Options API codebases to Composition API + TypeScript — 25% bundle reduction\n\n📊 Production:\n• Vue.js 3 dashboards @ Progress Solutions — 50K+ daily users · 1M+ Plotly.js data points\n• Nuxt.js SSR — boosted SEO 40%, improved initial render performance\n• Reusable Vue 3 + Storybook component library — 40% dev time reduction\n\n🧪 Testing:\n• Vitest + Vue Test Utils — 90%+ coverage\n• Paired with GitHub Actions CI/CD on every PR",
+      "🔺 Angular & AngularJS Experience\n\nDTCC (2021–2024):\n• Angular + Bootstrap integrations with dynamic responsive web applications\n• Collaborated with Vue.js for hybrid frontend architectures\n\nUniversal Health Services (2020–2021):\n• Angular/AngularJS SPAs for patient records, user requests, and security settings\n• Angular .NET Core microservices — RESTful APIs, CRUD operations, HIPAA compliance\n• Custom Angular directives: browser controls, multifield forms, file uploads\n• Angular-Bootstrap components: grids, toolbars, panels, combo-boxes, and filters\n• Angular CLI and NPM for application scaffolding\n\nHawaiian Airlines (2017–2019):\n• Angular front-end with RxJS Observables and Angular HTTP for REST API integration\n• Led full-stack development: Angular + Ruby on Rails/Node.js backend\n• Angular routing, Two-Way Data Binding, RESTful services\n\nMizuho Americas (2015–2016):\n• Multiple Angular SPAs for users, sponsors, reviewers, publishers\n• Angular Material, TypeScript, ES6 — single-page financial applications\n• Client-side validation using CSS and Angular Form Validation",
+    suggestions: [
+      "What's the Vue.js experience?",
+      "Tell me about the Hawaiian Airlines work",
+      "What's the full tech stack?",
+    ],
+  },
+
+  // ─── VUE.JS ──────────────────────────────────────────────────────────────
+  {
+    keywords: ["vue", "vuejs", "vue.js", "vuex", "vue router"],
+    patterns: [/vue/i, /vuex/i, /vue.*router/i],
+    questionType: "what",
+    category: "skills",
+    answer:
+      "🟢 Vue.js Experience\n\nThomson Reuters (2024–Present):\n• Vue.js + TypeScript + VuePress enterprise applications\n• Vuex and Vue Router for state management and navigation\n• Component communication through events and parent-child hierarchies\n• Modular clinical UI components with Tailwind CSS and Storybook\n\nDTCC (2021–2024):\n• Vue.js integrated with dynamic responsive web applications alongside Angular+Bootstrap\n\nUniversal Health Services (2020–2021):\n• Vue 2 data visualization using vue-chart-js for analytical dashboards\n• Front-end architecture with Vue.js for business insights reporting",
     suggestions: [
       "What's the React/Next.js experience?",
       "Tell me about state management",
@@ -101,11 +116,11 @@ export const resumeQA = [
     questionType: "what",
     category: "skills",
     answer:
-      "🛠 Tech Stack\n\n🎨 Frontend (Primary):\n• React.js · Next.js (SSR/SSG/ISR) · TypeScript · Tailwind CSS · Storybook\n\n🎨 Frontend (Secondary):\n• Vue.js 3 · Nuxt.js · Composition API · Vuex · Pinia\n\n⚙️ State Management:\n• Redux Toolkit · React Query · Apollo Client · Vuex · Pinia\n\n🖥️ Backend:\n• Node.js/Express.js · Python (FastAPI · Django · Flask) · GraphQL\n\n📊 Data Viz:\n• Plotly.js · D3.js · Chart.js · Canvas API · SVG · Real-time dashboards\n\n🌊 Real-time:\n• Apache Kafka · WebSockets · Socket.io\n\n🗄️ Databases:\n• MongoDB · PostgreSQL · Redis · MySQL\n\n☁️ Cloud/DevOps:\n• AWS (EC2, Lambda, S3, RDS) · GCP · Docker · Kubernetes · GitHub Actions CI/CD\n\n🧪 Testing:\n• Jest · Vitest · Cypress · React Testing Library · Vue Test Utils · Playwright",
+      "🛠 Tech Stack\n\n🎨 Frontend:\n• React.js · Next.js (SSR/SSG) · Angular · AngularJS · Vue.js · React Native · TypeScript\n• Tailwind CSS · Bootstrap · Material UI · SASS/SCSS · LESS · Flexbox · CSS Grid\n\n⚙️ State Management:\n• Redux · Redux Toolkit · Flux · Vuex · Context API · RxJS\n\n🖥️ Backend:\n• Node.js/Express.js · ASP.NET Core · .NET MVC · Ruby on Rails · SailsJS\n• RESTful APIs · SOAP APIs · GraphQL · WebSockets · FHIR APIs\n\n🔐 Auth & Security:\n• OAuth 2.0 · OpenID Connect · JWT · Okta · Auth0\n• WCAG 2.0/2.1 · ARIA · Lighthouse · Axe-core\n\n🗄️ Databases:\n• SQL Server · MySQL · Oracle · MongoDB · PostgreSQL · NoSQL\n\n☁️ Cloud/DevOps:\n• AWS (EC2, S3, ELB, IAM, CloudWatch) · Docker · Jenkins · Azure DevOps · CI/CD\n\n🧪 Testing:\n• Jest · Jasmine · Karma · Mocha · Enzyme · React Testing Library · Cypress · XUnit · NUnit",
     suggestions: [
       "What's the React/Next.js experience?",
       "Tell me about backend skills",
-      "What about data visualization?",
+      "What about accessibility expertise?",
     ],
   },
 
@@ -116,71 +131,86 @@ export const resumeQA = [
     questionType: "what",
     category: "experience",
     answer:
-      "📊 Career Overview — 5+ years across 4 companies\n\n1️⃣ Progress Solutions Inc. — Software Developer (Jan 2025 – Present)\n   React/Next.js · Vue.js 3 · Tailwind CSS · Storybook · Node.js · Kafka\n\n2️⃣ SUNY New Paltz — Graduate Research Assistant (2024)\n   React · TypeScript · Storybook · FastAPI · PostgreSQL · GCP\n\n3️⃣ Harns Technologies — Full-Stack Developer (Oct 2021 – Jul 2023)\n   Next.js · React · Vue.js · Storybook · Canvas API · Node.js\n\n4️⃣ QS Quacquarelli Symonds — Full-Stack Developer (Dec 2020 – Jul 2021)\n   React · TypeScript · Redux Toolkit · Storybook · Node.js",
+      "📊 Career Overview — 10+ years across 5 companies\n\n1️⃣ Thomson Reuters — Senior Frontend Developer (May 2024 – Present)\n   React.js · Next.js · Vue.js · TypeScript · AWS · Jenkins\n\n2️⃣ DTCC — Senior Frontend Developer (Nov 2021 – Apr 2024)\n   React.js · Redux · OAuth 2.0 · Okta · GraphQL · Azure DevOps\n\n3️⃣ Universal Health Services — Senior Frontend UI Developer (Feb 2020 – Oct 2021)\n   React.js · Angular · .NET Core · D3.js · HIPAA · FHIR APIs\n\n4️⃣ Hawaiian Airlines — UI Developer (Mar 2017 – Nov 2019)\n   Angular · React.js · Ruby on Rails · SailsJS · AWS\n\n5️⃣ Mizuho Americas — UI Developer (Jan 2015 – Dec 2016)\n   Angular · TypeScript · Angular Material · REST APIs",
     suggestions: [
-      "Tell me about Progress Solutions",
-      "What was built at Harns?",
+      "Tell me about Thomson Reuters",
+      "What was built at DTCC?",
       "What about education?",
     ],
   },
 
-  // ─── PROGRESS SOLUTIONS ──────────────────────────────────────────────────
+  // ─── THOMSON REUTERS ─────────────────────────────────────────────────────
   {
-    keywords: ["progress solutions", "progress", "current company", "current employer"],
-    patterns: [/progress.*solutions/i, /current.*company/i, /current.*employer/i],
+    keywords: ["thomson reuters", "reuters", "current company", "current employer"],
+    patterns: [/thomson.*reuters/i, /reuters/i, /current.*company/i, /current.*employer/i],
     questionType: "tell",
     category: "experience",
     answer:
-      "🏢 Progress Solutions Inc. — Software Developer\nRemote · Texas · Jan 2025 – Present (Promoted Jul 2025)\n\nKey achievements:\n• Next.js SSR migration — LCP improved 4.1s → 1.6s (61% improvement)\n• SVG → Canvas API rendering — 2–3s → 500ms (83% faster)\n• Vue.js 3 + TypeScript + Storybook component library — 40% dev time reduction\n• Kafka consumer: 1.6M+ IoT events/day · sub-second latency\n• MongoDB query optimization: 800ms → 200ms (75% improvement)\n• Redis caching: 45% fewer redundant API calls\n• Bundle: 2.8MB → 1.5MB (46% reduction)\n• 90%+ test coverage — Jest · Cypress · GitHub Actions CI/CD\n\nDashboards serve 50,000+ daily users.",
+      "🏢 Thomson Reuters — Senior Frontend Developer\nEagan, MN · May 2024 – Present\n\nKey responsibilities:\n• Responsive web apps using HTML5, CSS3, Tailwind CSS, React.js, and Next.js SSR\n• Vue.js + TypeScript + VuePress with Vuex/Vue Router enterprise components\n• React Native and Xamarin (C#/VB.NET) cross-platform mobile applications\n• Storybook component-driven development following Atomic Design principles\n• Redux middleware — action creators, reducers, store state management\n• WCAG accessibility remediation — ESLint, Lighthouse, SCSS theming, screen readers\n• AWS cloud infrastructure with Jenkins CI/CD pipelines\n• ASP.NET Core SOA services and C# XML web services\n• SOAP and RESTful web services; GraphQL APIs; WebSocket real-time sync\n• Unit testing with Jest, Enzyme, and Jasmine with Istanbul coverage reports",
     suggestions: [
-      "How was performance optimized?",
       "What's the tech stack?",
+      "Tell me about accessibility work",
       "Tell me about other companies",
     ],
   },
 
-  // ─── SUNY RESEARCH ASSISTANT ─────────────────────────────────────────────
+  // ─── DTCC ────────────────────────────────────────────────────────────────
   {
-    keywords: ["suny", "research assistant", "university", "research", "new paltz", "academic"],
-    patterns: [/suny/i, /research.*assistant/i, /new.*paltz/i, /university.*work/i],
+    keywords: ["dtcc", "depository trust", "coppell"],
+    patterns: [/dtcc/i, /depository.*trust/i],
     questionType: "tell",
     category: "experience",
     answer:
-      "🎓 SUNY New Paltz — Graduate Research Assistant (2024)\nDuring Master's program\n\nStack: React.js · TypeScript · Storybook · Python FastAPI · PostgreSQL · Redis · GCP · Docker\n\nKey work:\n• React + TypeScript component library with Storybook — reused across 4 platforms\n• Apollo Client + GraphQL with optimistic updates\n• Redux Toolkit for normalized state management\n• Page load: 8s → 4.4s (45% improvement) via code splitting + lazy loading\n• API response: 300ms → 150ms via Redis caching\n• 90%+ test coverage with Jest + React Testing Library\n• CI/CD: GitHub Actions — lint · test · Docker build · GCP deploy\n\nServed 15M+ annual visitors across 4 university platforms.",
+      "🏢 DTCC — Senior Frontend Developer\nCoppell, Texas · Nov 2021 – Apr 2024\n\nKey responsibilities:\n• Led SDLC in Agile (Scrum, XP, Pair Programming) environments\n• React.js SPAs with microservice architecture using HOCs, Render Props, Custom Hooks, Portals\n• OAuth 2.0/OpenID Connect authentication with Auth0 and Okta — enterprise security\n• Responsive UIs: React · Redux · React Router · Hooks · Context API · Bootstrap · SASS/LESS\n• Mentored junior developers on React best practices, Git workflows, and CI/CD\n• GraphQL with MongoDB; relational databases (MS SQL, Oracle) — stored procedures\n• TypeScript-driven component development; code reviews and performance audits\n• CI/CD: Jenkins · Azure DevOps · Git · Bitbucket · Webpack · Babel\n• Testing: Jest · React Testing Library · Mocha implementing TDD\n• JIRA for sprint coordination, defect tracking, and issue management",
     suggestions: [
-      "Tell me about the education",
-      "What other projects were built?",
+      "Tell me about the React expertise",
+      "What's the authentication experience?",
+      "Tell me about other companies",
+    ],
+  },
+
+  // ─── UNIVERSAL HEALTH SERVICES ───────────────────────────────────────────
+  {
+    keywords: ["universal health", "uhs", "healthcare", "hipaa", "fhir", "medical"],
+    patterns: [/universal.*health/i, /\buhs\b/i, /hipaa/i, /healthcare.*company/i],
+    questionType: "tell",
+    category: "experience",
+    answer:
+      "🏥 Universal Health Services — Senior Frontend UI Developer\nPA, USA · Feb 2020 – Oct 2021\n\nKey responsibilities:\n• HIPAA-compliant patient dashboards with React.js + TypeScript — end-to-end encryption\n• OAuth 2.0/OpenID Connect/Okta authentication; FHIR APIs in Next.js with JWT + GraphQL\n• Angular/AngularJS SPAs for patient records, user requests, and security settings\n• .NET Core microservices and RESTful APIs for hybrid frontend applications\n• D3.js cash flow analysis charts and vue-chart-js analytical dashboards\n• WCAG 2.0 AA compliance: ARIA roles, axe-core, Cypress E2E with QA teams\n• Custom Angular directives: browser controls, multifield forms, file uploads\n• Cross-platform mobile apps using Ionic for iOS and Android\n• Node.js backends with MongoDB via Mongoose; TDD with Jasmine and Karma\n• XUnit, NUnit, and Moq in .NET Core for edge test cases",
+    suggestions: [
+      "Tell me about the HIPAA compliance work",
+      "What's the Angular experience?",
+      "Tell me about other companies",
+    ],
+  },
+
+  // ─── HAWAIIAN AIRLINES ───────────────────────────────────────────────────
+  {
+    keywords: ["hawaiian airlines", "hawaiian", "airlines", "honolulu"],
+    patterns: [/hawaiian.*airlines/i, /hawaiian/i, /\bairlines\b/i],
+    questionType: "tell",
+    category: "experience",
+    answer:
+      "✈️ Hawaiian Airlines — UI Developer\nHonolulu, Hawaii · Mar 2017 – Nov 2019\n\nKey responsibilities:\n• Integrated Airline SOAP APIs, Insurance Agent REST APIs, and Payment Gateway services\n• Ruby on Rails Active Record ORM schemas; SailsJS + MongoDB via Waterline ORM for booking state\n• Angular SPAs with RxJS Observables and Angular HTTP for REST API connectivity\n• Full-stack: Angular front-end + Ruby on Rails/Node.js backends following MVC architecture\n• React apps with Redux · Material UI · React-Router and React Hook Form + Flux\n• Isomorphic responsive websites for desktop, tablet, and mobile using React.js\n• AWS infrastructure (EC2, ELB, S3, CloudWatch, Auto Scaling, VPC, IAM)\n• Docker across dev, test, and staging; Jenkins CI/CD with GitHub automation\n• Nginx with Phusion Passenger for reverse proxy and load balancing",
+    suggestions: [
+      "What's the AWS experience?",
+      "Tell me about other companies",
       "What's the full tech stack?",
     ],
   },
 
-  // ─── HARNS TECHNOLOGIES ──────────────────────────────────────────────────
+  // ─── MIZUHO AMERICAS ─────────────────────────────────────────────────────
   {
-    keywords: ["harns", "harns technologies", "india", "previous company"],
-    patterns: [/harns/i],
+    keywords: ["mizuho", "mizuho americas", "financial", "banking company"],
+    patterns: [/mizuho/i],
     questionType: "tell",
     category: "experience",
     answer:
-      "🏢 Harns Technologies Private Ltd — Full-Stack Developer\nIndia · Oct 2021 – Jul 2023\n\n14 production applications shipped.\n\nKey projects:\n• E-commerce platform — Next.js SSG/ISR product pages (LCP 2.1s) · 50+ Storybook-documented React components · Stripe/PayPal/Razorpay · 10K+ monthly transactions\n• IoT real-time dashboard — Canvas API (replaced SVG · 67% render improvement) · Node.js + WebSockets · 500+ devices · MongoDB time-series\n• Publishing platforms — 100K+ daily users · 99.8% uptime · 90+ Lighthouse\n\nTailwind CSS + Storybook libraries accelerated cross-team development.",
+      "🏦 Mizuho Americas — UI Developer\nNew York, NY · Jan 2015 – Dec 2016\n\nKey responsibilities:\n• Front-end UIs using HTML5, CSS3, SASS/SCSS, TypeScript, JavaScript, and Angular with Angular Material\n• Single-page web applications with custom and built-in Angular directives\n• Client-side validation with Angular Form Validation; Two-Way Data Binding for real-time data\n• Multiple Angular SPAs for users, sponsors, reviewers, and publishers\n• Angular services communicating with Express.js for CRUD operations\n• HTTP calls from browser to server-side for data retrieval\n• Angular routing and key functionality using TypeScript and ES6\n• Cross-browser compatibility with HTML5, CSS, and jQuery\n• System testing and regression testing after UI fixes",
     suggestions: [
-      "Tell me about the IoT platform",
-      "What about QS?",
-      "Tell me about React at Harns",
-    ],
-  },
-
-  // ─── QS QUACQUARELLI ─────────────────────────────────────────────────────
-  {
-    keywords: ["qs", "quacquarelli", "symonds", "qs quacquarelli"],
-    patterns: [/quacquarelli/i, /\bqs\b/i],
-    questionType: "tell",
-    category: "experience",
-    answer:
-      "🏢 QS Quacquarelli Symonds — Full-Stack Developer\nIndia · Dec 2020 – Jul 2021\n\n8 React + TypeScript SPAs serving 15M+ annual visitors.\n\nKey results:\n• Page load: 8s → 2.5s (69% improvement) via React.lazy() + code splitting\n• API response: 400ms → 180ms via query optimization + Redis caching\n• React Query — 45% fewer API calls · stale-while-revalidate\n• Storybook component library — documented reusable component system\n• Express.js APIs: 1M+ daily requests handled\n• WCAG 2.1 AA accessible · mobile-first CSS Grid + Flexbox",
-    suggestions: [
-      "How did the career start?",
-      "What's the React experience overall?",
-      "What projects have been built?",
+      "Tell me about the career start",
+      "What's the Angular expertise overall?",
+      "Where else has Harish worked?",
     ],
   },
 
@@ -191,11 +221,11 @@ export const resumeQA = [
     questionType: "what",
     category: "education",
     answer:
-      "🎓 Education\n\nMaster of Science — Computer Science\n• State University of New York (SUNY), New Paltz\n• 2023 – 2025 · GPA: 3.81 / 4.0\n• Coursework: Web Development · Full-Stack Dev · Database Systems · Software Engineering · Cloud Computing\n• Also worked as Graduate Research Assistant (React · Storybook · FastAPI · GCP)\n\nBachelor of Technology — Computer Science\n• Lovely Professional University, Punjab, India\n• 2017 – 2021 · GPA: 3.2 / 4.0",
+      "🎓 Education\n\nMaster of Science — Computer Science\n• State University of New York (SUNY), New Paltz, NY",
     suggestions: [
-      "What was the SUNY role?",
       "What's the work experience?",
       "Tell me about the skills",
+      "Tell me about the projects",
     ],
   },
 
@@ -206,11 +236,11 @@ export const resumeQA = [
     questionType: "what",
     category: "projects",
     answer:
-      "🚀 Featured Projects\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Intersection Observer animations · EmailJS pipeline\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages\n\nWork apps: 14 production apps at Harns · IoT platform (500+ devices) · dashboards serving 50K+ users.",
+      "🚀 Featured Personal Projects\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Intersection Observer animations · EmailJS pipeline\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages\n\nProfessional: 10+ years of enterprise apps across Banking, Healthcare, Airlines, and Finance.",
     suggestions: [
       "Tell me about Sniplink",
       "Tell me about CSV Plot Studio",
-      "Tell me about the IoT platform",
+      "Tell me about the enterprise experience",
     ],
   },
 
@@ -221,7 +251,7 @@ export const resumeQA = [
     questionType: "tell",
     category: "projects",
     answer:
-      "🔗 Sniplink — Production URL Shortener\nLive: sniplink.vercel.app\n\nArchitecture highlights:\n• Edge Middleware issues 301 redirects — visitor never hits Node.js · near-instant\n• Click analytics: SHA-256 hashed IPs · ua-parser-js (device/browser/OS) · Vercel geo headers — no raw PII stored\n• Atomic $inc on totalClicks — O(1) reads vs O(n) countDocuments at scale\n• Custom 3-tier rate limiter — 429 + Retry-After + X-RateLimit headers\n• Auth: NextAuth v5 · bcrypt password hashing\n• Custom aliases with nanoid-generated short codes\n\nStack: Next.js 14 · TypeScript · MongoDB · NextAuth v5 · Vercel Edge",
+      "🔗 Sniplink — Production URL Shortener\nLive: sniplink-green.vercel.app\n\nArchitecture highlights:\n• Edge Middleware issues 301 redirects — visitor never hits Node.js · near-instant\n• Click analytics: SHA-256 hashed IPs · ua-parser-js (device/browser/OS) · Vercel geo headers — no raw PII stored\n• Atomic $inc on totalClicks — O(1) reads vs O(n) countDocuments at scale\n• Custom 3-tier rate limiter — 429 + Retry-After + X-RateLimit headers\n• Auth: NextAuth v5 · bcrypt password hashing\n• Custom aliases with nanoid-generated short codes\n\nStack: Next.js 14 · TypeScript · MongoDB · NextAuth v5 · Vercel Edge",
     suggestions: [
       "Tell me about CSV Plot Studio",
       "What other projects exist?",
@@ -244,59 +274,59 @@ export const resumeQA = [
     ],
   },
 
-  // ─── IOT PLATFORM DETAILS ────────────────────────────────────────────────
+  // ─── ACCESSIBILITY ────────────────────────────────────────────────────────
   {
-    keywords: ["iot", "sensors", "devices", "real-time data", "websocket", "streaming"],
-    patterns: [/iot/i, /sensors/i, /real.*time.*data/i, /websocket/i, /streaming/i],
-    questionType: "tell",
-    category: "projects",
+    keywords: ["accessibility", "wcag", "aria", "a11y", "screen reader", "axe", "lighthouse"],
+    patterns: [/accessibility/i, /wcag/i, /aria/i, /a11y/i, /screen.*reader/i, /axe.*core/i],
+    questionType: "what",
+    category: "skills",
     answer:
-      "📡 IoT Real-Time Platform — Harns Technologies\n\nArchitecture:\n• Canvas API frontend: real-time line charts · bar charts · heatmaps updating live (replaced SVG · 67% render improvement)\n• Node.js backend: WebSockets streaming data from 500+ IoT devices\n• MongoDB time-series collections: efficient storage + querying\n• Sub-second response times under high concurrency\n• Robust reconnection logic + error handling for WebSocket stability\n\nEvery device sends metrics every few seconds — all rendered in browser without lag.",
+      "♿ Accessibility — WCAG 2.0/2.1 AA Expertise\n\nThomson Reuters (2024–Present):\n• Led WCAG accessibility remediation for hospital systems\n• Tools: ESLint · Lighthouse · SCSS variable theming · keyboard navigation · screen reader compatibility\n• Color-contrast compliance across enterprise UI components\n\nUniversal Health Services (2020–2021):\n• WCAG 2.0 AA compliance through semantic HTML5, ARIA roles, and axe-core automated testing\n• Coordinated Cypress E2E accessibility validation with QA teams\n\nDTCC (2021–2024):\n• Accessible interfaces with keyboard navigation and screen reader support\n• JIRA tracking for accessibility issue remediation\n\nTools used: axe-core · ARIA attributes · Lighthouse audits · ESLint accessibility plugins · color-contrast checkers",
     suggestions: [
-      "What visualization libraries were used?",
-      "Tell me about other projects",
-      "What's the Vue.js expertise?",
+      "Tell me about the healthcare work",
+      "What's the testing approach?",
+      "What's the full tech stack?",
     ],
   },
 
   // ─── PERFORMANCE OPTIMIZATION ────────────────────────────────────────────
   {
-    keywords: ["performance", "optimization", "optimize", "fast", "speed", "improved", "lighthouse", "core web vitals", "lcp", "cls"],
+    keywords: ["performance", "optimization", "optimize", "fast", "speed", "improved", "lighthouse", "core web vitals", "lcp"],
     patterns: [/performance/i, /optimiz/i, /faster/i, /speed/i, /improve/i, /lighthouse/i, /web.*vital/i],
     questionType: "how",
     category: "skills",
     answer:
-      "⚡ Performance Optimization — Key Results\n\n🚀 Rendering:\n• SVG → Canvas API: 2–3s → <500ms (83% improvement)\n• Next.js SSR migration: LCP 4.1s → 1.6s (61% improvement)\n\n📦 Bundle:\n• Webpack/Vite code splitting: 2.8MB → 1.5MB (46% reduction)\n• Options API → Composition API + TypeScript: 25% bundle reduction\n\n🔗 API:\n• MongoDB indexing + query optimization: 800ms → 200ms (75%)\n• API response: 400ms → 180ms at QS\n\n🗄️ Caching:\n• Redis reduced redundant API calls by 45%\n• React Query stale-while-revalidate — 45% fewer API calls at QS\n\n📄 Page Load:\n• QS: 8s → 2.5s (69%) · SUNY: 8s → 4.4s (45%)\n\n🎯 Core Web Vitals targets: LCP <2.5s · CLS <0.1 · INP <200ms",
+      "⚡ Performance Optimization\n\n🖼️ Asset & Bundle:\n• Sprite images, asset bundling, and code splitting to reduce page size and improve load times\n• Webpack and Babel for bundle optimization across enterprise applications\n• HTML5 Local Storage and Session Storage for client-side data persistence\n\n🔗 API:\n• Collaborated with backend teams to optimize and deprecate inefficient API calls\n• RESTful API call optimization using Axios and efficient HTTP methods\n\n🎨 CSS/UI:\n• Reusable SCSS/CSS templates for consistent layouts — no specificity conflicts\n• SEO-optimized interfaces using Bootstrap, Tailwind CSS, and modern layout techniques\n• Applied sprite images and advanced UI optimization techniques\n\n📱 Responsive:\n• Mobile-first design with Tailwind CSS utility classes for desktop, tablet, and mobile\n• Flexbox and CSS Grid for efficient, responsive layouts\n\n🔍 Tools: Firebug · IE Developer Tools · Chrome DevTools · Lighthouse profiling",
     suggestions: [
-      "How was rendering optimized?",
-      "Tell me about the Next.js migration",
+      "Tell me about the SEO work",
       "What tools were used?",
+      "Tell me about Next.js SSR work",
     ],
   },
 
   // ─── DATA VISUALIZATION ──────────────────────────────────────────────────
   {
-    keywords: ["visualization", "charts", "graphs", "plotly", "d3", "dashboard", "canvas", "svg", "data viz"],
-    patterns: [/visualization/i, /charts/i, /plotly/i, /d3/i, /dashboard/i, /data.*viz/i],
+    keywords: ["visualization", "charts", "graphs", "d3", "dashboard", "data viz", "chart.js"],
+    patterns: [/visualization/i, /charts/i, /d3/i, /dashboard/i, /data.*viz/i],
     questionType: "what",
     category: "skills",
     answer:
-      "📊 Data Visualization Toolkit\n\n• Plotly.js — heavy dashboards · 1M+ data points · interactive plots (Progress Solutions)\n• D3.js — custom charts: line · bar · heatmaps · area charts (Harns IoT platform)\n• Canvas API — performance-critical rendering (replaced SVG · 83% faster at Progress Solutions)\n• Chart.js — lightweight charts for simpler use cases\n• CSV Plot Studio — 10+ chart types, browser-only, Tailwind CSS UI\n\n🌐 Real-time pipeline:\nKafka + Socket.io → sub-second data delivery to Plotly.js dashboards\n\nDashboards serve 50,000+ daily users with single charts rendering 1M+ data points.",
+      "📊 Data Visualization Toolkit\n\n• D3.js — company-specific reporting tools and cash flow analysis charts at Universal Health Services\n• vue-chart-js — analytical dashboards for business insights (UHS)\n• Chart.js — lightweight chart implementations across projects\n• Flickity.js — enterprise UX carousels and interactive UI components (Thomson Reuters)\n• Storybook — component-driven development and documented UI libraries\n\nCSV Plot Studio (Personal Project):\n• Plotly.js — 10+ chart types, live-updated, browser-only visualization tool\n• Papa Parse streaming worker for large CSV parsing off the main thread",
     suggestions: [
-      "How was performance optimized?",
-      "Tell me about the Plotly.js projects",
+      "Tell me about the UHS healthcare work",
+      "Tell me about the personal projects",
       "What's the tech stack?",
     ],
   },
 
   // ─── BACKEND SKILLS ──────────────────────────────────────────────────────
   {
-    keywords: ["backend", "api", "server", "node", "python", "fastapi", "django", "graphql", "rest"],
-    patterns: [/backend/i, /server.*side/i, /node/i, /python/i, /fastapi/i, /graphql/i, /rest.*api/i],
+    keywords: ["backend", "api", "server", "node", "rails", "ruby", "graphql", "rest", "soap", "dotnet"],
+    patterns: [/backend/i, /server.*side/i, /node/i, /ruby.*rails/i, /graphql/i, /rest.*api/i, /soap/i, /\.net/i],
     questionType: "what",
     category: "skills",
     answer:
-      "🖥️ Backend Skills\n\n🟢 Node.js + Express.js:\n• RESTful APIs handling 1M+ daily requests (QS)\n• WebSocket streaming for 500+ IoT devices (Harns)\n\n🐍 Python:\n• FastAPI — schema validation · async routes · Swagger docs (SUNY · Progress Solutions)\n• Django — ORM · admin · e-commerce backend (Harns)\n• Flask — lightweight services\n\n🔗 GraphQL + Apollo Server:\n• Optimistic updates · cache normalization (SUNY)\n\n🔴 Redis:\n• Caching layer: 45% API call reduction · session management\n\n🍃 MongoDB:\n• Time-series storage · compound indexes · aggregation pipelines\n• 800ms → 200ms optimization at Progress Solutions\n\n🐘 PostgreSQL:\n• SUNY New Paltz via GCP with Docker deployment\n\nAll APIs documented with Swagger/OpenAPI.",
+      "🖥️ Backend Skills\n\n🟢 Node.js + Express.js:\n• RESTful routing for form submissions and data persistence (UHS)\n• WebSocket streaming and real-time integrations\n\n💎 Ruby on Rails:\n• Database schemas with Active Record ORM at Hawaiian Airlines\n• Full MVC web applications with airline booking state management\n\n🔷 .NET / ASP.NET Core:\n• .NET Core microservices and RESTful APIs (UHS · Thomson Reuters)\n• Service-Oriented Architecture (SOA) with C# XML web services\n• Entity Framework and complex stored procedures for SQL Server CRUD\n• XUnit and NUnit testing frameworks\n\n🔗 APIs:\n• RESTful (GET, POST, PUT, DELETE) and SOAP web services with XML/XSLT\n• GraphQL schema, queries, and mutations with MongoDB\n• FHIR APIs for healthcare patient record management\n\n⚓ SailsJS:\n• Waterline ORM integration with MongoDB for airline booking systems",
     suggestions: [
       "What about frontend?",
       "Tell me about databases",
@@ -306,15 +336,15 @@ export const resumeQA = [
 
   // ─── STATE MANAGEMENT ────────────────────────────────────────────────────
   {
-    keywords: ["state management", "vuex", "pinia", "redux", "context", "store", "global state"],
-    patterns: [/state.*management/i, /vuex/i, /pinia/i, /redux/i, /global.*state/i],
+    keywords: ["state management", "vuex", "pinia", "redux", "context", "store", "global state", "flux"],
+    patterns: [/state.*management/i, /vuex/i, /redux/i, /global.*state/i, /flux/i],
     questionType: "what",
     category: "skills",
     answer:
-      "⚙️ State Management\n\nReact (primary):\n• Redux Toolkit — normalized state · createSlice · RTK Query (QS · SUNY)\n• React Query — client-side caching · background refetching · 45% API call reduction\n• Apollo Client — optimistic updates · cache normalization (SUNY)\n• React Context — lightweight local state\n\nVue.js (secondary):\n• Pinia — modern Vue 3 store · TypeScript-first (Progress Solutions)\n• Vuex — modular store · actions/mutations/getters · 40% code duplication reduction\n\nRule: Redux Toolkit for large React apps · Pinia for new Vue 3 apps · React Query for data fetching.",
+      "⚙️ State Management\n\nReact (primary):\n• Redux — middleware, action creators, reducers, and store management (Thomson Reuters · DTCC)\n• Redux Toolkit — normalized state with createSlice and RTK Query\n• React Flux — unidirectional data flow with single-directional architecture\n• Context API — lightweight local state for smaller apps\n\nVue.js:\n• Vuex — modular store with actions/mutations/getters (Thomson Reuters)\n• Vue Router — SPA navigation and routing\n\nAngular:\n• RxJS Observables for reactive data streams and HTTP integration (Hawaiian Airlines)\n• Two-Way Data Binding for real-time dynamic data displays (Mizuho Americas)\n\nRule: Redux for large React apps · Vuex for Vue.js · RxJS for Angular reactive patterns.",
     suggestions: [
       "What's the React/Next.js experience?",
-      "Tell me about Vue.js skills",
+      "Tell me about Angular skills",
       "What's the tech stack?",
     ],
   },
@@ -326,7 +356,7 @@ export const resumeQA = [
     questionType: "what",
     category: "skills",
     answer:
-      "🔷 TypeScript\n\nTypeScript is Harish's default on all serious projects:\n\n• React + TypeScript (strict mode) — QS (8 SPAs) · SUNY (component libraries)\n• Vue.js 3 <script setup lang=\"ts\"> — Progress Solutions · Composition API throughout\n• Next.js 14 — end-to-end typed API routes + MongoDB schemas (Sniplink)\n• Migrated legacy JS Options API → Composition API + TypeScript at Progress Solutions — 25% bundle reduction\n• Custom hooks · generics · discriminated unions · Zod runtime validation",
+      "🔷 TypeScript\n\nTypeScript is used across all modern projects:\n\n• Thomson Reuters — Vue.js + TypeScript + VuePress enterprise components with Vuex\n• DTCC — TypeScript-driven component development with strict typing across SPAs\n• Universal Health Services — React.js + TypeScript for HIPAA-compliant patient dashboards\n• Mizuho Americas — Angular + TypeScript + Angular Material financial SPAs\n• Hawaiian Airlines — Angular + TypeScript + ES6 for SPA routing and features\n\nSniplink (Personal): Next.js 14 end-to-end typed API routes + MongoDB schemas\n\nCapabilities: generics · strict mode · discriminated unions · TypeScript-first Angular and Vue.js development",
     suggestions: [
       "Tell me about the Vue.js work",
       "What's the React experience?",
@@ -336,12 +366,12 @@ export const resumeQA = [
 
   // ─── TESTING ─────────────────────────────────────────────────────────────
   {
-    keywords: ["testing", "test", "quality", "jest", "cypress", "vitest", "coverage", "tdd", "e2e"],
-    patterns: [/testing/i, /test.*coverage/i, /quality/i, /jest/i, /cypress/i, /tdd/i, /e2e/i],
+    keywords: ["testing", "test", "quality", "jest", "cypress", "jasmine", "coverage", "tdd", "e2e", "karma"],
+    patterns: [/testing/i, /test.*coverage/i, /quality/i, /jest/i, /cypress/i, /tdd/i, /e2e/i, /jasmine/i],
     questionType: "what",
     category: "skills",
     answer:
-      "🧪 Testing Strategy\n\n• Unit: Jest (React/Node.js) · Vitest (Vue 3) · Vue Test Utils\n• Integration: React Testing Library — behavior-focused testing\n• E2E: Cypress — full user-flow coverage\n• Coverage target: 90%+ on all critical features\n• CI/CD: GitHub Actions — PRs blocked if tests fail\n\nTest pipelines established from scratch at both Progress Solutions and SUNY.\n\nPhilosophy: test behavior, not implementation — what the user experiences, not internal details.",
+      "🧪 Testing Strategy\n\n• Unit: Jest (React/Node.js) · Jasmine · Karma (Angular) · Mocha · Enzyme\n• Integration: React Testing Library — behavior-focused testing\n• E2E: Cypress — full user-flow coverage and accessibility validation\n• .NET: XUnit · NUnit · Moq for edge test cases in .NET Core applications\n• Coverage: Istanbul for coverage reports across JavaScript projects\n• TDD: Applied Test-Driven Development throughout SDLC at all companies\n\nDTCC: Jest · React Testing Library · Mocha — TDD implementation across SPAs\nThomson Reuters: Jest · Enzyme · Jasmine with Istanbul coverage reports\nUniversal Health Services: Jasmine · Karma (Angular) · Cypress E2E · XUnit/NUnit (.NET)\n\nPhilosophy: TDD for reliability, comprehensive test coverage, quality gates in CI/CD pipelines.",
     suggestions: [
       "What's the CI/CD experience?",
       "Tell me about dev practices",
@@ -351,12 +381,12 @@ export const resumeQA = [
 
   // ─── CLOUD / DEVOPS ──────────────────────────────────────────────────────
   {
-    keywords: ["cloud", "aws", "gcp", "docker", "kubernetes", "devops", "ci cd", "deployment", "github actions"],
-    patterns: [/cloud/i, /aws/i, /gcp/i, /docker/i, /kubernetes/i, /devops/i, /ci.*cd/i, /deploy/i],
+    keywords: ["cloud", "aws", "docker", "devops", "ci cd", "deployment", "jenkins", "azure devops"],
+    patterns: [/cloud/i, /aws/i, /docker/i, /devops/i, /ci.*cd/i, /deploy/i, /jenkins/i, /azure.*devops/i],
     questionType: "what",
     category: "skills",
     answer:
-      "☁️ Cloud & DevOps\n\n• AWS: EC2 · Lambda · S3 (static hosting) · RDS (PostgreSQL)\n• GCP: SUNY university apps deployed with Docker containers\n• Docker: all recent projects containerized for consistent dev/prod environments\n• Kubernetes: orchestration for microservices at scale\n• CI/CD: GitHub Actions — lint → test → build → deploy on every PR\n• Vercel/Render: Sniplink + CSV Plot Studio deployed with edge functions\n\nFull CI/CD pipeline set up from scratch at SUNY — automated ESLint · Jest · Docker builds · GCP deployment with health checks.",
+      "☁️ Cloud & DevOps\n\nAWS (Thomson Reuters · Hawaiian Airlines):\n• EC2 · ELB · S3 · IAM · CloudWatch · Auto Scaling · VPC · CloudFormation\n• MySQL databases on EC2 with replication, query optimization, backup/restore\n• AWS Identity services for React Native authentication\n\nJenkins CI/CD (Thomson Reuters · Hawaiian Airlines):\n• CI/CD pipelines for microservices deployment\n• GitHub + Jenkins automation with Chef infrastructure-as-code\n\nAzure DevOps (DTCC):\n• Front-end CI/CD pipelines for React applications\n• Source control and release management\n\nDocker (Hawaiian Airlines):\n• Containerized across development, testing, and staging environments\n• Nginx with Phusion Passenger for reverse proxy and load balancing\n\nVersion Control: Git · GitHub · Bitbucket · SVN · CVS · Mercurial",
     suggestions: [
       "Tell me about the testing setup",
       "What's the tech stack?",
@@ -364,18 +394,18 @@ export const resumeQA = [
     ],
   },
 
-  // ─── KAFKA / REALTIME ────────────────────────────────────────────────────
+  // ─── AUTHENTICATION / SECURITY ────────────────────────────────────────────
   {
-    keywords: ["kafka", "websocket", "realtime", "real-time", "socket", "streaming", "events", "queue"],
-    patterns: [/kafka/i, /websocket/i, /real.*time/i, /socket\.io/i, /message.*queue/i],
+    keywords: ["oauth", "authentication", "security", "okta", "auth0", "jwt", "openid", "login", "hipaa"],
+    patterns: [/oauth/i, /authentication/i, /security/i, /okta/i, /auth0/i, /jwt/i, /openid/i, /hipaa/i],
     questionType: "what",
     category: "skills",
     answer:
-      "🌊 Real-Time Systems\n\n📨 Apache Kafka:\n• Processing 1.6M+ events/day from IoT sensors @ Progress Solutions\n• Kafka consumers with error handling · dead-letter queues · sub-second latency\n\n🔌 WebSockets + Socket.io:\n• Bidirectional communication for live dashboards (Harns IoT — 500+ devices)\n• Thousands of concurrent users · robust reconnection logic\n\n⚡ Architecture pattern:\nKafka (reliable event streaming) → Socket.io (browser delivery) → Plotly.js (real-time charts)\n\nAll real-time updates are non-blocking — users see data refresh in under a second.",
+      "🔐 Authentication & Security\n\n• OAuth 2.0 + OpenID Connect — enterprise security across DTCC and UHS\n• Okta — user access control and identity management\n• Auth0 — authentication and authorization for React SPAs at DTCC\n• JWT — token-based authentication for FHIR APIs and Next.js services (UHS)\n• HIPAA compliance — end-to-end encryption, data minimization, secure data flows (UHS)\n• FHIR APIs — healthcare record management with strict access controls (UHS)\n• HTTPS/HTTP secure communication with Angular components and RESTful services\n• SQL injection prevention and secure data handling with SQL Server integration",
     suggestions: [
-      "Tell me about data visualization",
-      "What's the tech stack?",
-      "How was performance optimized?",
+      "Tell me about the UHS healthcare work",
+      "What's the DTCC work?",
+      "What's the full tech stack?",
     ],
   },
 
@@ -386,7 +416,7 @@ export const resumeQA = [
     questionType: "how",
     category: "contact",
     answer:
-      "📬 Contact Harish\n\n📧 Email: yerraguntlaharish98@gmail.com\n📱 Phone: +1 (205) 736-5808\n💼 LinkedIn: linkedin.com/in/harish-yerraguntla-70695416b\n🐙 GitHub: github.com/nandu064\n🌐 Portfolio: nandu064.github.io/portfolio\n\nOpen to: React/Next.js · Vue.js · Full-Stack · Software Engineer roles.\nResponse time: usually within 24 hours.",
+      "📬 Contact Harish\n\n📧 Email: Yerraguntlaharish27@gmail.com\n📱 Phone: +1 (205) 736-5808\n💼 LinkedIn: linkedin.com/in/harish-70695416b\n🐙 GitHub: github.com/nandu064\n\nOpen to: Senior UI Developer · Senior Frontend Developer · React / Next.js · Angular · Full-Stack Engineer roles.\nResponse time: usually within 24 hours.",
     suggestions: [
       "Is Harish open to work?",
       "Where is Harish located?",
@@ -401,11 +431,11 @@ export const resumeQA = [
     questionType: "where",
     category: "contact",
     answer:
-      "📍 Location\n\nNew York, USA — currently working remote for Progress Solutions (Texas-based).\n\n• Remote-first: 4+ years of fully remote professional experience\n• Open to: remote · hybrid · on-site anywhere in the US\n• Relocation: open for the right opportunity\n• Work Authorization: F-1 OPT (STEM extension available) — no sponsorship needed through June 2028",
+      "📍 Location\n\nNew York, USA — currently working at Thomson Reuters (Eagan, MN).\n\n• Open to: remote · hybrid · on-site anywhere in the US\n• Relocation: open for the right opportunity\n• 10+ years of professional experience across multiple US locations",
     suggestions: [
-      "What's the work authorization?",
       "What roles is Harish looking for?",
       "How to get in contact?",
+      "What's the work experience?",
     ],
   },
 
@@ -416,7 +446,7 @@ export const resumeQA = [
     questionType: "what",
     category: "contact",
     answer:
-      "🟢 Open to New Opportunities\n\n🎯 Target roles:\n• Full-Stack Engineer\n• React / Next.js Developer\n• Software Engineer\n\n⚡ What Harish brings:\n• React/Next.js as primary stack + Vue.js as strong secondary\n• Tailwind CSS + Storybook component libraries\n• Full-stack: Node.js · Python · PostgreSQL · MongoDB · Redis · AWS\n• Performance specialist: Core Web Vitals · SSR migrations · rendering optimization\n\n📋 Authorization: F-1 OPT (STEM extension available) — no sponsorship needed through June 2028\n\nReach out directly: yerraguntlaharish98@gmail.com",
+      "🟢 Open to New Opportunities\n\n🎯 Target roles:\n• Senior UI Developer\n• Senior Frontend Developer\n• React / Next.js Developer\n• Full-Stack Engineer\n\n⚡ What Harish brings:\n• 10+ years enterprise frontend — React.js, Angular, Vue.js, Next.js, TypeScript\n• Domain expertise: Banking · Healthcare · Airlines · Financial Services · Mortgage\n• WCAG 2.0/2.1 AA accessibility — certified enterprise-level compliance\n• HIPAA-compliant healthcare application development\n• AWS/Jenkins/Azure DevOps cloud and CI/CD experience\n• Mentoring, code reviews, and technical leadership\n\nReach out: Yerraguntlaharish27@gmail.com",
     suggestions: [
       "How to get in contact?",
       "What's the tech stack?",
@@ -431,7 +461,7 @@ export const resumeQA = [
     questionType: "how",
     category: "experience",
     answer:
-      "📅 Experience Timeline — 5+ years\n\n• 2020–2021 — QS Quacquarelli Symonds (React SPAs · 15M+ annual visitors)\n• 2021–2023 — Harns Technologies (Next.js · React · 14 production apps)\n• 2023–2025 — MS Computer Science, SUNY New Paltz + Research Assistant\n• Jan 2025 – Now — Progress Solutions Inc. (React/Next.js · Vue.js · Node.js · Kafka)\n\n5+ years of professional production experience.",
+      "📅 Experience Timeline — 10+ years\n\n• 2015–2016 — Mizuho Americas, NY (Angular SPAs — Financial Services)\n• 2017–2019 — Hawaiian Airlines, HI (Angular · React · Ruby on Rails · AWS)\n• 2020–2021 — Universal Health Services, PA (React · Angular · .NET Core · HIPAA)\n• 2021–2024 — DTCC, TX (React · Redux · OAuth 2.0 · Azure DevOps)\n• 2024–Now — Thomson Reuters, MN (React · Next.js · Vue.js · AWS · Jenkins)\n\n10+ years of professional enterprise experience across 5 companies and 5 industries.",
     suggestions: [
       "Where has Harish worked?",
       "What's the expertise?",
@@ -446,7 +476,7 @@ export const resumeQA = [
     questionType: "what",
     category: "general",
     answer:
-      "🏆 What Sets Harish Apart\n\n⚡ Performance obsession:\n• Data-driven results: LCP 4.1s → 1.6s · render 2–3s → 500ms · load 8s → 2.5s\n• Tools: Lighthouse · Chrome DevTools · Core Web Vitals profiling\n\n🧩 Dual-framework depth:\n• React/Next.js (primary) + Vue.js (secondary) — can contribute to any modern codebase\n• Storybook component libraries adopted by multiple teams\n\n📊 Data visualization specialist:\n• Most engineers avoid complex charts — Harish builds them at scale (1M+ data points)\n\n🔢 Numbers-driven:\n• Every improvement is measurable and documented\n\n🚀 Consistent impact:\n• Tangible results delivered at every company — performance, scale, and quality",
+      "🏆 What Sets Harish Apart\n\n🏭 Domain depth:\n• 10+ years across Banking, Healthcare, Airlines, Financial Services, and Mortgage\n• HIPAA compliance expertise and enterprise security implementation\n\n🔺 Multi-framework mastery:\n• React/Next.js · Angular/AngularJS · Vue.js — can contribute to any modern enterprise codebase\n• TypeScript-first development across all frameworks\n\n♿ Accessibility leadership:\n• WCAG 2.0/2.1 AA compliance from scratch — most engineers avoid it, Harish leads it\n• axe-core · Lighthouse · ARIA · screen reader support at scale\n\n☁️ Full-stack + cloud:\n• Angular · React Native · .NET Core · Ruby on Rails · AWS · Jenkins\n• True full-stack delivery from UI design to cloud deployment\n\n🧑‍🏫 Leadership:\n• Mentored junior developers at DTCC and Thomson Reuters\n• Code reviews, performance audits, and technical standards enforcement",
     suggestions: [
       "Tell me about the projects",
       "What's the tech stack?",
@@ -456,30 +486,15 @@ export const resumeQA = [
 
   // ─── SOFT SKILLS / WORKING STYLE ─────────────────────────────────────────
   {
-    keywords: ["soft skills", "team", "collaboration", "communication", "work style", "leadership", "agile", "scrum"],
-    patterns: [/soft.*skills/i, /team.*work/i, /collaborat/i, /work.*style/i, /agile/i, /scrum/i],
+    keywords: ["soft skills", "team", "collaboration", "communication", "work style", "leadership", "agile", "scrum", "mentor"],
+    patterns: [/soft.*skills/i, /team.*work/i, /collaborat/i, /work.*style/i, /agile/i, /scrum/i, /mentor/i],
     questionType: "what",
     category: "general",
     answer:
-      "🤝 Soft Skills & Work Style\n\n👥 Collaboration:\n• Cross-functional teams (design + product + engineering) @ Progress Solutions — features shipped that increased engagement 20%\n\n📋 Agile/Scrum:\n• Daily standups · sprint planning · code reviews — standard across all full-time roles\n\n🗣️ Communication:\n• APIs documented with Swagger · clear PR descriptions · explains the 'why' behind decisions\n\n📚 Continuous learning:\n• Completed a Master's degree while working professionally\n\n🧑‍🏫 Knowledge sharing:\n• Built Storybook component libraries to accelerate team onboarding\n• Helped junior devs ramp up on Vue.js 3 Composition API patterns",
+      "🤝 Soft Skills & Work Style\n\n👥 Collaboration:\n• Cross-functional teams (design, product, engineering, QA, Business Analysts) at every company\n• Actively collaborated with QA teams, Scrum Masters, and BAs for production-ready UI delivery\n\n📋 Agile/Scrum:\n• Agile (Scrum, XP, Pair Programming), Waterfall at DTCC and Thomson Reuters\n• JIRA for sprint coordination, defect tracking, and team activity management\n\n🧑‍🏫 Mentoring:\n• Mentored junior developers at DTCC on React best practices, Git workflows, debugging\n• Led UI development for React Native mobile apps mentoring junior developers at Thomson Reuters\n\n📚 Continuous learning:\n• Master's degree completed while accumulating professional enterprise experience\n\n🗣️ Communication:\n• Translates complex business requirements and wireframes into production-ready applications\n• Clear PR descriptions and technical documentation aligned with team standards",
     suggestions: [
       "What's the work experience?",
       "Tell me about the projects",
-      "How to get in contact?",
-    ],
-  },
-
-  // ─── WORK AUTHORIZATION ──────────────────────────────────────────────────
-  {
-    keywords: ["visa", "authorization", "work authorization", "opt", "stem", "sponsorship", "h1b", "green card"],
-    patterns: [/visa/i, /work.*auth/i, /opt/i, /stem/i, /sponsor/i, /h1b/i, /green.*card/i],
-    questionType: "what",
-    category: "contact",
-    answer:
-      "📋 Work Authorization\n\nStatus: F-1 OPT (STEM extension available)\n📅 OPT valid now · STEM extension extends authorization through June 2028\n✅ No sponsorship needed through June 2028\n🔄 After 2028: open to H-1B sponsorship or other work visa options\n📍 Available for: remote · hybrid · on-site positions across the US\n\nCan start immediately with zero visa processing delays.",
-    suggestions: [
-      "Is Harish open to work?",
-      "Where is Harish located?",
       "How to get in contact?",
     ],
   },

@@ -144,11 +144,11 @@ const Hero = () => {
               <h2 className="hero-title animate-slide-up">
                 <Typed
                   strings={[
-                    "Full-Stack Software Engineer",
-                    "React/Next.js Specialist",
-                    "Python Developer",
-                    "Cloud Architecture Expert",
-                    "Performance Optimization Specialist",
+                    "Senior UI / Frontend Developer",
+                    "React.js / Next.js Specialist",
+                    "Angular Developer",
+                    "Enterprise UI Engineer",
+                    "WCAG Accessibility Expert",
                   ]}
                   typeSpeed={50}
                   backSpeed={30}
@@ -168,20 +168,20 @@ const Hero = () => {
 
               <div className="hero-metrics animate-slide-up">
                 <div className="metric">
-                  <span className="metric-number text-gradient">5+</span>
+                  <span className="metric-number text-gradient">10+</span>
                   <span className="metric-label">Years Experience</span>
                 </div>
                 <div className="metric">
-                  <span className="metric-number text-gradient">18+</span>
+                  <span className="metric-number text-gradient">5</span>
+                  <span className="metric-label">Industries Served</span>
+                </div>
+                <div className="metric">
+                  <span className="metric-number text-gradient">20+</span>
                   <span className="metric-label">Projects Delivered</span>
                 </div>
                 <div className="metric">
-                  <span className="metric-number text-gradient">2M+</span>
-                  <span className="metric-label">Users Served</span>
-                </div>
-                <div className="metric">
-                  <span className="metric-number text-gradient">90%</span>
-                  <span className="metric-label">Uptime</span>
+                  <span className="metric-number text-gradient">90%+</span>
+                  <span className="metric-label">Test Coverage</span>
                 </div>
               </div>
 
