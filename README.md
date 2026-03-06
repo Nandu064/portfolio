@@ -8,9 +8,9 @@
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=flat-square&logo=sass&logoColor=white)](https://sass-lang.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
-[![GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white)](https://nandu064.github.io/portfolio/)
+[![GitHub Pages](https://img.shields.io/badge/Live-GitHub%20Pages-222222?style=flat-square&logo=github&logoColor=white)](https://harishyerraguntla.vercel.app/)
 
-[**Live Demo →**](https://nandu064.github.io/portfolio/)
+[**Live Demo →**](https://harishyerraguntla.vercel.app/)
 
 </div>
 
@@ -204,6 +204,6 @@ MIT — free to use as a template. Attribution appreciated but not required.
 
 <div align="center">
 
-Built by **[Harish Yerraguntla](https://nandu064.github.io/portfolio/)** · [LinkedIn](https://www.linkedin.com/in/harish-yerraguntla-70695416b/) · [GitHub](https://github.com/nandu064)
+Built by **[Harish Yerraguntla](https://harishyerraguntla.vercel.app/)** · [LinkedIn](https://www.linkedin.com/in/harish-yerraguntla-a910b03b3) · [GitHub](https://github.com/nandu064)
 
 </div>
