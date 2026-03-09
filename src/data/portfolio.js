@@ -322,7 +322,7 @@ export const projects = [
     category: "Full-Stack",
     theme: "gold",
     github: "https://github.com/nandu064/finguard",
-    demo: "",
+    demo: "https://finguard-phi.vercel.app",
     technologies: [
       "Next.js 15",
       "React 19",
@@ -342,7 +342,12 @@ export const projects = [
       "JWT sessions on Vercel Edge — cryptographic auth with zero database round-trips; rate limiting at Next.js middleware boundary before any route handler executes",
       "GraphQL introspection disabled in production, structured error logging that never leaks stack traces to the client, ObjectId types throughout to prevent cross-user data bugs",
     ],
-    skills: ["System Design", "Quantitative Finance", "Security", "API Architecture"],
+    skills: [
+      "System Design",
+      "Quantitative Finance",
+      "Security",
+      "API Architecture",
+    ],
   },
   {
     id: 0,
