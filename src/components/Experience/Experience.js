@@ -62,7 +62,7 @@ const Experience = () => {
               Professional <span className="text-gradient">Experience</span>
             </h2>
             <p className="section-subtitle animate-on-scroll">
-              5+ years of building scalable applications and leading technical
+              10+ years of building scalable applications and leading technical
               initiatives
             </p>
           </Col>
