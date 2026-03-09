@@ -143,11 +143,13 @@
   &:nth-child(1) { transition-delay: 0.1s; }
   &:nth-child(2) { transition-delay: 0.2s; }
   &:nth-child(3) { transition-delay: 0.3s; }
+  &:nth-child(4) { transition-delay: 0.4s; }
 
   // Per-theme border accents
   &.theme-purple { --accent: #7c3aed; }
   &.theme-emerald { --accent: #10b981; }
   &.theme-cyan   { --accent: #0891b2; }
+  &.theme-gold   { --accent: #d97706; }
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -473,6 +475,10 @@
   .theme-cyan & {
     background: linear-gradient(to top, $primary, $accent);
   }
+
+  .theme-gold & {
+    background: linear-gradient(to top, #d97706, #f59e0b);
+  }
 }
 
 @keyframes growBar {
@@ -510,6 +516,7 @@
 
     .theme-purple & i { color: #a78bfa; }
     .theme-cyan & i   { color: $primary; }
+    .theme-gold & i   { color: #d97706; }
   }
 }
 
@@ -678,6 +685,7 @@
   .theme-cyan   & { background: rgba($primary, 0.1); color: $primary; border-color: rgba($primary, 0.25); }
   .theme-purple & { background: rgba(#7c3aed, 0.12); color: #a78bfa; border-color: rgba(#7c3aed, 0.3); }
   .theme-emerald & { background: rgba($success, 0.1); color: $success; border-color: rgba($success, 0.25); }
+  .theme-gold & { background: rgba(#d97706, 0.1); color: #f59e0b; border-color: rgba(#d97706, 0.3); }
 }
 
 // ─── Tech chips ───────────────────────────────────────────────────────────
@@ -836,6 +844,109 @@
 
     .cta-arrow { transform: translateX(4px); }
   }
+}
+
+// ─── FinGuard mockup ──────────────────────────────────────────────────────
+.fg-mockup {
+  display: flex;
+  flex-direction: column;
+  gap: $spacer-md;
+}
+
+.fg-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.fg-metric-card {
+  background: rgba($bg-card, 0.6);
+  border: 1px solid rgba(217, 119, 6, 0.18);
+  border-radius: $border-radius-sm;
+  padding: 6px 4px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fg-metric-val {
+  font-family: $font-family-mono;
+  font-size: 11px;
+  font-weight: $font-weight-bold;
+  line-height: 1;
+}
+
+.fg-metric-lbl {
+  font-size: 8px;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.fg-chart-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fg-chart-label {
+  font-size: 8px;
+  color: $text-muted;
+  letter-spacing: 0.04em;
+}
+
+.fg-mc-svg {
+  width: 100%;
+  height: 60px;
+  background: rgba($bg-primary, 0.45);
+  border-radius: $border-radius-sm;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  display: block;
+}
+
+.fg-holdings {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.fg-holding-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.fg-hticker {
+  font-family: $font-family-mono;
+  font-size: 9px;
+  color: #f59e0b;
+  font-weight: $font-weight-semibold;
+  width: 36px;
+  flex-shrink: 0;
+}
+
+.fg-hbar-track {
+  flex: 1;
+  height: 4px;
+  background: rgba($bg-card, 0.6);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.fg-hbar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #d97706, #f59e0b);
+  border-radius: 2px;
+  max-width: 100%;
+}
+
+.fg-hpct {
+  font-size: 9px;
+  color: $text-muted;
+  width: 22px;
+  text-align: right;
+  flex-shrink: 0;
 }
 
 // ─── Text gradient ────────────────────────────────────────────────────────

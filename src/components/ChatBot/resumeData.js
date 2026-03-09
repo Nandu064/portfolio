@@ -206,11 +206,11 @@ export const resumeQA = [
     questionType: "what",
     category: "projects",
     answer:
-      "🚀 Featured Projects\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Intersection Observer animations · EmailJS pipeline\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages\n\nWork apps: 14 production apps at Harns · IoT platform (500+ devices) · dashboards serving 50K+ users.",
+      "🚀 Featured Projects\n\n📈 FinGuard — Portfolio risk analytics platform\n• Monte Carlo simulations · Efficient Frontier optimisation\n• Python FastAPI microservice + Next.js 15 frontend\n• Dual API: REST for CRUD · GraphQL for analytics dashboard\n• Stack: Next.js 15 · FastAPI · Python · MongoDB · NumPy/SciPy\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages",
     suggestions: [
+      "Tell me about FinGuard",
       "Tell me about Sniplink",
       "Tell me about CSV Plot Studio",
-      "Tell me about the IoT platform",
     ],
   },
 
@@ -241,6 +241,21 @@ export const resumeQA = [
       "Tell me about Sniplink",
       "What data visualization skills exist?",
       "What other projects were built?",
+    ],
+  },
+
+  // ─── FINGUARD ────────────────────────────────────────────────────────────
+  {
+    keywords: ["finguard", "portfolio risk", "risk analytics", "monte carlo", "efficient frontier", "quantitative finance", "sharpe ratio", "var", "sortino"],
+    patterns: [/finguard/i, /portfolio.*risk/i, /monte.*carlo/i, /efficient.*frontier/i, /quantitative.*finance/i, /sharpe/i],
+    questionType: "tell",
+    category: "projects",
+    answer:
+      "📈 FinGuard — Portfolio Risk Analytics Platform\n\n🐍 Python microservice (FastAPI on Render):\n• Efficient Frontier via scipy.optimize.minimize with SLSQP — constrained quadratic optimisation\n• Monte Carlo: 1,000 correlated price paths using np.random.multivariate_normal\n• Risk metrics: Sharpe · Sortino · VaR 95% · Beta · covariance matrix via pandas\n• yfinance for live market data with 15-minute cache TTL\n\n⚛️ Next.js 15 frontend (Vercel):\n• Dual API: REST for CRUD mutations · GraphQL via Apollo for multi-source analytics in a single round-trip\n• JWT sessions on Vercel Edge — cryptographic auth, zero database round-trips per request\n• React Query for all server state — no Redux, no global store\n• Multi-currency context with fmt() formatter — no prop drilling\n\n🔐 Security:\n• Rate limiting at Next.js middleware boundary (before any route handler)\n• GraphQL introspection disabled in production\n• Stack traces never leak to the client\n• MongoDB ObjectId types throughout — prevents cross-user data bugs\n\nStack: Next.js 15 · React 19 · FastAPI · Python · MongoDB Atlas · NextAuth v5 · React Query · Apollo GraphQL · NumPy · SciPy · Vercel · Render",
+    suggestions: [
+      "Tell me about Sniplink",
+      "What other projects were built?",
+      "What's the full-stack expertise?",
     ],
   },
 
