@@ -165,10 +165,98 @@ const SkillTag = memo(({ label }) => (
 
 // ─── Individual panel ──────────────────────────────────────────────────────
 
+const FinGuardMockup = memo(() => {
+  const metrics = [
+    { label: "Sharpe", value: "1.84", positive: true },
+    { label: "VaR 95%", value: "-2.3%", positive: false },
+    { label: "Sortino", value: "2.31", positive: true },
+    { label: "Beta", value: "0.87", positive: null },
+  ];
+
+  const holdings = [
+    { ticker: "AAPL", pct: 28 },
+    { ticker: "MSFT", pct: 22 },
+    { ticker: "NVDA", pct: 18 },
+    { ticker: "AMZN", pct: 15 },
+    { ticker: "GOOGL", pct: 17 },
+  ];
+
+  // Monte Carlo paths as SVG path strings
+  const mcPaths = [
+    "M0,40 C30,36 60,28 90,20 S110,14 120,10",
+    "M0,40 C30,44 60,50 90,55 S110,50 120,38",
+    "M0,40 C30,38 60,32 90,26 S110,18 120,8",
+    "M0,40 C30,46 60,56 90,62 S110,66 120,54",
+    "M0,40 C30,40 60,37 90,34 S110,28 120,22",
+    "M0,40 C30,43 60,48 90,52 S110,46 120,34",
+  ];
+  const mcColors = [
+    "rgba(217,119,6,0.75)",
+    "rgba(239,68,68,0.5)",
+    "rgba(217,119,6,0.55)",
+    "rgba(239,68,68,0.35)",
+    "rgba(245,158,11,0.65)",
+    "rgba(156,163,175,0.35)",
+  ];
+
+  return (
+    <BrowserChrome url="finguard.vercel.app/dashboard">
+      <div className="fg-mockup">
+        {/* Risk metric cards */}
+        <div className="fg-metrics">
+          {metrics.map((m) => (
+            <div key={m.label} className="fg-metric-card">
+              <span
+                className="fg-metric-val"
+                style={{
+                  color:
+                    m.positive === true
+                      ? "#f59e0b"
+                      : m.positive === false
+                      ? "#ef4444"
+                      : "#94a3b8",
+                }}
+              >
+                {m.value}
+              </span>
+              <span className="fg-metric-lbl">{m.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Monte Carlo chart */}
+        <div className="fg-chart-wrap">
+          <span className="fg-chart-label">Monte Carlo · 1,000 paths · 252 days</span>
+          <svg viewBox="0 0 120 72" className="fg-mc-svg" preserveAspectRatio="none">
+            <line x1="0" y1="40" x2="120" y2="40" stroke="rgba(255,255,255,0.06)" strokeWidth="0.5" strokeDasharray="3 3" />
+            {mcPaths.map((d, i) => (
+              <path key={i} d={d} stroke={mcColors[i]} strokeWidth="1.3" fill="none" />
+            ))}
+          </svg>
+        </div>
+
+        {/* Holdings allocation */}
+        <div className="fg-holdings">
+          {holdings.map((h) => (
+            <div key={h.ticker} className="fg-holding-row">
+              <span className="fg-hticker">{h.ticker}</span>
+              <div className="fg-hbar-track">
+                <div className="fg-hbar-fill" style={{ width: `${h.pct * 3}px` }} />
+              </div>
+              <span className="fg-hpct">{h.pct}%</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserChrome>
+  );
+});
+
 const MOCKUPS = {
   0: <CodeMockup />,
   9: <UrlMockup />,
   10: <ChartMockup />,
+  11: <FinGuardMockup />,
 };
 
 const THEME_META = {
@@ -183,6 +271,10 @@ const THEME_META = {
   emerald: {
     accentVar: "#10b981",
     bg: "linear-gradient(160deg, #064e3b 0%, #022c22 60%, #0f172a 100%)",
+  },
+  gold: {
+    accentVar: "#d97706",
+    bg: "linear-gradient(160deg, #451a03 0%, #292524 60%, #0f172a 100%)",
   },
 };
 
@@ -310,7 +402,7 @@ const Projects = () => {
             Built With <span className="text-gradient">Purpose</span>
           </h2>
           <p className="section-sub">
-            Three production apps — each demonstrating a distinct layer of frontend engineering
+            Four production apps — each demonstrating a distinct layer of engineering from quantitative finance to edge computing
           </p>
         </header>
 

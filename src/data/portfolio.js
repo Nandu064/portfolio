@@ -340,6 +340,37 @@ export const education = [
 
 export const projects = [
   {
+    id: 11,
+    title: "FinGuard",
+    shortTitle: "FinGuard",
+    description:
+      "Full-stack portfolio risk analytics platform bringing institutional-grade tooling to retail investors — Monte Carlo simulations, Efficient Frontier optimisation, real-time holdings, and live rebalancing suggestions.",
+    category: "Full-Stack",
+    theme: "gold",
+    github: "https://github.com/nandu064/finguard",
+    demo: "",
+    technologies: [
+      "Next.js 15",
+      "React 19",
+      "FastAPI",
+      "Python",
+      "MongoDB Atlas",
+      "NextAuth v5",
+      "React Query",
+      "Apollo GraphQL",
+      "NumPy / SciPy",
+      "Vercel",
+      "Render",
+    ],
+    highlights: [
+      "Python microservice (FastAPI) for quantitative math — SciPy SLSQP solves Efficient Frontier as a constrained QP; NumPy draws 1,000 correlated Monte Carlo price paths",
+      "Dual API: REST for CRUD mutations (POST /portfolios, DELETE /holdings) and GraphQL via Apollo for multi-source analytics dashboard in a single round-trip",
+      "JWT sessions on Vercel Edge — cryptographic auth with zero database round-trips; rate limiting at Next.js middleware boundary before any route handler executes",
+      "GraphQL introspection disabled in production, structured error logging that never leaks stack traces to the client, ObjectId types throughout to prevent cross-user data bugs",
+    ],
+    skills: ["System Design", "Quantitative Finance", "Security", "API Architecture"],
+  },
+  {
     id: 0,
     title: "Personal Portfolio",
     shortTitle: "Portfolio",

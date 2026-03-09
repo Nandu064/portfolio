@@ -4,9 +4,9 @@
 
 export const getWelcomeMessage = () => {
   const messages = [
-    "👋 Hi! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Tailwind CSS · Storybook · 5+ years\n\nAsk me anything — projects, tech stack, work history, or how to get in touch.",
-    "👋 Hey there!\n\nHarish builds production apps with React & Next.js (primary) and Vue.js (secondary) — SSR/SSG apps, real-time dashboards, and Tailwind CSS + Storybook component libraries. Apps serving 100K+ users, LCP improvements of 60%+.\n\nWhat would you like to know?",
-    "👋 Welcome to Harish's portfolio chat!\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Node.js · Python\nMS Computer Science, SUNY New Paltz · Currently @ Progress Solutions Inc.\n\nAsk about experience, skills, or projects!",
+    "👋 Hi! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Senior UI / Frontend Engineer\nReact · Next.js · Angular · Vue.js · TypeScript · 10+ years\n\nAsk me anything — projects, tech stack, work history, or how to get in touch.",
+    "👋 Hey there!\n\nHarish is a Senior UI/Frontend Engineer with 10+ years building enterprise apps across Banking, Healthcare, Airlines, and Financial Services — React.js, Angular, Vue.js, Next.js, and TypeScript.\n\nWhat would you like to know?",
+    "👋 Welcome to Harish's portfolio chat!\n\nHarish Yerraguntla — Senior UI / Frontend Engineer\nReact · Next.js · Angular · Vue.js · TypeScript\nMS Computer Science, SUNY New Paltz · Currently @ Thomson Reuters\n\nAsk about experience, skills, or projects!",
   ];
 
   return messages[Math.floor(Math.random() * messages.length)];

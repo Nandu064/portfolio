@@ -4,7 +4,7 @@ Allow: /
 Disallow: /static/
 
 # Sitemap
-Sitemap: https://nandu064.github.io/portfolio/sitemap.xml
+Sitemap: https://harishyerraguntla.vercel.app/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
