@@ -439,6 +439,42 @@ export const projects = [
       "Client-Side Architecture",
     ],
   },
+  {
+    id: 12,
+    title: "ClaimGuard",
+    shortTitle: "ClaimGuard",
+    description:
+      "Full-stack insurance claims triage and fraud-risk intelligence platform — AI-simulated extraction pipeline, 5-signal fraud detection engine, 6-role RBAC, and real-time analytics. Manages the complete claim lifecycle from submission to settlement.",
+    category: "Full-Stack",
+    theme: "rose",
+    github: "https://github.com/Nandu064/claimguard",
+    demo: "https://claimguardai.vercel.app/",
+    technologies: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript 5",
+      "MongoDB Atlas",
+      "NextAuth v5",
+      "TanStack Table v8",
+      "Recharts",
+      "Tailwind CSS v4",
+      "Radix UI",
+      "React Hook Form + Zod",
+      "bcryptjs",
+    ],
+    highlights: [
+      "Fire-and-forget async AI pipeline (extractor → scorer → processor) — HTTP 201 returns immediately while simulated OCR/LLM extraction runs in background; BullMQ + Redis in package.json for production job persistence",
+      "5-signal fraud detection engine with weighted scoring (multiple_recent_claims, policy_age_mismatch, estimate_inflation, missing_police_report, date_mismatch) capped at 100; auto-routes to 4 queues from fast_track to senior_adjuster",
+      "6-role RBAC with role-gated UI — FraudSignalsPanel and ExtractionPanel visible only to adjuster/supervisor/admin; Edge-safe auth split (auth.config.ts for middleware, dynamic Mongoose imports in auth.ts for Node.js)",
+      "React Server Components fetch MongoDB directly — zero client-bundle HTTP round-trips; TanStack Table v8 with server-side pagination via .skip().limit(); globalThis connection caching prevents pool exhaustion under Turbopack",
+    ],
+    skills: [
+      "AI/ML Pipeline",
+      "Security & RBAC",
+      "System Design",
+      "Insurance Domain",
+    ],
+  },
 ];
 
 export const metrics = {

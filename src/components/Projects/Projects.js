@@ -242,6 +242,63 @@ const FinGuardMockup = memo(() => {
   );
 });
 
+// ─── ClaimGuard analytics mockup ─────────────────────────────────────────
+
+const ClaimGuardMockup = memo(() => {
+  const kpis = [
+    { label: "Total Claims", value: "248" },
+    { label: "High Risk", value: "38" },
+    { label: "Critical", value: "12" },
+  ];
+  const riskBars = [
+    { label: "Low", pct: 47, bar: 104, color: "#22c55e" },
+    { label: "Medium", pct: 31, bar: 68, color: "#f59e0b" },
+    { label: "High", pct: 15, bar: 33, color: "#fb7185" },
+    { label: "Critical", pct: 7, bar: 16, color: "#e11d48" },
+  ];
+  const statuses = [
+    { label: "Submitted", color: "#94a3b8" },
+    { label: "Reviewing", color: "#f59e0b" },
+    { label: "Approved", color: "#22c55e" },
+    { label: "Settled", color: "#0ea5e9" },
+  ];
+
+  return (
+    <BrowserChrome url="claimguard.vercel.app/analytics">
+      <div className="cg-mockup">
+        <div className="cg-kpis">
+          {kpis.map((k) => (
+            <div key={k.label} className="cg-kpi-card">
+              <span className="cg-kpi-val">{k.value}</span>
+              <span className="cg-kpi-lbl">{k.label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="cg-risk-section">
+          <span className="cg-section-label">Fraud Risk Distribution</span>
+          {riskBars.map((r) => (
+            <div key={r.label} className="cg-risk-row">
+              <span className="cg-risk-label">{r.label}</span>
+              <div className="cg-risk-track">
+                <div className="cg-risk-fill" style={{ width: `${r.bar}px`, background: r.color }} />
+              </div>
+              <span className="cg-risk-pct">{r.pct}%</span>
+            </div>
+          ))}
+        </div>
+        <div className="cg-statuses">
+          {statuses.map((s) => (
+            <div key={s.label} className="cg-status-chip">
+              <span className="cg-status-dot" style={{ background: s.color }} />
+              <span className="cg-status-lbl">{s.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </BrowserChrome>
+  );
+});
+
 // ─── Skill tags per project ────────────────────────────────────────────────
 
 const SkillTag = memo(({ label }) => (
@@ -255,6 +312,7 @@ const MOCKUPS = {
   9: <UrlMockup />,
   10: <ChartMockup />,
   11: <FinGuardMockup />,
+  12: <ClaimGuardMockup />,
 };
 
 const THEME_META = {
@@ -273,6 +331,10 @@ const THEME_META = {
   gold: {
     accentVar: "#d97706",
     bg: "linear-gradient(160deg, #451a03 0%, #292524 60%, #0f172a 100%)",
+  },
+  rose: {
+    accentVar: "#e11d48",
+    bg: "linear-gradient(160deg, #4c0519 0%, #1e0a11 60%, #0f172a 100%)",
   },
 };
 
@@ -400,7 +462,7 @@ const Projects = () => {
             Built With <span className="text-gradient">Purpose</span>
           </h2>
           <p className="section-sub">
-            Four production apps — each demonstrating a distinct layer of engineering from quantitative finance to edge computing
+            Five production apps — from quantitative finance and insurance AI to edge computing and browser-native tools
           </p>
         </header>
 

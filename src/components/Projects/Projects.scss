@@ -144,12 +144,14 @@
   &:nth-child(2) { transition-delay: 0.2s; }
   &:nth-child(3) { transition-delay: 0.3s; }
   &:nth-child(4) { transition-delay: 0.4s; }
+  &:nth-child(5) { transition-delay: 0.5s; }
 
   // Per-theme border accents
   &.theme-purple { --accent: #7c3aed; }
   &.theme-emerald { --accent: #10b981; }
   &.theme-cyan   { --accent: #0891b2; }
   &.theme-gold   { --accent: #d97706; }
+  &.theme-rose   { --accent: #e11d48; }
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -479,6 +481,10 @@
   .theme-gold & {
     background: linear-gradient(to top, #d97706, #f59e0b);
   }
+
+  .theme-rose & {
+    background: linear-gradient(to top, #e11d48, #fb7185);
+  }
 }
 
 @keyframes growBar {
@@ -517,6 +523,7 @@
     .theme-purple & i { color: #a78bfa; }
     .theme-cyan & i   { color: $primary; }
     .theme-gold & i   { color: #d97706; }
+    .theme-rose & i   { color: #e11d48; }
   }
 }
 
@@ -686,6 +693,7 @@
   .theme-purple & { background: rgba(#7c3aed, 0.12); color: #a78bfa; border-color: rgba(#7c3aed, 0.3); }
   .theme-emerald & { background: rgba($success, 0.1); color: $success; border-color: rgba($success, 0.25); }
   .theme-gold & { background: rgba(#d97706, 0.1); color: #f59e0b; border-color: rgba(#d97706, 0.3); }
+  .theme-rose & { background: rgba(#e11d48, 0.1); color: #fb7185; border-color: rgba(#e11d48, 0.3); }
 }
 
 // ─── Tech chips ───────────────────────────────────────────────────────────
@@ -947,6 +955,123 @@
   width: 22px;
   text-align: right;
   flex-shrink: 0;
+}
+
+// ─── ClaimGuard mockup ────────────────────────────────────────────────────
+.cg-mockup {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px;
+  height: 100%;
+}
+
+.cg-kpis {
+  display: flex;
+  gap: 8px;
+}
+
+.cg-kpi-card {
+  flex: 1;
+  background: rgba($bg-card, 0.5);
+  border: 1px solid rgba(225, 29, 72, 0.18);
+  border-radius: $border-radius-sm;
+  padding: 7px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cg-kpi-val {
+  font-family: $font-family-mono;
+  font-size: 14px;
+  font-weight: $font-weight-bold;
+  color: #fb7185;
+  line-height: 1;
+}
+
+.cg-kpi-lbl {
+  font-size: 8px;
+  color: $text-muted;
+  letter-spacing: 0.03em;
+}
+
+.cg-risk-section {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.cg-section-label {
+  font-size: 8px;
+  color: $text-muted;
+  font-weight: $font-weight-medium;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.cg-risk-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cg-risk-label {
+  font-size: 9px;
+  color: #64748b;
+  width: 44px;
+  flex-shrink: 0;
+}
+
+.cg-risk-track {
+  flex: 1;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+
+  .cg-risk-fill {
+    height: 100%;
+    border-radius: 3px;
+    max-width: 100%;
+  }
+}
+
+.cg-risk-pct {
+  font-size: 8px;
+  color: #475569;
+  width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.cg-statuses {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.cg-status-chip {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 7px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: $border-radius-full;
+}
+
+.cg-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cg-status-lbl {
+  font-size: 8px;
+  color: #94a3b8;
 }
 
 // ─── Text gradient ────────────────────────────────────────────────────────

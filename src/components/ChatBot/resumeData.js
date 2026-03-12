@@ -206,11 +206,11 @@ export const resumeQA = [
     questionType: "what",
     category: "projects",
     answer:
-      "🚀 Featured Projects\n\n📈 FinGuard — Portfolio risk analytics platform\n• Monte Carlo simulations · Efficient Frontier optimisation\n• Python FastAPI microservice + Next.js 15 frontend\n• Dual API: REST for CRUD · GraphQL for analytics dashboard\n• Stack: Next.js 15 · FastAPI · Python · MongoDB · NumPy/SciPy\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages",
+      "🚀 Featured Projects\n\n📈 FinGuard — Portfolio risk analytics platform\n• Monte Carlo simulations · Efficient Frontier optimisation\n• Python FastAPI microservice + Next.js 15 frontend\n• Dual API: REST for CRUD · GraphQL for analytics dashboard\n• Stack: Next.js 15 · FastAPI · Python · MongoDB · NumPy/SciPy\n\n🏥 ClaimGuard — Insurance claims triage & fraud intelligence\n• AI-simulated extraction pipeline · 5-signal fraud detection engine\n• 6-role RBAC · fire-and-forget async pipeline · TanStack Table\n• Stack: Next.js 16 · React 19 · TypeScript · MongoDB · NextAuth v5\n\n🔗 Sniplink — Production URL shortener\n• Edge Middleware 301 redirects · zero latency\n• SHA-256 hashed analytics (geo · device · browser)\n• Custom 3-tier rate limiter · NextAuth v5\n• Stack: Next.js 14 · TypeScript · MongoDB · Vercel Edge\n\n📊 CSV Plot Studio — Browser-only data viz tool\n• Papa Parse streaming worker · 10+ chart types\n• Live column-mapping UI · PNG/SVG export\n• Stack: React · Plotly.js · Tailwind CSS · Vite\n\n💼 This Portfolio — React SPA\n• Canvas particle engine · SCSS design system\n• Stack: React 19 · SCSS · Canvas API · GitHub Pages",
     suggestions: [
       "Tell me about FinGuard",
+      "Tell me about ClaimGuard",
       "Tell me about Sniplink",
-      "Tell me about CSV Plot Studio",
     ],
   },
 
@@ -241,6 +241,21 @@ export const resumeQA = [
       "Tell me about Sniplink",
       "What data visualization skills exist?",
       "What other projects were built?",
+    ],
+  },
+
+  // ─── CLAIMGUARD ──────────────────────────────────────────────────────────
+  {
+    keywords: ["claimguard", "claimsight", "insurance", "claims", "fraud detection", "claims triage", "insurance ai", "claims platform", "rbac", "fraud signals"],
+    patterns: [/claimguard/i, /claimsight/i, /insurance.*claim/i, /claim.*fraud/i, /claims.*platform/i, /fraud.*detection/i],
+    questionType: "tell",
+    category: "projects",
+    answer:
+      "🏥 ClaimGuard — Insurance Claims Intelligence Platform\nLive: claimguard.vercel.app/analytics\n\n🔄 AI pipeline (fire-and-forget async):\n• POST /api/claims returns HTTP 201 immediately — no blocking\n• extractor.ts simulates OCR/LLM extraction across 15 claim fields with confidence scoring\n• scorer.ts runs 5 fraud signals + severity formula → routes to 4 queues (fast_track → senior_adjuster)\n• processor.ts orchestrates both and writes ClaimEvent audit log entries\n• BullMQ + Redis in package.json for production job persistence\n\n🔍 Fraud detection engine:\n• 5 weighted signals: multiple_recent_claims · policy_age_mismatch · estimate_inflation · missing_police_report · date_mismatch\n• Severity scoring: damage amount (40pts) + injury (30pts) + incident type (20pts) + third-party (15pts)\n• 4 routing queues: fast_track → standard → specialist → senior_adjuster (SIU referral)\n\n🔐 Security & RBAC:\n• 6 roles: claimant · agent · adjuster · supervisor · admin — each with granular UI visibility\n• FraudSignalsPanel + ExtractionPanel gated to adjuster/supervisor/admin only\n• Edge-safe auth split: auth.config.ts (no mongoose) for middleware · auth.ts with dynamic Mongoose imports for Node.js\n• HttpOnly JWT cookies · CSRF protection · bcrypt pre-save hooks · Zod validation on all API routes\n\n⚙️ Architecture:\n• React Server Components fetch MongoDB directly — zero client-bundle HTTP round-trips\n• TanStack Table v8 with server-side .skip().limit() pagination for 100K+ claims\n• globalThis MongoDB connection caching prevents pool exhaustion under Next.js Turbopack\n• 8 compound indexes on Claim model · append-only ClaimEvent audit log\n\nStack: Next.js 16 · React 19 · TypeScript 5 · MongoDB Atlas · NextAuth v5 · TanStack Table · Recharts · Tailwind CSS v4 · Radix UI · React Hook Form + Zod",
+    suggestions: [
+      "Tell me about FinGuard",
+      "What other projects were built?",
+      "What's the security expertise?",
     ],
   },
 
