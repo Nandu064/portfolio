@@ -1,12 +1,14 @@
+import { metadata, personalInfo, summary } from "../../data/portfolio";
+
 /**
  * Chatbot response helpers
  */
 
 export const getWelcomeMessage = () => {
   const messages = [
-    "👋 Hi! This is Harish's portfolio assistant.\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Tailwind CSS · Storybook · 5+ years\n\nAsk me anything — projects, tech stack, work history, or how to get in touch.",
-    "👋 Hey there!\n\nHarish builds production apps with React & Next.js (primary) and Vue.js (secondary) — SSR/SSG apps, real-time dashboards, and Tailwind CSS + Storybook component libraries. Apps serving 100K+ users, LCP improvements of 60%+.\n\nWhat would you like to know?",
-    "👋 Welcome to Harish's portfolio chat!\n\nHarish Yerraguntla — Full-Stack Engineer\nReact · Next.js · Vue.js · Node.js · Python\nMS Computer Science, SUNY New Paltz · Currently @ Progress Solutions Inc.\n\nAsk about experience, skills, or projects!",
+    `👋 Hi! This is ${personalInfo.name}'s portfolio assistant.\n\n${personalInfo.name} — ${personalInfo.title}\n${personalInfo.subtitle}\n\nAsk me anything about experience, projects, skills, or contact information.`,
+    `👋 Welcome to Harish's portfolio chat.\n\n${summary.headline}\n\nBased in ${personalInfo.location} · ${metadata.totalYearsExperience} experience · Open to work.`,
+    `👋 Thanks for stopping by.\n\n${personalInfo.name} builds high-performance web applications, real-time dashboards, and scalable APIs using React, Next.js, Node.js, Python, and TypeScript.\n\nWhat would you like to know?`,
   ];
 
   return messages[Math.floor(Math.random() * messages.length)];
@@ -26,7 +28,7 @@ export const getErrorMessage = () => {
 };
 
 export const getNoMatchMessage = () => {
-  return "Not sure I caught that — try rephrasing! Topics available:\n\n• 💼 Work experience (Progress Solutions, Harns, QS, SUNY)\n• 🛠️ Tech stack (React, Next.js, Vue.js, Tailwind CSS, Storybook, Node.js…)\n• 🚀 Projects (Sniplink, CSV Plot Studio, IoT platform…)\n• 📊 Data visualization & performance optimization\n• 🎓 Education (MS CS, SUNY New Paltz — GPA 3.81)\n• 📍 Location, availability & contact info\n\nWhat would you like to know?";
+  return "Not sure I caught that. Try asking about:\n\n• 💼 Work experience at American Express, SUNY, Harns, or QS\n• 🛠️ Skills like React, Next.js, TypeScript, Node.js, Python, or AWS\n• 🚀 Projects like FinGuard, ClaimSight AI, Sniplink, or CSV Plot Studio\n• ⚡ Performance optimization, testing, and real-time dashboards\n• 🎓 Education, availability, work authorization, or contact info";
 };
 
 export const getTypingMessages = () => {

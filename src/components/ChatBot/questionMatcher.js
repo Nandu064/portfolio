@@ -32,16 +32,18 @@ const synonyms = {
     "hire", "message", "talk",
   ],
   location: ["where", "based", "live", "from", "city", "remote", "relocate"],
-  vue: ["vuejs", "vue.js", "vue 3", "composition api", "pinia", "nuxt"],
   react: ["reactjs", "react.js", "nextjs", "next.js", "redux"],
   current: ["now", "currently", "present", "latest", "today", "recent"],
   company: ["companies", "employer", "organization", "firm"],
   performance: ["optimize", "speed", "faster", "slow", "lighthouse", "lcp", "web vitals"],
   available: ["open to work", "open", "looking", "hiring", "job search", "opportunities", "available"],
   typescript: ["ts", "type safety", "typed", "types"],
-  kafka: ["messaging", "events", "streaming", "queue", "socket", "websocket", "realtime"],
+  realtime: ["events", "streaming", "queue", "socket", "websocket", "realtime"],
   sniplink: ["url shortener", "link shortener", "short url"],
   csv: ["plot studio", "chart tool", "visualization tool", "csv plot"],
+  finguard: ["portfolio analytics", "risk analytics", "portfolio management"],
+  claimsight: ["claimsight ai", "insurance", "claim processing", "fraud detection"],
+  amex: ["american express", "amex", "payments", "transaction monitoring", "financial services"],
   authorization: ["visa", "opt", "stem", "sponsorship", "h1b", "work permit"],
 };
 
@@ -222,7 +224,7 @@ export const matchQuestion = (question) => {
         "I'm not sure I understand that question. I can help you with:\n\n• Work experience and current role\n• Technical skills and expertise\n• Education background\n• Projects and achievements\n• Contact information\n\nWhat would you like to know?",
       suggestions: [
         "What is your current role?",
-        "What are your Vue.js skills?",
+        "What are your main skills?",
         "Where did you study?",
       ],
     };
@@ -247,7 +249,7 @@ export const getFollowUpSuggestions = (lastCategory) => {
       "What technologies do you use?",
       "Tell me about your projects",
     ],
-    skills: ["What's your experience with Vue.js?", "Where have you worked?"],
+    skills: ["What's your React experience?", "Where have you worked?"],
     education: ["What did you study?", "What's your work experience?"],
     projects: ["What technologies did you use?", "Can I see your portfolio?"],
     contact: ["Where are you located?", "What's your background?"],
